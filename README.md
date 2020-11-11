@@ -1,6 +1,18 @@
 # k8s-powerlinter
 
+[![Docker Repository on Quay](https://quay.io/repository/chgl/k8s-powerlinter/status "Docker Repository on Quay")](https://quay.io/repository/chgl/k8s-powerlinter)
+
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
+
+## Usage
+
+Mount a folder containing your Helm or raw Kubernetes manifests:
+
+```sh
+docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/k8s-powerlinter:latest
+```
+
+The container image is avalailable at [quay.io/chgl/k8s-powerlinter](quay.io/chgl/k8s-powerlinter) and [docker.io/chgl/k8s-powerlinter](docker.io/chgl/k8s-powerlinter).
 
 ## What's included
 
@@ -16,9 +28,3 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 - [pluto](https://github.com/FairwindsOps/pluto)
 - [helm-docs](https://github.com/norwoodj/helm-docs)
 - [kube-linter](https://github.com/stackrox/kube-linter)
-
-## Usage
-
-```sh
-docker run --rm -it -v $PWD:/usr/src/app chgl/k8s-powerlinter:latest
-```

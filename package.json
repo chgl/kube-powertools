@@ -18,6 +18,7 @@
   "homepage": "https://github.com/chgl/k8s-linting-powertools#readme",
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/error": "2.2.0",
     "@semantic-release/github": "7.1.1",

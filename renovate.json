@@ -1,75 +1,78 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:base"],
-    "regexManagers": [
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["HELM_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "helm/helm",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["CHART_DOC_GEN_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "kubepack/chart-doc-gen",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["KUBEVAL_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "instrumenta/kubeval",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["KUBE_SCORE_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "zegl/kube-score",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["CT_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "helm/chart-testing",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["POLARIS_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "FairwindsOps/polaris",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["PLUTO_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "FairwindsOps/pluto",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["HELM_DOCS_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "norwoodj/helm-docs",
-        "datasourceTemplate": "github-releases"
-      },
-      {
-        "fileMatch": ["(^|/)Dockerfile$"],
-        "matchStrings": ["KUBE_LINTER_VERSION=(?<currentValue>.*?)\n"],
-        "depNameTemplate": "stackrox/kube-linter",
-        "datasourceTemplate": "github-releases"
-      }
-    ],
-    "packageRules": [
-      {
-        "packageNames": [
-          "helm/helm",
-          "kubepack/chart-doc-gen",
-          "zegl/kube-score",
-          "helm/chart-testing",
-          "FairwindsOps/polaris",
-          "FairwindsOps/pluto",
-          "norwoodj/helm-docs",
-          "stackrox/kube-linter"
-        ],
-        "extractVersion": "^v(?<version>.*)$"
-      }
-    ]
-  }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["HELM_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "helm/helm",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["CHART_DOC_GEN_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "kubepack/chart-doc-gen",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBEVAL_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "instrumenta/kubeval",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBE_SCORE_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "zegl/kube-score",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["CT_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "helm/chart-testing",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["POLARIS_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "FairwindsOps/polaris",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["PLUTO_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "FairwindsOps/pluto",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["HELM_DOCS_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "norwoodj/helm-docs",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBE_LINTER_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "stackrox/kube-linter",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "packageNames": [
+        "helm/helm",
+        "kubepack/chart-doc-gen",
+        "zegl/kube-score",
+        "helm/chart-testing",
+        "FairwindsOps/polaris",
+        "FairwindsOps/pluto",
+        "norwoodj/helm-docs",
+        "stackrox/kube-linter"
+      ],
+      "extractVersion": "^v(?<version>.*)$",
+      "updateTypes": ["major", "minor", "patch"],
+      "automergeType": "branch",
+      "automerge": true
+    }
+  ]
+}

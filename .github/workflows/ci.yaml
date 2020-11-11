@@ -1,10 +1,8 @@
 name: ci
 
 on:
-  push:
-    branches: [master]
-    tags:
-      - "v*"
+  release:
+    types: [created]
   pull_request:
     branches: [master]
 
@@ -18,8 +16,8 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v1
         with:
           images: |
-            docker.io/chgl/k8s-linting-powertools
-            quay.io/chgl/k8s-linting-powertools
+            docker.io/chgl/k8s-powerlinter
+            quay.io/chgl/k8s-powerlinter
           tag-sha: true
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -73,5 +71,5 @@ jobs:
         run: npm ci
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: npx semantic-release

@@ -1,6 +1,6 @@
 # k8s-powerlinter
 
-[![Docker Repository on Quay](https://quay.io/repository/chgl/k8s-powerlinter/status "Docker Repository on Quay")](https://quay.io/repository/chgl/k8s-powerlinter)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/chgl/k8s-powerlinter?sort=semver)
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 

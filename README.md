@@ -1,4 +1,4 @@
-# k8s-linting-powertools
+# k8s-powerlinter
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 
@@ -20,6 +20,5 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 ## Usage
 
 ```sh
-docker run --rm -it -v $PWD:/usr/src/app chgl/k8s-linting-powertools:latest
-
+docker run --rm -it -v $PWD:/usr/src/app chgl/k8s-powerlinter:latest
 ```

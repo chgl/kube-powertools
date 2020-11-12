@@ -3,56 +3,56 @@
   "extends": ["config:base"],
   "regexManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG HELM_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["HELM_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "helm/helm",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG CHART_DOC_GEN_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["CHART_DOC_GEN_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "kubepack/chart-doc-gen",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG KUBEVAL_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBEVAL_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "instrumenta/kubeval",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG KUBE_SCORE_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBE_SCORE_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "zegl/kube-score",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG CT_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["CT_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "helm/chart-testing",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG POLARIS_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["POLARIS_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "FairwindsOps/polaris",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG PLUTO_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["PLUTO_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "FairwindsOps/pluto",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG HELM_DOCS_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["HELM_DOCS_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "norwoodj/helm-docs",
       "datasourceTemplate": "github-releases"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ARG KUBE_LINTER_VERSION=(=| )(?<currentValue>.*?)\n"],
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBE_LINTER_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "stackrox/kube-linter",
       "datasourceTemplate": "github-releases"
     }

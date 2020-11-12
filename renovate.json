@@ -70,9 +70,7 @@
         "stackrox/kube-linter"
       ],
       "extractVersion": "^v(?<version>.*)$",
-      "updateTypes": ["major", "minor", "patch"],
-      "automergeType": "branch",
-      "automerge": true
+      "updateTypes": ["major", "minor", "patch"]
     }
   ]
 }

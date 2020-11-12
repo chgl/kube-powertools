@@ -18,8 +18,8 @@ jobs:
         uses: crazy-max/ghaction-docker-meta@v1
         with:
           images: |
-            docker.io/chgl/k8s-powerlinter
-            quay.io/chgl/k8s-powerlinter
+            docker.io/chgl/kube-powertools
+            quay.io/chgl/kube-powertools
           tag-sha: true
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1

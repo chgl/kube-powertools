@@ -1,5 +1,5 @@
 {
-  "name": "k8s-linting-powertools",
+  "name": "kube-powertools",
   "version": "1.0.0",
   "description": "An always up to date collection of useful tools for your Kubernetes linting and auditing needs.",
   "main": "index.js",
@@ -8,21 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chgl/k8s-linting-powertools.git"
+    "url": "git+https://github.com/chgl/kube-powertools.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "chgl",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/chgl/k8s-linting-powertools/issues"
+    "url": "https://github.com/chgl/kube-powertools/issues"
   },
-  "homepage": "https://github.com/chgl/k8s-linting-powertools#readme",
+  "homepage": "https://github.com/chgl/kube-powertools#readme",
   "devDependencies": {
     "@commitlint/cli": "11.0.0",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/error": "2.2.0",
     "@semantic-release/github": "7.1.1",
-    "@semantic-release/npm": "7.0.6",
     "@semantic-release/release-notes-generator": "9.0.1",
     "conventional-changelog-conventionalcommits": "4.5.0"
   }

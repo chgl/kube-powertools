@@ -1,6 +1,6 @@
-# k8s-powerlinter
+# kube-powertools
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/chgl/k8s-powerlinter?sort=semver)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/chgl/kube-powertools?sort=semver)
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 
@@ -9,10 +9,10 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 Mount a folder containing your Helm or raw Kubernetes manifests:
 
 ```sh
-docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/k8s-powerlinter:latest
+docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
 ```
 
-The container image is avalailable at [quay.io/chgl/k8s-powerlinter](quay.io/chgl/k8s-powerlinter) and [docker.io/chgl/k8s-powerlinter](docker.io/chgl/k8s-powerlinter).
+The container image is avalailable at [quay.io/chgl/kube-powertools](quay.io/chgl/kube-powertools) and [docker.io/chgl/kube-powertools](docker.io/chgl/kube-powertools).
 
 ## What's included
 

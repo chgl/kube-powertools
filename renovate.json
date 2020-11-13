@@ -55,6 +55,18 @@
       "matchStrings": ["KUBE_LINTER_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "stackrox/kube-linter",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["CONFTEST_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "open-policy-agent/conftest",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUSTOMIZE_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "kubernetes-sigs/kustomize",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -67,9 +79,14 @@
         "FairwindsOps/polaris",
         "FairwindsOps/pluto",
         "norwoodj/helm-docs",
-        "stackrox/kube-linter"
+        "stackrox/kube-linter",
+        "open-policy-agent/conftest"
       ],
       "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "packageNames": ["kubernetes-sigs/kustomize"],
+      "extractVersion": "^kustomize/v(?<version>.*)$"
     }
   ]
 }

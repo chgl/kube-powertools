@@ -28,3 +28,5 @@ The container image is avalailable at [quay.io/chgl/kube-powertools](quay.io/chg
 - [pluto](https://github.com/FairwindsOps/pluto)
 - [helm-docs](https://github.com/norwoodj/helm-docs)
 - [kube-linter](https://github.com/stackrox/kube-linter)
+- [kustomize](https://github.com/kubernetes-sigs/kustomize)
+- [conftest](https://github.com/open-policy-agent/conftest)

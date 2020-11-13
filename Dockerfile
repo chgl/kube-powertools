@@ -99,4 +99,18 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     chmod +x /usr/local/bin/kube-linter && \
     kube-linter version
 
+ARG CONFTEST_VERSION=0.21.0
+ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
+RUN curl -LSs $CONFTEST_URL | tar xz && \
+    mv ./conftest /usr/local/bin/conftest && \
+    chmod +x /usr/local/bin/conftest && \
+    conftest --version
+
+ARG KUSTOMIZE_VERSION=3.8.7
+ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
+RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
+    mv ./kustomize /usr/local/bin/kustomize && \
+    chmod +x /usr/local/bin/kustomize && \
+    kustomize version
+
 CMD ["/bin/bash"]

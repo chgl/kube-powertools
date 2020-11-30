@@ -99,6 +99,7 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     chmod +x /usr/local/bin/kube-linter && \
     kube-linter version
 
+# Conftest
 ARG CONFTEST_VERSION=0.22.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $CONFTEST_URL | tar xz && \
@@ -106,11 +107,20 @@ RUN curl -LSs $CONFTEST_URL | tar xz && \
     chmod +x /usr/local/bin/conftest && \
     conftest --version
 
+# Kustomize
 ARG KUSTOMIZE_VERSION=3.8.7
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     mv ./kustomize /usr/local/bin/kustomize && \
     chmod +x /usr/local/bin/kustomize && \
     kustomize version
+
+# Nova
+ARG NOVA_VERSION=2.0.1
+ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/Nova_${NOVA_VERSION}_linux_amd64.tar.gz
+RUN curl -LSs $NOVA_URL | tar xz && \
+    mv ./Nova /usr/local/bin/nova && \
+    chmod +x /usr/local/bin/nova && \
+    nova version
 
 CMD ["/bin/bash"]

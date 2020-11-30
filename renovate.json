@@ -67,6 +67,12 @@
       "matchStrings": ["KUSTOMIZE_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "kubernetes-sigs/kustomize",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["NOVA_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "FairwindsOps/nova",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -87,6 +93,10 @@
     {
       "packageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize/v(?<version>.*)$"
+    },
+    {
+      "packageNames": ["FairwindsOps/nova"],
+      "extractVersion": "^(?<version>.*)$"
     }
   ]
 }

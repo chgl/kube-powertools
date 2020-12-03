@@ -1,6 +1,7 @@
 FROM alpine:3.12 AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /usr/src/app
+# hadolint ignore=DL3013,DL3016,DL3018
 RUN apk add --no-cache \
     git \
     curl \

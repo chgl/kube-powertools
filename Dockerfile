@@ -117,10 +117,10 @@ RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     kustomize version
 
 # Nova
-ARG NOVA_VERSION=2.0.1
-ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/Nova_${NOVA_VERSION}_linux_amd64.tar.gz
+ARG NOVA_VERSION=2.0.2
+ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $NOVA_URL | tar xz && \
-    mv ./Nova /usr/local/bin/nova && \
+    mv ./nova /usr/local/bin/nova && \
     chmod +x /usr/local/bin/nova && \
     nova version
 

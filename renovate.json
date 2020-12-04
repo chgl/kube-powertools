@@ -97,6 +97,10 @@
     {
       "packageNames": ["FairwindsOps/nova"],
       "extractVersion": "^(?<version>.*)$"
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ]
 }

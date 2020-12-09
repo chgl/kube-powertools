@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     bash \
     jq && \
     npm install -g prettier && \
-    pip install yamale yamllint yq
+    pip install --no-cache-dir yamale yamllint yq
 
 # kubectl
 ARG KUBECTL_VERSION=1.19.3

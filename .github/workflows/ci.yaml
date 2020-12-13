@@ -70,8 +70,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      - name: Install dependencies
-        run: npm ci
+      - name: Install semantic release
+        run: npm install -g semantic-release@17 @semantic-release/github @semantic-release/error @semantic-release/changelog @commitlint/cli @semantic-release/commit-analyzer @semantic-release/release-notes-generator conventional-changelog-conventionalcommits
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}

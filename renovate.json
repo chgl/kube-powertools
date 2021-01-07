@@ -73,6 +73,12 @@
       "matchStrings": ["NOVA_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "FairwindsOps/nova",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBESEC_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "controlplaneio/kubesec",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -86,7 +92,8 @@
         "FairwindsOps/pluto",
         "norwoodj/helm-docs",
         "stackrox/kube-linter",
-        "open-policy-agent/conftest"
+        "open-policy-agent/conftest",
+        "controlplaneio/kubesec"
       ],
       "extractVersion": "^v(?<version>.*)$"
     },

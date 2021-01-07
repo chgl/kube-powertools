@@ -12,7 +12,14 @@ Mount a folder containing your Helm or raw Kubernetes manifests:
 docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
 ```
 
-The container image is avalailable at [quay.io/chgl/kube-powertools](quay.io/chgl/kube-powertools) and [docker.io/chgl/kube-powertools](docker.io/chgl/kube-powertools).
+The container image is pushed to three registries:
+
+- `quay.io/chgl/kube-powertools:latest`
+- `docker.io/chgl/kube-powertools:latest`
+- `ghcr.io/chgl/kube-powertools:latest`
+
+You can use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases)
+instead of using `latest`.
 
 ## What's included
 

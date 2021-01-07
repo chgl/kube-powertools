@@ -15,7 +15,7 @@ RUN apk add --no-cache \
     pip install --no-cache-dir yamale yamllint yq
 
 # kubectl
-ARG KUBECTL_VERSION=1.20.0
+ARG KUBECTL_VERSION=1.20.1
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 RUN curl -LSsO $KUBECTL_URL && \
     mv ./kubectl /usr/local/bin/kubectl && \
@@ -123,5 +123,13 @@ RUN curl -LSs $NOVA_URL | tar xz && \
     mv ./nova /usr/local/bin/nova && \
     chmod +x /usr/local/bin/nova && \
     nova version
+
+# Kubesec
+ARG KUBESEC_VERSION=2.8.0
+ENV KUBESEC_URL=https://github.com/controlplaneio/kubesec/releases/download/v${KUBESEC_VERSION}/kubesec_linux_amd64.tar.gz
+RUN curl -LSs $KUBESEC_URL | tar xz && \
+    mv ./kubesec /usr/local/bin/kubesec && \
+    chmod +x /usr/local/bin/kubesec && \
+    kubesec version
 
 CMD ["/bin/bash"]

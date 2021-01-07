@@ -31,3 +31,4 @@ The container image is avalailable at [quay.io/chgl/kube-powertools](quay.io/chg
 - [kustomize](https://github.com/kubernetes-sigs/kustomize)
 - [conftest](https://github.com/open-policy-agent/conftest)
 - [nova](https://github.com/FairwindsOps/nova)
+- [kubesec](https://github.com/controlplaneio/kubesec)

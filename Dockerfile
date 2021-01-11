@@ -11,7 +11,7 @@ RUN apk add --no-cache \
     py-pip \
     bash \
     jq && \
-    npm install -g prettier && \
+    npm install -g prettier markdownlint-cli && \
     pip install --no-cache-dir yamale yamllint yq
 
 # kubectl

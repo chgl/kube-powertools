@@ -45,7 +45,7 @@ RUN curl -LSsO $CHART_DOC_GEN_URL && \
     chmod +x /usr/local/bin/chart-doc-gen
 
 # Helm Docs
-ARG HELM_DOCS_VERSION=1.4.0
+ARG HELM_DOCS_VERSION=1.5.0
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $HELM_DOCS_URL | tar xz && \
     mv ./helm-docs /usr/local/bin/helm-docs && \

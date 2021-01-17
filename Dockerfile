@@ -109,7 +109,7 @@ RUN curl -LSs $CONFTEST_URL | tar xz && \
     conftest --version
 
 # Kustomize
-ARG KUSTOMIZE_VERSION=3.9.1
+ARG KUSTOMIZE_VERSION=3.9.2
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     mv ./kustomize /usr/local/bin/kustomize && \

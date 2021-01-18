@@ -91,7 +91,6 @@
         "FairwindsOps/polaris",
         "FairwindsOps/pluto",
         "norwoodj/helm-docs",
-        "stackrox/kube-linter",
         "open-policy-agent/conftest",
         "controlplaneio/kubesec"
       ],
@@ -102,7 +101,10 @@
       "extractVersion": "^kustomize/v(?<version>.*)$"
     },
     {
-      "packageNames": ["FairwindsOps/nova"],
+      "packageNames": [
+        "FairwindsOps/nova",
+        "stackrox/kube-linter"
+      ],
       "extractVersion": "^(?<version>.*)$"
     },
     {

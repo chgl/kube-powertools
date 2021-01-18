@@ -102,7 +102,7 @@
     },
     {
       "packageNames": [
-        "FairwindsOps/nova", 
+        "FairwindsOps/nova",
         "stackrox/kube-linter"
       ],
       "extractVersion": "^(?<version>.*)$"

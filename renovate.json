@@ -88,7 +88,6 @@
         "kubepack/chart-doc-gen",
         "zegl/kube-score",
         "helm/chart-testing",
-        "FairwindsOps/polaris",
         "FairwindsOps/pluto",
         "norwoodj/helm-docs",
         "open-policy-agent/conftest",
@@ -102,8 +101,9 @@
     },
     {
       "packageNames": [
+        "stackrox/kube-linter",
         "FairwindsOps/nova",
-        "stackrox/kube-linter"
+        "FairwindsOps/polaris"
       ],
       "extractVersion": "^(?<version>.*)$"
     },

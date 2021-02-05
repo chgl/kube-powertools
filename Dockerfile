@@ -125,7 +125,7 @@ RUN curl -LSs $NOVA_URL | tar xz && \
     nova version
 
 # Kubesec
-ARG KUBESEC_VERSION=2.10.1
+ARG KUBESEC_VERSION=2.10.2
 ENV KUBESEC_URL=https://github.com/controlplaneio/kubesec/releases/download/v${KUBESEC_VERSION}/kubesec_linux_amd64.tar.gz
 RUN curl -LSs $KUBESEC_URL | tar xz && \
     mv ./kubesec /usr/local/bin/kubesec && \

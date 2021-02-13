@@ -38,7 +38,7 @@ RUN helm plugin install https://github.com/mbenabda/helm-local-chart-version && 
     helm local-chart-version version
 
 # Chart Doc Gen
-ARG CHART_DOC_GEN_VERSION=0.3.2
+ARG CHART_DOC_GEN_VERSION=0.3.3
 ENV CHART_DOC_GEN_URL=https://github.com/kubepack/chart-doc-gen/releases/download/v"${CHART_DOC_GEN_VERSION}"/chart-doc-gen-linux-amd64
 RUN curl -LSsO $CHART_DOC_GEN_URL && \
     mv chart-doc-gen-linux-amd64 /usr/local/bin/chart-doc-gen && \

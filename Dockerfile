@@ -54,11 +54,19 @@ RUN curl -LSs $HELM_DOCS_URL | tar xz && \
 
 # Kubeval
 ARG KUBEVAL_VERSION=0.15.0
-ENV KUBEVAL_URL=https://github.com/instrumenta/kubeval/releases/download/"${KUBEVAL_VERSION}"/kubeval-linux-amd64.tar.gz
+ENV KUBEVAL_URL=https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz
 RUN curl -LSs $KUBEVAL_URL | tar xz && \
     mv ./kubeval /usr/local/bin/kubeval && \
     chmod +x /usr/local/bin/kubeval && \
     kubeval --version
+
+# Kubeconform
+ARG KUBECONFORM_VERSION=0.4.3
+ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
+RUN curl -LSs $KUBECONFORM_URL | tar xz && \
+    mv ./kubeconform /usr/local/bin/kubeconform && \
+    chmod +x /usr/local/bin/kubeconform && \
+    kubeconform -h
 
 # Kube Score
 ARG KUBE_SCORE_VERSION=1.10.1

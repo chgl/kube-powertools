@@ -79,6 +79,12 @@
       "matchStrings": ["KUBESEC_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "controlplaneio/kubesec",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBECONFORM_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "yannh/kubeconform",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -91,7 +97,8 @@
         "FairwindsOps/pluto",
         "norwoodj/helm-docs",
         "open-policy-agent/conftest",
-        "controlplaneio/kubesec"
+        "controlplaneio/kubesec",
+        "yannh/kubeconform"
       ],
       "extractVersion": "^v(?<version>.*)$"
     },

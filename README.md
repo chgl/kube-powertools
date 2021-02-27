@@ -39,3 +39,4 @@ instead of using `latest`.
 - [conftest](https://github.com/open-policy-agent/conftest)
 - [nova](https://github.com/FairwindsOps/nova)
 - [kubesec](https://github.com/controlplaneio/kubesec)
+- [kubeconform](https://github.com/yannh/kubeconform)

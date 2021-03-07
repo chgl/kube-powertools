@@ -61,7 +61,7 @@ RUN curl -LSs $KUBEVAL_URL | tar xz && \
     kubeval --version
 
 # Kubeconform
-ARG KUBECONFORM_VERSION=0.4.4
+ARG KUBECONFORM_VERSION=0.4.5
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN curl -LSs $KUBECONFORM_URL | tar xz && \
     mv ./kubeconform /usr/local/bin/kubeconform && \

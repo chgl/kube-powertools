@@ -23,7 +23,7 @@ RUN curl -LSsO $KUBECTL_URL && \
     kubectl version --client
 
 # Helm
-ARG HELM_VERSION=3.5.2
+ARG HELM_VERSION=3.5.3
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN curl -LSs $HELM_URL | tar xz && \
     mv linux-amd64/helm /usr/local/bin/helm && \

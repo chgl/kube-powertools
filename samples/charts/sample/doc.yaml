@@ -1,0 +1,19 @@
+project:
+  name: sample
+  shortName: sample
+  url: https://github.com/OHDSI
+  description: sample chart for deploying to Kubernetes.
+  app: the sample for Azure.
+repository:
+  url: https://chgl.github.io/charts
+  name: chgl
+chart:
+  name: sample
+  values: "-- generate from values file --"
+  valuesExample: "-- generate from values file --"
+prerequisites:
+  - "Kubernetes v1.16+"
+  - "Helm v3"
+release:
+  name: sample
+  namespace: sample

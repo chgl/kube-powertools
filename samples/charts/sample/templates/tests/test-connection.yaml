@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sample.fullname" . }}-test-connection"
+  labels:
+    {{- include "sample.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  restartPolicy: Never
+  containers:
+    - name: wget
+      image: busybox:1
+      imagePullPolicy: Always
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsNonRoot: true
+        runAsUser: 10001
+        readOnlyRootFilesystem: true
+      command: ['wget', '-O', '-']
+      args: ['{{ include "sample.fullname" . }}:{{ .Values.service.port }}']
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: true
+        runAsUser: 22222
+        runAsNonRoot: true
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      livenessProbe:
+        exec:
+          command: ["true"]
+      readinessProbe:
+        exec:
+          command: ["true"]

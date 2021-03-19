@@ -21,6 +21,20 @@ The container image is pushed to three registries:
 You can use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases)
 instead of using `latest`.
 
+## Helm Chart Repositories
+
+The container includes a [chart-powerlint.sh](scripts/chart-powerlint.sh) script which can be used to apply several linters to Helm chart repos.
+
+For example, you can mount this repository into the `kube-powertools` container and run the following to lint the sample chart
+in the `/samples/charts` dir:
+
+```sh
+$ docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
+bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
+```
+
+Additionally, you can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh)
+
 ## What's included
 
 - [kubectl](https://github.com/kubernetes/kubectl)

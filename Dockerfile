@@ -140,4 +140,7 @@ RUN curl -LSs $KUBESEC_URL | tar xz && \
     chmod +x /usr/local/bin/kubesec && \
     kubesec version
 
+COPY scripts/ /usr/local/bin
+RUN chmod +x /usr/local/bin/*.sh
+
 CMD ["/bin/bash"]

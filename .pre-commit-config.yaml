@@ -12,3 +12,4 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-yaml
         args: [--allow-multiple-documents]
+        exclude: ^samples/charts/.*/templates/

@@ -7,12 +7,12 @@ CHARTS_DIR=${CHARTS_DIR:-"charts"}
 
 for chart in "${CHARTS_DIR}"/*; do
     echo "Chart $chart:"
-    
+
     if test ! -f "${CHART_PATH}/Chart.yaml"; then
         echo "Skipping over ${CHART_PATH}"
         continue
     fi
-    
+
     if test -f "${chart}/README.tpl"; then
         echo "${chart}/README.tpl exists"
         chart-doc-gen -d="${chart}/doc.yaml" -v="${chart}/values.yaml" -t="${chart}/README.tpl" >"${chart}/README.md"

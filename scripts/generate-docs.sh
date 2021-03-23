@@ -8,8 +8,8 @@ CHARTS_DIR=${CHARTS_DIR:-"charts"}
 for chart in "${CHARTS_DIR}"/*; do
     echo "Chart $chart:"
 
-    if test ! -f "${CHART_PATH}/Chart.yaml"; then
-        echo "Skipping over ${CHART_PATH}"
+    if test ! -f "${chart}/Chart.yaml"; then
+        echo "Skipping over ${chart}"
         continue
     fi
 

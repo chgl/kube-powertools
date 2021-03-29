@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
+        uses: crazy-max/ghaction-docker-meta@v2
         with:
           images: |
             docker.io/chgl/kube-powertools

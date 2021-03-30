@@ -53,7 +53,7 @@ RUN curl -LSs $HELM_DOCS_URL | tar xz && \
     helm-docs --version
 
 # Kubeval
-ARG KUBEVAL_VERSION=0.16.0
+ARG KUBEVAL_VERSION=v0.16.1
 ENV KUBEVAL_URL=https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz
 RUN curl -LSs $KUBEVAL_URL | tar xz && \
     mv ./kubeval /usr/local/bin/kubeval && \

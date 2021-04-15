@@ -101,7 +101,7 @@ RUN curl -LSs $PLUTO_URL | tar xz && \
     pluto version
 
 # Stackrox Kube Linter
-ARG KUBE_LINTER_VERSION=0.1.6
+ARG KUBE_LINTER_VERSION=0.2.0
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     mv ./kube-linter /usr/local/bin/kube-linter && \

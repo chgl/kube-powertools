@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euox pipefail
 
 CHARTS_DIR=${CHARTS_DIR:-"charts"}
 SHOULD_UPDATE_DEPENDENCIES=${SHOULD_UPDATE_DEPENDENCIES:-""}
@@ -82,13 +82,13 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
     if [ "$SKIP_KUBE_LINTER" -ne "1" ]; then
         echo "Kube-Linter check..."
 
-        KUBE_LINTER__ARGS=""
+        KUBE_LINTER_ARGS=""
         KUBE_LINTER_CONFIG_FILE=".kube-linter.yaml"
         if [ -f "$KUBE_LINTER_CONFIG_FILE" ]; then
-            KUBE_LINTER__ARGS="--config ${KUBE_LINTER_CONFIG_FILE}"
+            KUBE_LINTER_ARGS=" --config=${KUBE_LINTER_CONFIG_FILE}"
         fi
 
-        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kube-linter lint "$KUBE_LINTER__ARGS" -; then
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kube-linter lint ${KUBE_LINTER_ARGS} -; then
             echo "Kube-Linter failed"
             exit 1
         fi
@@ -96,8 +96,7 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
 
     if [ "$SKIP_KUBE_SCORE" -ne "1" ]; then
         echo "Kube-Score check..."
-        if ! helm template "${HELM_TEMPLATE_ARGS}" "${CHART_PATH}" |
-            kube-score score "${KUBE_SCORE_ARGS}" -; then
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kube-score score -; then
             echo "Kube-Score failed"
             exit 1
         fi

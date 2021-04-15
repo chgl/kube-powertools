@@ -1,6 +1,9 @@
 # kube-powertools
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/chgl/kube-powertools?sort=semver)
+![Last Version](https://img.shields.io/github/tag-pre/chgl/kube-powertools.svg)
+![License](https://img.shields.io/github/license/chgl/kube-powertools)
+![Docker Pull](https://img.shields.io/docker/pulls/chgl/kube-powertools.svg)
+![CI](https://github.com/chgl/kube-powertools/workflows/ci/badge.svg)
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 

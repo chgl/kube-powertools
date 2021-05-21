@@ -77,7 +77,7 @@ RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     kube-score version
 
 # Chart Testing
-ARG CT_VERSION=3.3.1
+ARG CT_VERSION=3.4.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN curl -LSs $CT_URL | tar xz && \
     mv ./ct  /usr/local/bin/ct && \

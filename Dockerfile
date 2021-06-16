@@ -1,4 +1,4 @@
-FROM alpine:3.13 AS base
+FROM alpine:3.14 AS base
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /usr/src/app
 # hadolint ignore=DL3013,DL3016,DL3018

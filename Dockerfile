@@ -109,7 +109,7 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     kube-linter version
 
 # Conftest
-ARG CONFTEST_VERSION=0.25.0
+ARG CONFTEST_VERSION=0.26.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $CONFTEST_URL | tar xz && \
     mv ./conftest /usr/local/bin/conftest && \

@@ -140,6 +140,13 @@ RUN curl -LSs $KUBESEC_URL | tar xz && \
     chmod +x /usr/local/bin/kubesec && \
     kubesec version
 
+# Kube No Trouble
+ARG KUBENT_VERSION=0.5.0
+ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
+RUN curl -LSs $KUBENT_URL | tar xz && \
+    mv ./kubent /usr/local/bin/kubent && \
+    chmod +x /usr/local/bin/kubent
+
 COPY scripts/ /usr/local/bin
 RUN chmod +x /usr/local/bin/*.sh
 

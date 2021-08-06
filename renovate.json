@@ -85,6 +85,12 @@
       "matchStrings": ["KUBECONFORM_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "yannh/kubeconform",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBENT_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "doitintl/kube-no-trouble",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -110,7 +116,8 @@
       "packageNames": [
         "stackrox/kube-linter",
         "FairwindsOps/nova",
-        "FairwindsOps/polaris"
+        "FairwindsOps/polaris",
+        "doitintl/kube-no-trouble"
       ],
       "extractVersion": "^(?<version>.*)$"
     },

@@ -17,9 +17,9 @@ docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
 
 The container image is pushed to three registries:
 
-- `quay.io/chgl/kube-powertools:latest`
 - `docker.io/chgl/kube-powertools:latest`
 - `ghcr.io/chgl/kube-powertools:latest`
+- `quay.io/chgl/kube-powertools:latest`
 
 You can use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases)
 instead of using `latest`.
@@ -57,3 +57,12 @@ Additionally, you can auto-generate and format Markdown docs from the chart's va
 - [nova](https://github.com/FairwindsOps/nova)
 - [kubesec](https://github.com/controlplaneio/kubesec)
 - [kubeconform](https://github.com/yannh/kubeconform)
+
+## Verify image integrity
+
+All released container images are signed using [cosign](https://github.com/sigstore/cosign).
+The public key hosted at <https://chgl.github.io/cosign.pub> (see [here](https://github.com/chgl/chgl.github.io) for the repository source) may be used to verify them:
+
+```sh
+cosign verify -key https://chgl.github.io/cosign.pub ghcr.io/chgl/kube-powertools:latest
+```

@@ -147,6 +147,14 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     mv ./kubent /usr/local/bin/kubent && \
     chmod +x /usr/local/bin/kubent
 
+# Trivy
+ARG TRIVY_VERSION=0.19.2
+ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
+RUN curl -LSs $TRIVY_URL | tar xz && \
+    mv ./trivy /usr/local/bin/trivy && \
+    chmod +x /usr/local/bin/trivy && \
+    trivy --version
+
 COPY scripts/ /usr/local/bin
 RUN chmod +x /usr/local/bin/*.sh
 

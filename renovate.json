@@ -91,6 +91,12 @@
       "matchStrings": ["KUBENT_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "doitintl/kube-no-trouble",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["TRIVY_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "aquasec/trivy",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -104,7 +110,8 @@
         "norwoodj/helm-docs",
         "open-policy-agent/conftest",
         "controlplaneio/kubesec",
-        "yannh/kubeconform"
+        "yannh/kubeconform",
+        "aquasecurity/trivy"
       ],
       "extractVersion": "^v(?<version>.*)$"
     },

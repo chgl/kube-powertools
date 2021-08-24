@@ -57,6 +57,8 @@ Additionally, you can auto-generate and format Markdown docs from the chart's va
 - [nova](https://github.com/FairwindsOps/nova)
 - [kubesec](https://github.com/controlplaneio/kubesec)
 - [kubeconform](https://github.com/yannh/kubeconform)
+- [kube-no-trouble](https://github.com/doitintl/kube-no-trouble)
+- [trivy](https://github.com/aquasecurity/trivy)
 
 ## Verify image integrity
 

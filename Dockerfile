@@ -69,7 +69,7 @@ RUN curl -LSs $KUBECONFORM_URL | tar xz && \
     kubeconform -h
 
 # Kube Score
-ARG KUBE_SCORE_VERSION=1.11.0
+ARG KUBE_SCORE_VERSION=1.12.0
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     mv kube-score /usr/local/bin/kube-score && \

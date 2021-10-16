@@ -109,6 +109,12 @@
       "matchStrings": ["KUBESCAPE_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "armosec/kubescape",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["GOMPLATE_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "hairyhenderson/gomplate",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -125,7 +131,8 @@
         "yannh/kubeconform",
         "aquasecurity/trivy",
         "mikefarah/yq",
-        "armosec/kubescape"
+        "armosec/kubescape",
+        "hairyhenderson/gomplate"
       ],
       "extractVersion": "^v(?<version>.*)$"
     },

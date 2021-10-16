@@ -171,6 +171,14 @@ RUN curl -LSsO $KUBESCAPE_URL && \
     chmod +x /usr/local/bin/kubescape && \
     kubescape --version
 
+# gomplate
+ARG GOMPLATE_VERSION=3.10.0
+ENV GOMPLATE_URL=https://github.com/hairyhenderson/gomplate/releases/download/v${GOMPLATE_VERSION}/gomplate_linux-amd64
+RUN curl -LSsO $GOMPLATE_URL && \
+    mv ./gomplate_linux-amd64 /usr/local/bin/gomplate && \
+    chmod +x /usr/local/bin/gomplate && \
+    gomplate --version
+
 COPY scripts/ /usr/local/bin
 RUN chmod +x /usr/local/bin/*.sh
 

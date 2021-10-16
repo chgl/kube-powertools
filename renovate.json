@@ -97,6 +97,18 @@
       "matchStrings": ["TRIVY_VERSION=(?<currentValue>.*?)\n"],
       "depNameTemplate": "aquasec/trivy",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["YQ_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "mikefarah/yq",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": ["KUBESCAPE_VERSION=(?<currentValue>.*?)\n"],
+      "depNameTemplate": "armosec/kubescape",
+      "datasourceTemplate": "github-releases"
     }
   ],
   "packageRules": [
@@ -111,7 +123,9 @@
         "open-policy-agent/conftest",
         "controlplaneio/kubesec",
         "yannh/kubeconform",
-        "aquasecurity/trivy"
+        "aquasecurity/trivy",
+        "mikefarah/yq",
+        "armosec/kubescape"
       ],
       "extractVersion": "^v(?<version>.*)$"
     },

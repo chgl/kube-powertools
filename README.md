@@ -59,6 +59,16 @@ Additionally, you can auto-generate and format Markdown docs from the chart's va
 - [kubeconform](https://github.com/yannh/kubeconform)
 - [kube-no-trouble](https://github.com/doitintl/kube-no-trouble)
 - [trivy](https://github.com/aquasecurity/trivy)
+- [yq](https://github.com/mikefarah/yq)
+- [kubescape](https://github.com/armosec/kubescape)
+
+## Testing locally
+
+```sh
+docker build -t kube-powertools:dev .
+$ docker run --rm -it -v $PWD:/usr/src/app kube-powertools:dev
+bash-5.1# CHARTS_DIR=samples/charts scripts/chart-powerlint.sh
+```
 
 ## Verify image integrity
 

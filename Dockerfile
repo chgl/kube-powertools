@@ -1,4 +1,4 @@
-FROM alpine:3.14 AS base
+FROM alpine:3.14
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /usr/src/app
 # hadolint ignore=DL3013,DL3016,DL3018
@@ -12,7 +12,7 @@ RUN apk add --no-cache \
     bash \
     jq && \
     npm install -g prettier markdownlint-cli && \
-    pip install --no-cache-dir yamale yamllint yq
+    pip install --no-cache-dir yamale yamllint
 
 # kubectl
 ARG KUBECTL_VERSION=1.22.0
@@ -154,6 +154,22 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
     chmod +x /usr/local/bin/trivy && \
     trivy --version
+
+# yq
+ARG YQ_VERSION=4.13.4
+ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
+RUN curl -LSsO $YQ_URL && \
+    mv ./yq_linux_amd64 /usr/local/bin/yq && \
+    chmod +x /usr/local/bin/yq && \
+    yq --version
+
+# kubescape
+ARG KUBESCAPE_VERSION=1.0.120
+ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
+RUN curl -LSsO $KUBESCAPE_URL && \
+    mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \
+    chmod +x /usr/local/bin/kubescape && \
+    kubescape --version
 
 COPY scripts/ /usr/local/bin
 RUN chmod +x /usr/local/bin/*.sh

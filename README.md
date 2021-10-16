@@ -61,6 +61,7 @@ Additionally, you can auto-generate and format Markdown docs from the chart's va
 - [trivy](https://github.com/aquasecurity/trivy)
 - [yq](https://github.com/mikefarah/yq)
 - [kubescape](https://github.com/armosec/kubescape)
+- [gomplate](https://github.com/hairyhenderson/gomplate)
 
 ## Testing locally
 

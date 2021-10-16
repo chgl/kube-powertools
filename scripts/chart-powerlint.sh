@@ -4,7 +4,7 @@ set -euox pipefail
 CHARTS_DIR=${CHARTS_DIR:-"charts"}
 SHOULD_UPDATE_DEPENDENCIES=${SHOULD_UPDATE_DEPENDENCIES:-""}
 
-KUBERNETES_VERSIONS=${KUBERNETES_VERSIONS:-"1.18.0 1.19.0 1.20.0 1.21.0 1.22.0"}
+KUBERNETES_VERSIONS=${KUBERNETES_VERSIONS:-"1.19.0 1.20.0 1.21.0 1.22.0"}
 
 POLARIS_SCORE_THRESHOLD=${POLARIS_SCORE_THRESHOLD:-90}
 SKIP_KUBE_SCORE=${SKIP_KUBE_SCORE:-"1"}
@@ -25,17 +25,18 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
         helm dependency update "${CHART_PATH}"
     fi
 
-    HELM_TEMPLATE_ARGS=""
-    TEST_VALUES_FILE="$CHART_PATH/values-test.yaml"
-    if [ -f "$TEST_VALUES_FILE" ]; then
-        HELM_TEMPLATE_ARGS="-f ${CHART_PATH}/values-test.yaml"
-    fi
-
     echo "Helm lint..."
     helm lint "${CHART_PATH}"
 
     for KUBERNETES_VERSION in ${KUBERNETES_VERSIONS}; do
         echo "Validating against Kubernetes version $KUBERNETES_VERSION:"
+
+        HELM_TEMPLATE_ARGS="--kube-version=v$KUBERNETES_VERSION"
+        TEST_VALUES_FILE="$CHART_PATH/values-test.yaml"
+        if [ -f "$TEST_VALUES_FILE" ]; then
+            HELM_TEMPLATE_ARGS="$HELM_TEMPLATE_ARGS -f ${CHART_PATH}/values-test.yaml"
+        fi
+
         echo "Kubeconform check..."
 
         if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} |

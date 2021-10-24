@@ -169,7 +169,9 @@ ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBE
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \
     chmod +x /usr/local/bin/kubescape && \
-    kubescape --version
+    kubescape version && \
+    kubescape download framework nsa && \
+    kubescape download framework mitre
 
 # gomplate
 ARG GOMPLATE_VERSION=3.10.0

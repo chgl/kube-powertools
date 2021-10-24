@@ -10,6 +10,7 @@ POLARIS_SCORE_THRESHOLD=${POLARIS_SCORE_THRESHOLD:-90}
 SKIP_KUBE_SCORE=${SKIP_KUBE_SCORE:-"1"}
 KUBE_SCORE_ARGS=${KUBE_SCORE_ARGS:-""}
 SKIP_KUBE_LINTER=${SKIP_KUBE_LINTER:-"1"}
+SKIP_KUBE_SCAPE=${SKIP_KUBE_SCAPE:-"0"}
 
 for CHART_PATH in "${CHARTS_DIR}"/*; do
 
@@ -99,6 +100,20 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
         echo "Kube-Score check..."
         if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kube-score score -; then
             echo "Kube-Score failed"
+            exit 1
+        fi
+    fi
+
+    if [ "$SKIP_KUBE_SCAPE" -ne "1" ]; then
+        echo "kubescape nsa check..."
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework nsa -; then
+            echo "kubescape for NSA framework failed"
+            exit 1
+        fi
+
+        echo "kubescape mitre check..."
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework mitre -; then
+            echo "kubescape for NSA framework failed"
             exit 1
         fi
     fi

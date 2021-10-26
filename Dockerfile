@@ -141,7 +141,7 @@ RUN curl -LSs $KUBESEC_URL | tar xz && \
     kubesec version
 
 # Kube No Trouble
-ARG KUBENT_VERSION=0.5.0
+ARG KUBENT_VERSION=0.5.1
 ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
 RUN curl -LSs $KUBENT_URL | tar xz && \
     mv ./kubent /usr/local/bin/kubent && \

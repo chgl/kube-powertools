@@ -106,13 +106,13 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
 
     if [ "$SKIP_KUBE_SCAPE" -ne "1" ]; then
         echo "kubescape nsa check..."
-        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework nsa -; then
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework nsa --use-from=~/.kubescape/nsa.json -; then
             echo "kubescape for NSA framework failed"
             exit 1
         fi
 
         echo "kubescape mitre check..."
-        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework mitre -; then
+        if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework mitre --use-from=~/.kubescape/mitre.json -; then
             echo "kubescape for NSA framework failed"
             exit 1
         fi

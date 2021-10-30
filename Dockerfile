@@ -156,7 +156,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.13.5
+ARG YQ_VERSION=4.14.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \

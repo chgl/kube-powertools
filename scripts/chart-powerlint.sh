@@ -73,7 +73,7 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
     if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} |
         polaris audit \
             --audit-path - \
-            --format yaml \
+            --format pretty \
             $POLARIS_AUDIT_ARGS \
             --set-exit-code-on-danger \
             --set-exit-code-below-score $POLARIS_SCORE_THRESHOLD; then

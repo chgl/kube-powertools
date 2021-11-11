@@ -164,7 +164,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=1.0.130
+ARG KUBESCAPE_VERSION=1.0.131
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     python3 \
     py-pip \
     bash \
-    jq && \
+    jq \
     tar && \
     npm install -g prettier markdownlint-cli && \
     pip install --no-cache-dir yamale yamllint pre-commit

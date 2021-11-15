@@ -11,8 +11,9 @@ RUN apk add --no-cache \
     py-pip \
     bash \
     jq && \
+    tar && \
     npm install -g prettier markdownlint-cli && \
-    pip install --no-cache-dir yamale yamllint
+    pip install --no-cache-dir yamale yamllint pre-commit
 
 # kubectl
 ARG KUBECTL_VERSION=1.22.0

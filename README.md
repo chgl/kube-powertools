@@ -12,7 +12,7 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 Mount a folder containing your Helm or raw Kubernetes manifests:
 
 ```sh
-docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
+docker run --rm -it -v $PWD:/usr/src/app ghcr.io/chgl/kube-powertools:latest
 ```
 
 The container image is pushed to three registries:
@@ -32,7 +32,7 @@ For example, you can mount this repository into the `kube-powertools` container 
 in the `/samples/charts` dir:
 
 ```sh
-$ docker run --rm -it -v $PWD:/usr/src/app quay.io/chgl/kube-powertools:latest
+$ docker run --rm -it -v $PWD:/usr/src/app ghcr.io/chgl/kube-powertools:latest
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 

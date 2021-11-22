@@ -95,7 +95,7 @@
     {
       "fileMatch": ["(^|/)Dockerfile$"],
       "matchStrings": ["TRIVY_VERSION=(?<currentValue>.*?)\n"],
-      "depNameTemplate": "aquasec/trivy",
+      "depNameTemplate": "aquasecurity/trivy",
       "datasourceTemplate": "github-releases"
     },
     {

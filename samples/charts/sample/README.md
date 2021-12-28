@@ -45,34 +45,38 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the `sample` chart and their default values.
 
-| Parameter                                  | Description                                                                                                            | Default        |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | -------------- |
-| replicaCount                               |                                                                                                                        | `1`            |
-| image.repository                           |                                                                                                                        | `nginx`        |
-| image.pullPolicy                           |                                                                                                                        | `IfNotPresent` |
-| image.tag                                  | Overrides the image tag whose default is the chart appVersion.                                                         | `""`           |
-| imagePullSecrets                           |                                                                                                                        | `[]`           |
-| nameOverride                               |                                                                                                                        | `""`           |
-| fullnameOverride                           |                                                                                                                        | `""`           |
-| serviceAccount.create                      | Specifies whether a service account should be created                                                                  | `true`         |
-| serviceAccount.annotations                 | Annotations to add to the service account                                                                              | `{}`           |
-| serviceAccount.name                        | The name of the service account to use. If not set and create is true, a name is generated using the fullname template | `""`           |
-| podAnnotations                             |                                                                                                                        | `{}`           |
-| podSecurityContext                         |                                                                                                                        | `{}`           |
-| securityContext                            |                                                                                                                        | `{}`           |
-| service.type                               |                                                                                                                        | `ClusterIP`    |
-| service.port                               |                                                                                                                        | `80`           |
-| ingress.enabled                            |                                                                                                                        | `false`        |
-| ingress.annotations                        |                                                                                                                        | `{}`           |
-| ingress.tls                                |                                                                                                                        | `[]`           |
-| resources                                  |                                                                                                                        | `{}`           |
-| autoscaling.enabled                        |                                                                                                                        | `false`        |
-| autoscaling.minReplicas                    |                                                                                                                        | `1`            |
-| autoscaling.maxReplicas                    |                                                                                                                        | `100`          |
-| autoscaling.targetCPUUtilizationPercentage |                                                                                                                        | `80`           |
-| nodeSelector                               |                                                                                                                        | `{}`           |
-| tolerations                                |                                                                                                                        | `[]`           |
-| affinity                                   |                                                                                                                        | `{}`           |
+| Parameter                                  | Description                                                                    | Default                                      |
+| ------------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------- |
+| replicaCount                               |                                                                                | `1`                                          |
+| image.repository                           |                                                                                | `nginxinc/nginx-unprivileged`                |
+| image.pullPolicy                           |                                                                                | `IfNotPresent`                               |
+| image.tag                                  |                                                                                | `""`                                         |
+| imagePullSecrets                           |                                                                                | `[]`                                         |
+| nameOverride                               |                                                                                | `""`                                         |
+| fullnameOverride                           |                                                                                | `""`                                         |
+| serviceAccount.create                      |                                                                                | `true                                        |
+|                                            |                                                                                | # Annotations to add to the service account` |
+| serviceAccount.annotations                 |                                                                                | `{}`                                         |
+| serviceAccount.name                        | If not set and create is true, a name is generated using the fullname template | `""`                                         |
+| podAnnotations                             |                                                                                | `{}`                                         |
+| podSecurityContext                         |                                                                                | `{}`                                         |
+| securityContext.readOnlyRootFilesystem     |                                                                                | `true`                                       |
+| securityContext.runAsNonRoot               |                                                                                | `true`                                       |
+| securityContext.runAsUser                  |                                                                                | `101`                                        |
+| securityContext.allowPrivilegeEscalation   |                                                                                | `false`                                      |
+| service.type                               |                                                                                | `ClusterIP`                                  |
+| service.port                               |                                                                                | `80`                                         |
+| ingress.enabled                            |                                                                                | `false`                                      |
+| ingress.annotations                        |                                                                                | `{}`                                         |
+| ingress.tls                                |                                                                                | `[]`                                         |
+| resources                                  |                                                                                | `{}`                                         |
+| autoscaling.enabled                        |                                                                                | `false`                                      |
+| autoscaling.minReplicas                    |                                                                                | `1`                                          |
+| autoscaling.maxReplicas                    |                                                                                | `100`                                        |
+| autoscaling.targetCPUUtilizationPercentage |                                                                                | `80`                                         |
+| nodeSelector                               |                                                                                | `{}`                                         |
+| tolerations                                |                                                                                | `[]`                                         |
+| affinity                                   |                                                                                | `{}`                                         |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example:
 

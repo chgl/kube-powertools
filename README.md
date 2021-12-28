@@ -36,7 +36,8 @@ $ docker run --rm -it -v $PWD:/usr/src/app ghcr.io/chgl/kube-powertools:latest
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 
-Additionally, you can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh)
+Additionally, you can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh).
+This scripts uses either `chart-doc-gen` if the chart dir contains a `doc.yaml`, or `helm-docs` if it doesn't.
 
 ## What's included
 

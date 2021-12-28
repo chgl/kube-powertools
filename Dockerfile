@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.1.1
+ARG PLUTO_VERSION=5.2.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \

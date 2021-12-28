@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     pip install --no-cache-dir yamale yamllint pre-commit
 
 # kubectl
-ARG KUBECTL_VERSION=1.22.0
+ARG KUBECTL_VERSION=1.23.0
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 RUN curl -LSsO $KUBECTL_URL && \
     mv ./kubectl /usr/local/bin/kubectl && \

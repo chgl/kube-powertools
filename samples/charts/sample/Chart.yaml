@@ -22,3 +22,12 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.19"
+
+annotations:
+  artifacthub.io/changes: |
+    # When using the list of objects option the valid supported kinds are
+    # added, changed, deprecated, removed, fixed and security.
+    - kind: added
+      description: added something
+    - kind: changed
+      description: changed something else

@@ -183,6 +183,7 @@ RUN curl -LSsO $GOMPLATE_URL && \
     gomplate --version
 
 COPY scripts/ /usr/local/bin
+COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh
 
 CMD ["/bin/bash"]

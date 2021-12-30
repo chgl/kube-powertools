@@ -26,7 +26,11 @@ instead of using `latest`.
 
 ## Helm Chart Repositories
 
-The container includes a [chart-powerlint.sh](scripts/chart-powerlint.sh) script which can be used to apply several linters to Helm chart repos.
+The kube-powertools image includes a few helpful scripts to simplify working with Helm chart repositories.
+
+### Linting
+
+The image includes a [chart-powerlint.sh](scripts/chart-powerlint.sh) script which can be used to apply several linters to Helm chart repos.
 
 For example, you can mount this repository into the `kube-powertools` container and run the following to lint the sample chart
 in the `/samples/charts` dir:
@@ -36,8 +40,17 @@ $ docker run --rm -it -v $PWD:/usr/src/app ghcr.io/chgl/kube-powertools:latest
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 
-Additionally, you can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh).
+### Generating Chart Documentation
+
+You can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh).
 This scripts uses either `chart-doc-gen` if the chart dir contains a `doc.yaml`, or `helm-docs` if it doesn't.
+
+### Generating CHANGELOG files
+
+Finally, there's [generate-chart-changelog.sh](scripts/generate-chart-changelog.sh), which can be used to generate a CHANGELOG.md file from
+the contantes of a Chart.yaml's [artifacthub.io/changes](https://artifacthub.io/docs/topics/annotations/helm/#supported-annotations) annotation.
+
+You can use this file in conjunction with the [chart-releaser](https://github.com/helm/chart-releaser) tool's `--release-notes-file` option to produce release notes for a GitHub release. See <https://github.com/chgl/charts/blob/master/.github/workflows/release.yaml#L32> and <https://github.com/chgl/charts/blob/master/.github/ct/ct.yaml#L16> for a sample workflow.
 
 ## What's included
 

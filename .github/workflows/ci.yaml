@@ -9,13 +9,22 @@ on:
     branches: [master]
 
 jobs:
+  lint:
+    name: Run pre-commit lint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.3
+
   build:
     name: Build
+    needs: lint
     runs-on: ubuntu-20.04
     steps:
       - name: Docker meta
         id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v3
+        uses: docker/metadata-action@v3
         with:
           images: |
             docker.io/chgl/kube-powertools
@@ -80,8 +89,9 @@ jobs:
               continue
             fi
             echo "Signing $image"
-            cosign sign -key /tmp/cosign.key "$image"
+            cosign sign --key /tmp/cosign.key "$image"
           done <<< "$IMAGES"
+
   release:
     needs: build
     name: Release

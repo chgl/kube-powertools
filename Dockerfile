@@ -78,7 +78,7 @@ RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     kube-score version
 
 # Chart Testing
-ARG CT_VERSION=3.4.0
+ARG CT_VERSION=3.5.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN curl -LSs $CT_URL | tar xz && \
     mv ./ct  /usr/local/bin/ct && \
@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.2.4
+ARG PLUTO_VERSION=5.2.5
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -110,7 +110,7 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     kube-linter version
 
 # Conftest
-ARG CONFTEST_VERSION=0.28.3
+ARG CONFTEST_VERSION=0.30.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $CONFTEST_URL | tar xz && \
     mv ./conftest /usr/local/bin/conftest && \
@@ -165,7 +165,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=1.0.136
+ARG KUBESCAPE_VERSION=1.0.138
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

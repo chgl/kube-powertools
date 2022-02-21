@@ -24,7 +24,7 @@ RUN curl -LSsO $KUBECTL_URL && \
     kubectl version --client
 
 # Helm
-ARG HELM_VERSION=3.7.2
+ARG HELM_VERSION=3.8.0
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN curl -LSs $HELM_URL | tar xz && \
     mv linux-amd64/helm /usr/local/bin/helm && \
@@ -39,7 +39,7 @@ RUN helm plugin install https://github.com/mbenabda/helm-local-chart-version && 
     helm local-chart-version version
 
 # Chart Doc Gen
-ARG CHART_DOC_GEN_VERSION=0.4.3
+ARG CHART_DOC_GEN_VERSION=0.4.4
 ENV CHART_DOC_GEN_URL=https://github.com/kubepack/chart-doc-gen/releases/download/v"${CHART_DOC_GEN_VERSION}"/chart-doc-gen-linux-amd64
 RUN curl -LSsO $CHART_DOC_GEN_URL && \
     mv chart-doc-gen-linux-amd64 /usr/local/bin/chart-doc-gen && \
@@ -70,7 +70,7 @@ RUN curl -LSs $KUBECONFORM_URL | tar xz && \
     kubeconform -h
 
 # Kube Score
-ARG KUBE_SCORE_VERSION=1.13.0
+ARG KUBE_SCORE_VERSION=1.14.0
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     mv kube-score /usr/local/bin/kube-score && \
@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.3.2
+ARG PLUTO_VERSION=5.4.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -118,7 +118,7 @@ RUN curl -LSs $CONFTEST_URL | tar xz && \
     conftest --version
 
 # Kustomize
-ARG KUSTOMIZE_VERSION=4.4.1
+ARG KUSTOMIZE_VERSION=4.5.2
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     mv ./kustomize /usr/local/bin/kustomize && \
@@ -126,7 +126,7 @@ RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     kustomize version
 
 # Nova
-ARG NOVA_VERSION=2.3.4
+ARG NOVA_VERSION=2.4.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $NOVA_URL | tar xz && \
     mv ./nova /usr/local/bin/nova && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.22.0
+ARG TRIVY_VERSION=0.23.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -157,7 +157,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.17.2
+ARG YQ_VERSION=4.20.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \
@@ -165,7 +165,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=2.0.143
+ARG KUBESCAPE_VERSION=2.0.148
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

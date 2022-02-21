@@ -86,7 +86,7 @@ RUN curl -LSs $CT_URL | tar xz && \
     ct version
 
 # Fairwinds Polaris
-ARG POLARIS_VERSION=4.2.0
+ARG POLARIS_VERSION=5.0.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN curl -LSs $POLARIS_URL | tar xz && \
     mv ./polaris  /usr/local/bin/polaris && \

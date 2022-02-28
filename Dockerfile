@@ -62,7 +62,7 @@ RUN curl -LSs $KUBEVAL_URL | tar xz && \
     kubeval --version
 
 # Kubeconform
-ARG KUBECONFORM_VERSION=0.4.12
+ARG KUBECONFORM_VERSION=0.4.13
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN curl -LSs $KUBECONFORM_URL | tar xz && \
     mv ./kubeconform /usr/local/bin/kubeconform && \
@@ -86,7 +86,7 @@ RUN curl -LSs $CT_URL | tar xz && \
     ct version
 
 # Fairwinds Polaris
-ARG POLARIS_VERSION=5.0.0
+ARG POLARIS_VERSION=v5.0.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN curl -LSs $POLARIS_URL | tar xz && \
     mv ./polaris  /usr/local/bin/polaris && \
@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.4.0
+ARG PLUTO_VERSION=5.5.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.23.0
+ARG TRIVY_VERSION=0.24.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -157,7 +157,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.20.2
+ARG YQ_VERSION=4.21.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \

@@ -39,7 +39,7 @@ RUN helm plugin install https://github.com/mbenabda/helm-local-chart-version && 
     helm local-chart-version version
 
 # Chart Doc Gen
-ARG CHART_DOC_GEN_VERSION=0.4.4
+ARG CHART_DOC_GEN_VERSION=0.4.7
 ENV CHART_DOC_GEN_URL=https://github.com/kubepack/chart-doc-gen/releases/download/v"${CHART_DOC_GEN_VERSION}"/chart-doc-gen-linux-amd64
 RUN curl -LSsO $CHART_DOC_GEN_URL && \
     mv chart-doc-gen-linux-amd64 /usr/local/bin/chart-doc-gen && \
@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.5.0
+ARG PLUTO_VERSION=5.5.1
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.24.1
+ARG TRIVY_VERSION=0.24.2
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -165,7 +165,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=2.0.148
+ARG KUBESCAPE_VERSION=2.0.149
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

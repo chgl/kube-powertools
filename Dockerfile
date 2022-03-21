@@ -78,7 +78,7 @@ RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     kube-score version
 
 # Chart Testing
-ARG CT_VERSION=3.5.0
+ARG CT_VERSION=3.5.1
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN curl -LSs $CT_URL | tar xz && \
     mv ./ct  /usr/local/bin/ct && \
@@ -86,7 +86,7 @@ RUN curl -LSs $CT_URL | tar xz && \
     ct version
 
 # Fairwinds Polaris
-ARG POLARIS_VERSION=v5.0.1
+ARG POLARIS_VERSION=5.1.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN curl -LSs $POLARIS_URL | tar xz && \
     mv ./polaris  /usr/local/bin/polaris && \
@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.5.3
+ARG PLUTO_VERSION=5.6.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.24.2
+ARG TRIVY_VERSION=0.24.4
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -157,7 +157,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.22.1
+ARG YQ_VERSION=4.23.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \

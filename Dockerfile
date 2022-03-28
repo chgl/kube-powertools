@@ -94,7 +94,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
     polaris version
 
 # Fairwinds Pluto
-ARG PLUTO_VERSION=5.6.0
+ARG PLUTO_VERSION=5.7.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -102,7 +102,7 @@ RUN curl -LSs $PLUTO_URL | tar xz && \
     pluto version
 
 # Stackrox Kube Linter
-ARG KUBE_LINTER_VERSION=0.2.5
+ARG KUBE_LINTER_VERSION=0.2.6
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     mv ./kube-linter /usr/local/bin/kube-linter && \
@@ -118,7 +118,7 @@ RUN curl -LSs $CONFTEST_URL | tar xz && \
     conftest --version
 
 # Kustomize
-ARG KUSTOMIZE_VERSION=4.5.2
+ARG KUSTOMIZE_VERSION=4.5.3
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     mv ./kustomize /usr/local/bin/kustomize && \
@@ -165,7 +165,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=2.0.149
+ARG KUBESCAPE_VERSION=2.0.150
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

@@ -46,7 +46,7 @@ RUN curl -LSsO $CHART_DOC_GEN_URL && \
     chmod +x /usr/local/bin/chart-doc-gen
 
 # Helm Docs
-ARG HELM_DOCS_VERSION=1.7.0
+ARG HELM_DOCS_VERSION=1.8.1
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $HELM_DOCS_URL | tar xz && \
     mv ./helm-docs /usr/local/bin/helm-docs && \
@@ -118,7 +118,7 @@ RUN curl -LSs $CONFTEST_URL | tar xz && \
     conftest --version
 
 # Kustomize
-ARG KUSTOMIZE_VERSION=4.5.3
+ARG KUSTOMIZE_VERSION=4.5.4
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
     mv ./kustomize /usr/local/bin/kustomize && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.24.4
+ARG TRIVY_VERSION=0.25.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \

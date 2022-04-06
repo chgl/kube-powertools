@@ -3,8 +3,8 @@ name: ci
 on:
   push:
     branches: [master]
-    tags:
-      - "v*"
+  release:
+    types: [created]
   pull_request:
     branches: [master]
 
@@ -78,18 +78,16 @@ jobs:
       - name: Sign images
         if: ${{ github.event_name != 'pull_request' }}
         env:
-          COSIGN_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+          COSIGN_EXPERIMENTAL: "true"
           IMAGES: ${{ steps.docker_meta.outputs.tags }}
         run: |
-          echo "$COSIGN_KEY" > /tmp/cosign.key
           while read -r image; do
             if [[ $image = quay.io/* ]]; then
               echo "Skipping '$image' hosted on quay.io"
               continue
             fi
-            echo "Signing $image"
-            cosign sign --key /tmp/cosign.key "$image"
+            echo "Signing '$image' using keyless approach"
+            cosign sign "$image"
           done <<< "$IMAGES"
 
   release:

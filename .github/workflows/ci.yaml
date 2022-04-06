@@ -21,6 +21,10 @@ jobs:
     name: Build
     needs: lint
     runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      security-events: write
+      packages: write
     steps:
       - name: Docker meta
         id: docker_meta
@@ -74,7 +78,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Install Cosign
         if: ${{ github.event_name != 'pull_request' }}
-        uses: sigstore/cosign-installer@main
+        uses: sigstore/cosign-installer@v2.1.0
       - name: Sign images
         if: ${{ github.event_name != 'pull_request' }}
         env:

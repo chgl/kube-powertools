@@ -86,7 +86,7 @@ RUN curl -LSs $CT_URL | tar xz && \
     ct version
 
 # Fairwinds Polaris
-ARG POLARIS_VERSION=5.1.0
+ARG POLARIS_VERSION=5.2.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN curl -LSs $POLARIS_URL | tar xz && \
     mv ./polaris  /usr/local/bin/polaris && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.25.0
+ARG TRIVY_VERSION=0.25.3
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \

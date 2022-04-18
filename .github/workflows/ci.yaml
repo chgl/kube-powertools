@@ -78,7 +78,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Install Cosign
         if: ${{ github.event_name != 'pull_request' }}
-        uses: sigstore/cosign-installer@v2.2.0
+        uses: sigstore/cosign-installer@v2.2.1
       - name: Sign images
         if: ${{ github.event_name != 'pull_request' }}
         env:

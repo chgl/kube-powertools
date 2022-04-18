@@ -24,7 +24,7 @@ RUN curl -LSsO $KUBECTL_URL && \
     kubectl version --client
 
 # Helm
-ARG HELM_VERSION=3.8.1
+ARG HELM_VERSION=3.8.2
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN curl -LSs $HELM_URL | tar xz && \
     mv linux-amd64/helm /usr/local/bin/helm && \
@@ -149,7 +149,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.25.3
+ARG TRIVY_VERSION=0.26.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -157,7 +157,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.23.1
+ARG YQ_VERSION=4.24.5
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \
@@ -165,7 +165,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=2.0.150
+ARG KUBESCAPE_VERSION=2.0.152
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

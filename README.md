@@ -87,9 +87,8 @@ bash-5.1# CHARTS_DIR=samples/charts scripts/chart-powerlint.sh
 
 ## Verify image integrity
 
-All released container images are signed using [cosign](https://github.com/sigstore/cosign).
-The public key hosted at <https://chgl.github.io/cosign.pub> (see [here](https://github.com/chgl/chgl.github.io) for the repository source) may be used to verify them:
+All released container images are signed using [cosign](https://github.com/sigstore/cosign) following the [keyless approach](https://github.com/sigstore/cosign/blob/main/KEYLESS.md). To verify the signature:
 
 ```sh
-cosign verify -key https://chgl.github.io/cosign.pub ghcr.io/chgl/kube-powertools:latest
+COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/chgl/kube-powertools:latest
 ```

@@ -76,6 +76,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [yq](https://github.com/mikefarah/yq)
 - [kubescape](https://github.com/armosec/kubescape)
 - [gomplate](https://github.com/hairyhenderson/gomplate)
+- [cosign](https://github.com/sigstore/cosign)
 
 ## Testing locally
 

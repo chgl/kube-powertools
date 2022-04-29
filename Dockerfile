@@ -24,6 +24,7 @@ RUN curl -LSsO $KUBECTL_URL && \
     kubectl version --client
 
 # Helm
+# renovate: datasource=github-releases depName=helm/helm
 ARG HELM_VERSION=3.8.2
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN curl -LSs $HELM_URL | tar xz && \
@@ -181,6 +182,15 @@ RUN curl -LSsO $GOMPLATE_URL && \
     mv ./gomplate_linux-amd64 /usr/local/bin/gomplate && \
     chmod +x /usr/local/bin/gomplate && \
     gomplate --version
+
+# cosign
+# renovate: datasource=github-releases depName=sigstore/cosign
+ARG COSIGN_VERSION=1.8.0
+ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
+RUN curl -LSsO $COSIGN_URL && \
+    mv ./cosign-linux-amd64 /usr/local/bin/cosign && \
+    chmod +x /usr/local/bin/cosign && \
+    cosign version
 
 COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/

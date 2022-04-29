@@ -8,10 +8,11 @@
   ],
   "regexManagers": [
     {
-      "fileMatch": ["(^|/)Dockerfile$"],
-      "matchStrings": ["HELM_VERSION=(?<currentValue>.*?)\n"],
-      "depNameTemplate": "helm/helm",
-      "datasourceTemplate": "github-releases"
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
       "fileMatch": ["(^|/)Dockerfile$"],

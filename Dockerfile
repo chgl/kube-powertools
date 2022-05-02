@@ -47,7 +47,7 @@ RUN curl -LSsO $CHART_DOC_GEN_URL && \
     chmod +x /usr/local/bin/chart-doc-gen
 
 # Helm Docs
-ARG HELM_DOCS_VERSION=1.8.1
+ARG HELM_DOCS_VERSION=1.9.1
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $HELM_DOCS_URL | tar xz && \
     mv ./helm-docs /usr/local/bin/helm-docs && \
@@ -111,7 +111,7 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
     kube-linter version
 
 # Conftest
-ARG CONFTEST_VERSION=0.31.0
+ARG CONFTEST_VERSION=0.32.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $CONFTEST_URL | tar xz && \
     mv ./conftest /usr/local/bin/conftest && \
@@ -150,7 +150,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.26.0
+ARG TRIVY_VERSION=0.27.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -158,7 +158,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.24.5
+ARG YQ_VERSION=4.25.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \

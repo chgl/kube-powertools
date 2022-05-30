@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.16
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 WORKDIR /usr/src/app
 # hadolint ignore=DL3013,DL3016,DL3018
@@ -25,7 +25,7 @@ RUN curl -LSsO $KUBECTL_URL && \
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.8.2
+ARG HELM_VERSION=3.9.0
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN curl -LSs $HELM_URL | tar xz && \
     mv linux-amd64/helm /usr/local/bin/helm && \
@@ -79,7 +79,7 @@ RUN curl -LSs $KUBE_SCORE_URL -o kube-score && \
     kube-score version
 
 # Chart Testing
-ARG CT_VERSION=3.5.1
+ARG CT_VERSION=3.6.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN curl -LSs $CT_URL | tar xz && \
     mv ./ct  /usr/local/bin/ct && \
@@ -150,7 +150,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
     chmod +x /usr/local/bin/kubent
 
 # Trivy
-ARG TRIVY_VERSION=0.28.0
+ARG TRIVY_VERSION=0.28.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -158,7 +158,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
     trivy --version
 
 # yq
-ARG YQ_VERSION=4.25.1
+ARG YQ_VERSION=4.25.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \
@@ -166,7 +166,7 @@ RUN curl -LSsO $YQ_URL && \
     yq --version
 
 # kubescape
-ARG KUBESCAPE_VERSION=2.0.154
+ARG KUBESCAPE_VERSION=2.0.156
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

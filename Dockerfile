@@ -121,7 +121,7 @@ RUN curl -LSs $KUBE_LINTER_URL | tar xz && \
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.32.0
+ARG CONFTEST_VERSION=0.32.1
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $CONFTEST_URL | tar xz && \
     mv ./conftest /usr/local/bin/conftest && \
@@ -139,7 +139,7 @@ RUN curl -LSs $KUSTOMIZE_URL | tar xz && \
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.1.0
+ARG NOVA_VERSION=3.2.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $NOVA_URL | tar xz && \
     mv ./nova /usr/local/bin/nova && \
@@ -183,7 +183,7 @@ RUN curl -LSsO $YQ_URL && \
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.156
+ARG KUBESCAPE_VERSION=2.0.157
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \
@@ -203,7 +203,7 @@ RUN curl -LSsO $GOMPLATE_URL && \
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=1.8.0
+ARG COSIGN_VERSION=1.9.0
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN curl -LSsO $COSIGN_URL && \
     mv ./cosign-linux-amd64 /usr/local/bin/cosign && \

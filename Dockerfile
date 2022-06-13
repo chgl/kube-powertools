@@ -103,7 +103,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.7.0
+ARG PLUTO_VERSION=5.8.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -183,7 +183,7 @@ RUN curl -LSsO $YQ_URL && \
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.157
+ARG KUBESCAPE_VERSION=2.0.158
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \
@@ -194,7 +194,7 @@ RUN curl -LSsO $KUBESCAPE_URL && \
 
 # gomplate
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
-ARG GOMPLATE_VERSION=3.10.0
+ARG GOMPLATE_VERSION=3.11.0
 ENV GOMPLATE_URL=https://github.com/hairyhenderson/gomplate/releases/download/v${GOMPLATE_VERSION}/gomplate_linux-amd64
 RUN curl -LSsO $GOMPLATE_URL && \
     mv ./gomplate_linux-amd64 /usr/local/bin/gomplate && \

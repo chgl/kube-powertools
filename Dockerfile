@@ -165,7 +165,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.28.1
+ARG TRIVY_VERSION=0.29.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -194,7 +194,7 @@ RUN curl -LSsO $KUBESCAPE_URL && \
 
 # gomplate
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
-ARG GOMPLATE_VERSION=3.11.0
+ARG GOMPLATE_VERSION=3.11.1
 ENV GOMPLATE_URL=https://github.com/hairyhenderson/gomplate/releases/download/v${GOMPLATE_VERSION}/gomplate_linux-amd64
 RUN curl -LSsO $GOMPLATE_URL && \
     mv ./gomplate_linux-amd64 /usr/local/bin/gomplate && \

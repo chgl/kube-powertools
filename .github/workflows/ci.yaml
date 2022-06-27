@@ -35,7 +35,7 @@ jobs:
             quay.io/chgl/kube-powertools
             ghcr.io/chgl/kube-powertools
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub

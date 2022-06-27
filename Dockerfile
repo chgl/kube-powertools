@@ -103,7 +103,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.8.0
+ARG PLUTO_VERSION=5.9.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -165,7 +165,7 @@ RUN curl -LSs $KUBENT_URL | tar xz && \
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.29.0
+ARG TRIVY_VERSION=0.29.2
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN curl -LSs $TRIVY_URL | tar xz && \
     mv ./trivy /usr/local/bin/trivy && \
@@ -174,7 +174,7 @@ RUN curl -LSs $TRIVY_URL | tar xz && \
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.25.2
+ARG YQ_VERSION=4.25.3
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN curl -LSsO $YQ_URL && \
     mv ./yq_linux_amd64 /usr/local/bin/yq && \
@@ -212,7 +212,7 @@ RUN curl -LSsO $COSIGN_URL && \
 
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
-ARG CRANE_VERSION=0.9.0
+ARG CRANE_VERSION=0.10.0
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN curl -LSs $CRANE_URL | tar xz && \
     mv ./crane /usr/local/bin/crane && \

@@ -49,7 +49,7 @@ RUN curl -LSsO $CHART_DOC_GEN_URL && \
 
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
-ARG HELM_DOCS_VERSION=1.10.0
+ARG HELM_DOCS_VERSION=1.11.0
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN curl -LSs $HELM_DOCS_URL | tar xz && \
     mv ./helm-docs /usr/local/bin/helm-docs && \
@@ -103,7 +103,7 @@ RUN curl -LSs $POLARIS_URL | tar xz && \
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.9.0
+ARG PLUTO_VERSION=5.10.1
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN curl -LSs $PLUTO_URL | tar xz && \
     mv ./pluto /usr/local/bin/pluto && \
@@ -183,7 +183,7 @@ RUN curl -LSsO $YQ_URL && \
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.158
+ARG KUBESCAPE_VERSION=2.0.160
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN curl -LSsO $KUBESCAPE_URL && \
     mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape && \

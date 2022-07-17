@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM docker.io/library/ubuntu:22.04
+FROM docker.io/library/ubuntu:22.04@sha256:b6b83d3c331794420340093eb706a6f152d9c1fa51b262d9bf34594887c2c7ac
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
@@ -56,7 +56,7 @@ EOF
 # renovate: datasource=github-releases depName=mbenabda/helm-local-chart-version
 ARG HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION=0.0.7
 RUN <<EOF
-helm plugin install --version=${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https://github.com/mbenabda/helm-local-chart-version
+helm plugin install --version=v${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https://github.com/mbenabda/helm-local-chart-version
 helm local-chart-version version
 EOF
 

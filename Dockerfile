@@ -138,7 +138,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.10.1
+ARG PLUTO_VERSION=5.10.2
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $PLUTO_URL | tar xz
@@ -149,7 +149,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=0.3.0
+ARG KUBE_LINTER_VERSION=0.4.0
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs $KUBE_LINTER_URL | tar xz
@@ -160,7 +160,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.32.1
+ARG CONFTEST_VERSION=0.33.1
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $CONFTEST_URL | tar xz
@@ -193,7 +193,7 @@ EOF
 
 # Kubesec
 # renovate: datasource=github-releases depName=controlplaneio/kubesec
-ARG KUBESEC_VERSION=2.11.4
+ARG KUBESEC_VERSION=2.11.5
 ENV KUBESEC_URL=https://github.com/controlplaneio/kubesec/releases/download/v${KUBESEC_VERSION}/kubesec_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBESEC_URL | tar xz
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.160
+ARG KUBESCAPE_VERSION=2.0.161
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL

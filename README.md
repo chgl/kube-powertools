@@ -77,6 +77,8 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [kubescape](https://github.com/armosec/kubescape)
 - [gomplate](https://github.com/hairyhenderson/gomplate)
 - [cosign](https://github.com/sigstore/cosign)
+- [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane)
+- [checkov](https://github.com/bridgecrewio/checkov)
 
 ## Testing locally
 

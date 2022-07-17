@@ -4,7 +4,8 @@
     "config:base",
     ":disableDependencyDashboard",
     "group:allNonMajor",
-    "schedule:weekly"
+    "schedule:weekly",
+    "helpers:pinGitHubActionDigests"
   ],
   "regexManagers": [
     {

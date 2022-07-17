@@ -9,17 +9,8 @@ on:
     branches: [master]
 
 jobs:
-  lint:
-    name: Run pre-commit lint
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - uses: pre-commit/action@v2.0.3
-
   build:
     name: Build
-    needs: lint
     runs-on: ubuntu-20.04
     permissions:
       id-token: write

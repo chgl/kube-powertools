@@ -13,7 +13,7 @@ apt-get install -y --no-install-recommends nodejs
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
-pip install --ignore-pipfile --no-cache-dir yamale==4.0.4 yamllint==1.27.1 pre-commit==2.20.0
+pip install --no-cache-dir yamale==4.0.4 yamllint==1.27.1 pre-commit==2.20.0
 
 npm install -g prettier@2.7.1 markdownlint-cli@0.32.0
 EOF
@@ -31,7 +31,7 @@ EOF
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
 ARG CHECKOV_VERSION=2.1.32
-RUN pip install --ignore-pipfile --no-cache-dir checkov==${CHECKOV_VERSION}
+RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm

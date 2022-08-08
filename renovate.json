@@ -5,7 +5,8 @@
     ":disableDependencyDashboard",
     "group:allNonMajor",
     "schedule:weekly",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigests",
+    "docker:pinDigests"
   ],
   "ignoreDeps": ["docker.io/library/ubuntu"],
   "regexManagers": [
@@ -35,6 +36,10 @@
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions", "docker-compose", "kubernetes"],
+      "extends": ["schedule:monthly"]
     }
   ]
 }

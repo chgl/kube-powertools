@@ -50,7 +50,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Cache Docker layers
-        uses: actions/cache@0865c47f36e68161719c5b124609996bb5c40129 # tag=v3
+        uses: actions/cache@f4278025ab0f432ce369118909e46deec636f50c # tag=v3
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}

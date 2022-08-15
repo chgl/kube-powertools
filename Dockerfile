@@ -127,7 +127,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=6.0.0
+ARG POLARIS_VERSION=7.0.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz

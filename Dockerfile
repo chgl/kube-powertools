@@ -291,6 +291,18 @@ chmod +x /usr/local/bin/kubepug
 kubepug version
 EOF
 
+# container-structure-test
+# renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.11.0
+ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
+RUN <<EOF
+curl -LSsO $CONTAINER_STRUCTURE_TEST_URL
+mv container-structure-test-linux-amd64 container-structure-test
+mv container-structure-test /usr/local/bin/
+chmod +x /usr/local/bin/container-structure-test
+container-structure-test version
+EOF
+
 COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh

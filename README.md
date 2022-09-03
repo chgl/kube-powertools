@@ -80,6 +80,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane)
 - [checkov](https://github.com/bridgecrewio/checkov)
 - [kubepug](https://github.com/rikatz/kubepug)
+- [container-structure-test](https://github.com/GoogleContainerTools/container-structure-test)
 
 ## Testing locally
 

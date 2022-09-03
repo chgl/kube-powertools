@@ -12,11 +12,6 @@ spec:
     - name: wget
       image: busybox:1
       imagePullPolicy: Always
-      securityContext:
-        allowPrivilegeEscalation: false
-        runAsNonRoot: true
-        runAsUser: 10001
-        readOnlyRootFilesystem: true
       command: ['wget', '-O', '-']
       args: ['{{ include "sample.fullname" . }}:{{ .Values.service.port }}']
       securityContext:

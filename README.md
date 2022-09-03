@@ -79,6 +79,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [cosign](https://github.com/sigstore/cosign)
 - [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane)
 - [checkov](https://github.com/bridgecrewio/checkov)
+- [kubepug](https://github.com/rikatz/kubepug)
 
 ## Testing locally
 

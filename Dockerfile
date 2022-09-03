@@ -280,6 +280,17 @@ chmod +x /usr/local/bin/crane
 crane version
 EOF
 
+# kubepug
+# renovate: datasource=github-releases depName=kubepug/releases
+ARG KUBEPUG_VERSION=1.4.0
+ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
+RUN <<EOF
+curl -LSs $KUBEPUG_URL | tar xz
+mv ./kubepug /usr/local/bin/kubepug
+chmod +x /usr/local/bin/kubepug
+kubepug version
+EOF
+
 COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh

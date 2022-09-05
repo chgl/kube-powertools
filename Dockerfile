@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.31.2
+ARG TRIVY_VERSION=0.31.3
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.27.2
+ARG YQ_VERSION=4.27.3
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL

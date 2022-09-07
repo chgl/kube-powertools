@@ -81,6 +81,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [checkov](https://github.com/bridgecrewio/checkov)
 - [kubepug](https://github.com/rikatz/kubepug)
 - [container-structure-test](https://github.com/GoogleContainerTools/container-structure-test)
+- [Artifact Hub CLI](https://github.com/artifacthub/hub)
 
 ## Testing locally
 

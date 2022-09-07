@@ -281,7 +281,7 @@ crane version
 EOF
 
 # kubepug
-# renovate: datasource=github-releases depName=kubepug/releases
+# renovate: datasource=github-releases depName=rikatz/kubepug
 ARG KUBEPUG_VERSION=1.4.0
 ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
 RUN <<EOF
@@ -301,6 +301,17 @@ mv container-structure-test-linux-amd64 container-structure-test
 mv container-structure-test /usr/local/bin/
 chmod +x /usr/local/bin/container-structure-test
 container-structure-test version
+EOF
+
+# ah cli
+# renovate: datasource=github-releases depName=artifacthub/hub
+ARG AH_CLI_VERSION=1.9.0
+ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
+RUN <<EOF
+curl -LSs $AH_CLI_URL | tar xz
+mv ./ah /usr/local/bin/ah
+chmod +x /usr/local/bin/ah
+ah version
 EOF
 
 COPY scripts/ /usr/local/bin

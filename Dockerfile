@@ -116,7 +116,7 @@ EOF
 
 # Chart Testing
 # renovate: datasource=github-releases depName=helm/chart-testing
-ARG CT_VERSION=3.7.0
+ARG CT_VERSION=3.7.1
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $CT_URL | tar xz
@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.32.0
+ARG TRIVY_VERSION=0.32.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.171
+ARG KUBESCAPE_VERSION=2.0.172
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL

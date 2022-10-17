@@ -35,7 +35,7 @@ RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.10.0
+ARG HELM_VERSION=3.10.1
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_URL | tar xz
@@ -94,7 +94,7 @@ EOF
 
 # Kubeconform
 # renovate: datasource=github-releases depName=yannh/kubeconform
-ARG KUBECONFORM_VERSION=0.4.14
+ARG KUBECONFORM_VERSION=0.5.0
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBECONFORM_URL | tar xz

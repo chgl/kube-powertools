@@ -4,6 +4,7 @@
 ![License](https://img.shields.io/github/license/chgl/kube-powertools)
 ![Docker Pull](https://img.shields.io/docker/pulls/chgl/kube-powertools)
 [![CI](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml/badge.svg)](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools/badge)](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools)
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 

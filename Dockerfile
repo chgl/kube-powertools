@@ -127,7 +127,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=7.1.5
+ARG POLARIS_VERSION=7.1.6
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -193,7 +193,7 @@ EOF
 
 # Kubesec
 # renovate: datasource=github-releases depName=controlplaneio/kubesec
-ARG KUBESEC_VERSION=2.11.5
+ARG KUBESEC_VERSION=2.12.0
 ENV KUBESEC_URL=https://github.com/controlplaneio/kubesec/releases/download/v${KUBESEC_VERSION}/kubesec_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBESEC_URL | tar xz
@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.32.1
+ARG TRIVY_VERSION=0.34.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.28.2
+ARG YQ_VERSION=4.29.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.172
+ARG KUBESCAPE_VERSION=2.0.175
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL
@@ -293,7 +293,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.11.0
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.13.0
 ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO $CONTAINER_STRUCTURE_TEST_URL

@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.34.0
+ARG TRIVY_VERSION=0.35.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.30.4
+ARG YQ_VERSION=4.30.5
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -293,7 +293,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.13.0
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.14.0
 ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO $CONTAINER_STRUCTURE_TEST_URL

@@ -102,7 +102,7 @@ jobs:
         if: github.event_name != 'pull_request'
         with:
           registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: ${{ github.actor }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Install Cosign

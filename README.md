@@ -5,6 +5,7 @@
 ![Docker Pull](https://img.shields.io/docker/pulls/chgl/kube-powertools)
 [![CI](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml/badge.svg)](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools/badge)](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools)
+[![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)
 
 An always up to date collection of useful tools for your Kubernetes linting and auditing needs.
 
@@ -20,7 +21,6 @@ The container image is pushed to three registries:
 
 - `docker.io/chgl/kube-powertools:latest`
 - `ghcr.io/chgl/kube-powertools:latest`
-- `quay.io/chgl/kube-powertools:latest`
 
 You can use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases)
 instead of using `latest`.
@@ -92,10 +92,35 @@ $ docker run --rm -it -v $PWD:/usr/src/app kube-powertools:dev
 bash-5.1# CHARTS_DIR=samples/charts scripts/chart-powerlint.sh
 ```
 
-## Verify image integrity
+## Image signature and provenance verification
 
-All released container images are signed using [cosign](https://github.com/sigstore/cosign) following the [keyless approach](https://github.com/sigstore/cosign/blob/main/KEYLESS.md). To verify the signature:
+Prerequisites:
+
+- [cosign](https://github.com/sigstore/cosign/releases)
+- [slsa-verifier](https://github.com/slsa-framework/slsa-verifier/releases)
+- [crane](https://github.com/google/go-containerregistry/releases)
+
+First, determine the digest of the container image to verify. This digest is also visible on
+the packages page on GitHub: <https://github.com/chgl/kube-powertools/pkgs/container/kube-powertools>.
+
+> **Warning**
+> Please don't use the `latest` tag in any production environment.
+> Instead use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases).
 
 ```sh
-COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/chgl/kube-powertools:latest
+IMAGE_DIGEST=$(crane digest ghcr.io/chgl/kube-powertools:latest)
 ```
+
+Verify the container signature:
+
+```sh
+COSIGN_EXPERIMENTAL=1 cosign verify "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}"
+```
+
+Verify the container SLSA level 3 provenance attestation:
+
+```sh
+slsa-verifier verify-image "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}" --source-uri github.com/chgl/kube-powertools
+```
+
+See also <https://github.com/slsa-framework/slsa-github-generator/tree/main/internal/builders/container#verification> for details on verifying the image integrity using automated policy controllers.

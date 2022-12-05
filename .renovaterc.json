@@ -40,6 +40,11 @@
     {
       "matchManagers": ["github-actions", "docker-compose", "kubernetes"],
       "extends": ["schedule:monthly"]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["slsa-framework/slsa-github-generator"],
+      "pinDigests": false
     }
   ]
 }

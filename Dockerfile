@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM docker.io/library/ubuntu:22.04@sha256:b6b83d3c331794420340093eb706a6f152d9c1fa51b262d9bf34594887c2c7ac
+FROM docker.io/library/ubuntu:22.04@sha256:4b1d0c4a2d2aaf63b37111f34eb9fa89fa1bf53dd6e4ca954d47caebca4005c2
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
@@ -19,7 +19,7 @@ npm install -g prettier@2.7.1 markdownlint-cli@0.32.0
 EOF
 
 # kubectl
-ARG KUBECTL_VERSION=1.24.0
+ARG KUBECTL_VERSION=1.25.0
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 RUN <<EOF
 curl -LSsO $KUBECTL_URL

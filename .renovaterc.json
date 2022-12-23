@@ -41,7 +41,8 @@
     },
     {
       "matchManagers": ["github-actions"],
-      "extends": ["schedule:monthly"]
+      "extends": ["schedule:monthly"],
+      "groupName": "github-actions"
     },
     {
       "matchManagers": ["github-actions"],

@@ -30,12 +30,12 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.1.32
+ARG CHECKOV_VERSION=2.2.201
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.10.2
+ARG HELM_VERSION=3.10.3
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_URL | tar xz
@@ -105,7 +105,7 @@ EOF
 
 # Kube Score
 # renovate: datasource=github-releases depName=zegl/kube-score
-ARG KUBE_SCORE_VERSION=1.14.0
+ARG KUBE_SCORE_VERSION=1.16.1
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSs $KUBE_SCORE_URL -o kube-score
@@ -149,7 +149,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=0.5.0
+ARG KUBE_LINTER_VERSION=0.5.1
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs $KUBE_LINTER_URL | tar xz
@@ -160,7 +160,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.35.0
+ARG CONFTEST_VERSION=0.37.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $CONFTEST_URL | tar xz
@@ -182,7 +182,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.4.2
+ARG NOVA_VERSION=3.5.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $NOVA_URL | tar xz
@@ -204,7 +204,7 @@ EOF
 
 # Kube No Trouble
 # renovate: datasource=github-releases depName=doitintl/kube-no-trouble
-ARG KUBENT_VERSION=0.6.0
+ARG KUBENT_VERSION=0.7.0
 ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBENT_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.30.5
+ARG YQ_VERSION=4.30.6
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.176
+ARG KUBESCAPE_VERSION=2.0.179
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL
@@ -305,7 +305,7 @@ EOF
 
 # ah cli
 # renovate: datasource=github-releases depName=artifacthub/hub
-ARG AH_CLI_VERSION=1.10.0
+ARG AH_CLI_VERSION=1.11.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $AH_CLI_URL | tar xz

@@ -39,7 +39,7 @@ jobs:
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2
         if: github.event_name != 'pull_request'
         with:
-          username: ${{ github.actor }}
+          username: chgl
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Login to GitHub Container Registry
@@ -148,7 +148,7 @@ jobs:
     with:
       image: "docker.io/${{ github.repository }}"
       digest: ${{ needs.build.outputs.image-digest }}
-      registry-username: ${{ github.actor }}
+      registry-username: chgl
       # TODO(https://github.com/slsa-framework/slsa-github-generator/issues/492): Remove after GA release.
       compile-generator: true
     secrets:

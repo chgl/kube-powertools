@@ -30,7 +30,7 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.2.229
+ARG CHECKOV_VERSION=2.2.246
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
@@ -127,7 +127,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=7.2.0
+ARG POLARIS_VERSION=7.3.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -138,7 +138,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.11.2
+ARG PLUTO_VERSION=5.12.0
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $PLUTO_URL | tar xz
@@ -182,7 +182,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.5.0
+ARG NOVA_VERSION=3.6.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $NOVA_URL | tar xz
@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.36.0
+ARG TRIVY_VERSION=0.36.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.180
+ARG KUBESCAPE_VERSION=2.0.181
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL

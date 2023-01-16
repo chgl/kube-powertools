@@ -30,7 +30,7 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.2.246
+ARG CHECKOV_VERSION=2.2.264
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
@@ -160,7 +160,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.37.0
+ARG CONFTEST_VERSION=0.38.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $CONFTEST_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.30.6
+ARG YQ_VERSION=4.30.8
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.0.181
+ARG KUBESCAPE_VERSION=2.0.183
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL

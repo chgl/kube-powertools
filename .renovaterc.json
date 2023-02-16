@@ -28,7 +28,6 @@
     {
       "matchPackageNames": [
         "stackrox/kube-linter",
-        "FairwindsOps/nova",
         "FairwindsOps/polaris",
         "doitintl/kube-no-trouble",
         "bridgecrewio/checkov"

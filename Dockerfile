@@ -260,7 +260,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=1.13.1
+ARG COSIGN_VERSION=2.0.0
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO $COSIGN_URL

@@ -30,12 +30,12 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.3.155
+ARG CHECKOV_VERSION=2.3.171
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.11.2
+ARG HELM_VERSION=3.11.3
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_URL | tar xz
@@ -138,7 +138,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.16.0
+ARG PLUTO_VERSION=5.16.1
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $PLUTO_URL | tar xz
@@ -149,7 +149,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=v0.6.1
+ARG KUBE_LINTER_VERSION=v0.6.3
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs $KUBE_LINTER_URL | tar xz
@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.39.1
+ARG TRIVY_VERSION=0.40.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.33.2
+ARG YQ_VERSION=4.33.3
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL

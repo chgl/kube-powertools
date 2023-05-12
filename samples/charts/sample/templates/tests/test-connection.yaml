@@ -8,9 +8,10 @@ metadata:
     "helm.sh/hook": test
 spec:
   restartPolicy: Never
+  automountServiceAccountToken: false
   containers:
     - name: wget
-      image: busybox:1
+      image: docker.io/library/busybox:1.36.0@sha256:9e2bbca079387d7965c3a9cee6d0c53f4f4e63ff7637877a83c4c05f2a666112
       imagePullPolicy: Always
       command: ['wget', '-O', '-']
       args: ['{{ include "sample.fullname" . }}:{{ .Values.service.port }}']
@@ -20,8 +21,11 @@ spec:
           drop:
             - ALL
         readOnlyRootFilesystem: true
-        runAsUser: 22222
         runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
+        seccompProfile:
+          type: RuntimeDefault
       resources:
         limits:
           cpu: 100m

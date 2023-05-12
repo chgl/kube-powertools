@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginxinc/nginx-unprivileged
+  repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.24.0@sha256:b5a5c4f56631205fa64fc47f67b4b8a6fba920c47cbb6bcc04ef25f5a2f85f3c"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -26,8 +26,9 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  {}
-  # fsGroup: 2000
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
 
 securityContext:
   capabilities:
@@ -35,8 +36,11 @@ securityContext:
       - ALL
   readOnlyRootFilesystem: true
   runAsNonRoot: true
-  runAsUser: 101
+  runAsUser: 65534
+  runAsGroup: 65534
   allowPrivilegeEscalation: false
+  seccompProfile:
+    type: RuntimeDefault
 
 service:
   type: ClusterIP

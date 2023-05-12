@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM docker.io/library/ubuntu:22.04@sha256:27cb6e6ccef575a4698b66f5de06c7ecd61589132d5a91d098f7f3f9285415a9
+FROM docker.io/library/ubuntu:22.04@sha256:dfd64a3b4296d8c9b62aa3309984f8620b98d87e47492599ee20739e8eb54fbf
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
@@ -13,13 +13,13 @@ apt-get install -y --no-install-recommends nodejs
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
-pip install --no-cache-dir yamale==4.0.4 yamllint==1.28.0 pre-commit==2.20.0
+pip install --no-cache-dir yamale==4.0.4 yamllint==1.31.0 pre-commit==3.3.1
 
-npm install -g prettier@2.7.1 markdownlint-cli@0.32.0
+npm install -g prettier@2.8.8 markdownlint-cli@0.34.0
 EOF
 
 # kubectl
-ARG KUBECTL_VERSION=1.26.0
+ARG KUBECTL_VERSION=1.27.1
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 RUN <<EOF
 curl -LSsO $KUBECTL_URL
@@ -312,6 +312,17 @@ curl -LSs $AH_CLI_URL | tar xz
 mv ./ah /usr/local/bin/ah
 chmod +x /usr/local/bin/ah
 ah version
+EOF
+
+# kyverno cli
+# renovate: datasource=github-releases depName=kyverno/kyverno
+ARG KYVERNO_CLI_VERSION=1.9.3
+ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
+RUN <<EOF
+curl -LSs $KYVERNO_CLI_URL | tar xz
+mv ./kyverno /usr/local/bin/kyverno
+chmod +x /usr/local/bin/kyverno
+kyverno version
 EOF
 
 COPY scripts/ /usr/local/bin

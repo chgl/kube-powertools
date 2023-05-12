@@ -83,6 +83,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [kubepug](https://github.com/rikatz/kubepug)
 - [container-structure-test](https://github.com/GoogleContainerTools/container-structure-test)
 - [Artifact Hub CLI](https://github.com/artifacthub/hub)
+- [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
 
 ## Testing locally
 

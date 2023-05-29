@@ -30,7 +30,7 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.3.251
+ARG CHECKOV_VERSION=2.3.261
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
@@ -225,7 +225,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.33.3
+ARG YQ_VERSION=4.34.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -236,7 +236,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.3.3
+ARG KUBESCAPE_VERSION=2.3.4
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL
@@ -316,7 +316,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.9.3
+ARG KYVERNO_CLI_VERSION=1.9.4
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $KYVERNO_CLI_URL | tar xz

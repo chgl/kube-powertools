@@ -4,6 +4,9 @@ SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
 RUN <<EOF
+groupadd --gid=65532 kube-powertools
+useradd --create-home --shell=/bin/bash --uid=65532 --gid=65532 kube-powertools
+
 apt-get update
 apt-get install -y --no-install-recommends python3-pip git curl jq
 
@@ -127,7 +130,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=7.4.2
+ARG POLARIS_VERSION=8.0.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -328,6 +331,8 @@ EOF
 COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh
-WORKDIR /usr/src/app
+
+USER 65532:65532
+WORKDIR /home/kube-powertools/workspace
 
 CMD ["/bin/bash"]

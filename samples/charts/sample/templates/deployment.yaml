@@ -25,8 +25,17 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "sample.serviceAccountName" . }}
+      # set to satisfy polaris
+      priorityClassName: normal
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              {{- include "sample.selectorLabels" . | nindent 14 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:

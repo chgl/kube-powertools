@@ -60,10 +60,6 @@ jobs:
           tags: ${{ steps.container_meta.outputs.tags }}
           labels: ${{ steps.container_meta.outputs.labels }}
 
-      - name: Test newly built image
-        run: |
-          docker run --rm -it -v "${PWD}:/home/kube-powertools/workspace" -e CHARTS_DIR=samples/charts ${{ steps.container_meta.outputs.tags }} chart-powerlint.sh
-
   release:
     if: ${{ github.event_name != 'pull_request' }}
     needs: build

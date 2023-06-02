@@ -1,0 +1,2 @@
+exclude = [ '.*\.nip.io',  '.*example:8080.*',  '^https://github.com/.*/compare/' ]
+exclude_all_private = true

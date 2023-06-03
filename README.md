@@ -14,7 +14,7 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 Mount a folder containing your Helm or raw Kubernetes manifests:
 
 ```sh
-docker run --rm -it -v $PWD:/home/kube-powertools/workspace ghcr.io/chgl/kube-powertools:latest
+docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:latest
 ```
 
 The container image is pushed to three registries:
@@ -37,7 +37,7 @@ For example, you can mount this repository into the `kube-powertools` container 
 in the `/samples/charts` dir:
 
 ```sh
-$ docker run --rm -it -v $PWD:/home/kube-powertools/workspace ghcr.io/chgl/kube-powertools:latest
+$ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:latest
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 
@@ -89,7 +89,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 
 ```sh
 docker build -t kube-powertools:dev .
-$ docker run --rm -it -v $PWD:/home/kube-powertools/workspace kube-powertools:dev
+$ docker run --rm -it -v $PWD:/root/workspace kube-powertools:dev
 bash-5.1# CHARTS_DIR=samples/charts scripts/chart-powerlint.sh
 ```
 

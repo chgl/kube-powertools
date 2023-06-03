@@ -4,9 +4,6 @@ SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3008
 RUN <<EOF
-groupadd --gid=65532 kube-powertools
-useradd --create-home --shell=/bin/bash --uid=65532 --gid=65532 kube-powertools
-
 apt-get update
 apt-get install -y --no-install-recommends python3-pip git curl jq
 
@@ -332,7 +329,7 @@ COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh
 
-USER 65532:65532
-WORKDIR /home/kube-powertools/workspace
+USER 0:0
+WORKDIR /root/workspace
 
 CMD ["/bin/bash"]

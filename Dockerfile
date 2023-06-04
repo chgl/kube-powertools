@@ -329,6 +329,7 @@ COPY scripts/ /usr/local/bin
 COPY opt/ /opt/kube-powertools/
 RUN chmod +x /usr/local/bin/*.sh
 
+# hadolint ignore=DL3002
 USER 0:0
 WORKDIR /root/workspace
 

@@ -30,7 +30,7 @@ EOF
 
 # checkov
 # renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.3.276
+ARG CHECKOV_VERSION=2.3.287
 RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
@@ -54,7 +54,7 @@ EOF
 
 # Helm Local Chart Version Plugin
 # renovate: datasource=github-releases depName=mbenabda/helm-local-chart-version
-ARG HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION=0.0.7
+ARG HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION=0.1.0
 RUN <<EOF
 helm plugin install --version=v${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https://github.com/mbenabda/helm-local-chart-version
 helm local-chart-version version
@@ -94,7 +94,7 @@ EOF
 
 # Kubeconform
 # renovate: datasource=github-releases depName=yannh/kubeconform
-ARG KUBECONFORM_VERSION=0.6.1
+ARG KUBECONFORM_VERSION=0.6.2
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBECONFORM_URL | tar xz
@@ -127,7 +127,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=8.0.0
+ARG POLARIS_VERSION=8.2.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -160,7 +160,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.43.0
+ARG CONFTEST_VERSION=0.43.1
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $CONFTEST_URL | tar xz
@@ -214,7 +214,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.42.0
+ARG TRIVY_VERSION=0.42.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz

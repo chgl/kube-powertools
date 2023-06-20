@@ -124,6 +124,7 @@ jobs:
       - build
     permissions:
       actions: read # for detecting the Github Actions environment.
+      # kics-scan ignore-line
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.6.0
@@ -142,6 +143,7 @@ jobs:
       - build
     permissions:
       actions: read # for detecting the Github Actions environment.
+      # kics-scan ignore-line
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v1.6.0

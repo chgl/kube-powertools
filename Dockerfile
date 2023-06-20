@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1.4
 FROM docker.io/library/ubuntu:22.04@sha256:dfd64a3b4296d8c9b62aa3309984f8620b98d87e47492599ee20739e8eb54fbf
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
+ENV NO_UPDATE_NOTIFIER=true \
+    NODE_ENV=production \
+    PATH="$PATH:/root/node_modules/.bin"
+WORKDIR /root
 
 # hadolint ignore=DL3008
 RUN <<EOF
@@ -12,10 +16,13 @@ apt-get install -y --no-install-recommends nodejs
 
 apt-get clean
 rm -rf /var/lib/apt/lists/*
+EOF
 
-pip install --no-cache-dir yamale==4.0.4 yamllint==1.31.0 pre-commit==3.3.1
+COPY requirements.txt package*.json ./
 
-npm install -g prettier@2.8.8 markdownlint-cli@0.34.0
+RUN <<EOF
+pip install --no-cache-dir -r requirements.txt
+npm clean-install
 EOF
 
 # kubectl
@@ -27,11 +34,6 @@ mv ./kubectl /usr/local/bin/kubectl
 chmod +x /usr/local/bin/kubectl
 kubectl version --client
 EOF
-
-# checkov
-# renovate: datasource=github-releases depName=bridgecrewio/checkov
-ARG CHECKOV_VERSION=2.3.294
-RUN pip install --no-cache-dir checkov==${CHECKOV_VERSION}
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm

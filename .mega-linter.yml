@@ -12,6 +12,9 @@ DISABLE_LINTERS:
   - MARKDOWN_MARKDOWN_LINK_CHECK
   - MARKDOWN_MARKDOWN_TABLE_FORMATTER
   - REPOSITORY_SEMGREP
+  # False positive: error - python package "--hash" is available for public registration. /github/workspace/requirements.txt
+  # Also seems to be an inactive project.
+  - REPOSITORY_DUSTILOCK
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 # DISABLE_ERRORS: true # Uncomment if you want MegaLinter to detect errors but not block CI to pass

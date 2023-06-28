@@ -349,9 +349,9 @@ contextlib2==21.6.0 \
     --hash=sha256:3fbdb64466afd23abaf6c977627b75b6139a5a3e8ce38405c5b413aed7a0471f \
     --hash=sha256:ab1e2bfe1d01d968e1b7e8d9023bc51ef3509bba217bb730cee3827e1ee82869
     # via schema
-cyclonedx-python-lib==3.1.5 \
-    --hash=sha256:1ccd482024a30b95c4fffb3fe567a9df97b705f34c1075f8abde8537867600c3 \
-    --hash=sha256:8981ca462fba91469c268d684a03f72c89c7a807674d884f83a28d8c2822a9b6
+cyclonedx-python-lib==4.0.1 \
+    --hash=sha256:878e33b8e0080c786f6cbd4c6f87ad610db65d6a3a686a5698415d9cfcd8925d \
+    --hash=sha256:907b64f00df85d727a425de86604768b248cf19285993729e04f17bec767f692
     # via checkov
 decorator==5.1.1 \
     --hash=sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330 \

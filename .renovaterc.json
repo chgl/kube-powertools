@@ -48,5 +48,8 @@
       "matchPackageNames": ["slsa-framework/slsa-github-generator"],
       "pinDigests": false
     }
-  ]
+  ],
+  "pip-compile": {
+    "fileMatch": ["(^|/)requirements\\.in$"]
+  }
 }

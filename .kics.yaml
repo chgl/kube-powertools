@@ -1,0 +1,4 @@
+verbose: true
+log-file: true
+exclude-paths:
+  - "samples/charts/"

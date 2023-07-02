@@ -9,7 +9,6 @@
     "helpers:pinGitHubActionDigests",
     "docker:pinDigests"
   ],
-  "ignoreDeps": ["docker.io/library/ubuntu"],
   "regexManagers": [
     {
       "fileMatch": ["^Dockerfile$"],
@@ -49,6 +48,7 @@
       "pinDigests": false
     }
   ],
+  "ignorePaths": ["requirements.txt"],
   "pip-compile": {
     "fileMatch": ["(^|/)requirements\\.in$"]
   }

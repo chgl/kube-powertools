@@ -108,7 +108,7 @@ EOF
 
 # Kube Score
 # renovate: datasource=github-releases depName=zegl/kube-score
-ARG KUBE_SCORE_VERSION=1.16.1
+ARG KUBE_SCORE_VERSION=1.17.0
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSs $KUBE_SCORE_URL -o kube-score
@@ -130,7 +130,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=8.2.4
+ARG POLARIS_VERSION=8.3.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -163,7 +163,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.43.1
+ARG CONFTEST_VERSION=0.44.1
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $CONFTEST_URL | tar xz
@@ -217,7 +217,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.43.0
+ARG TRIVY_VERSION=0.43.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz
@@ -239,7 +239,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.3.6
+ARG KUBESCAPE_VERSION=2.3.7
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO $KUBESCAPE_URL
@@ -285,7 +285,7 @@ EOF
 
 # kubepug
 # renovate: datasource=github-releases depName=rikatz/kubepug
-ARG KUBEPUG_VERSION=1.4.0
+ARG KUBEPUG_VERSION=1.5.0
 ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBEPUG_URL | tar xz
@@ -319,7 +319,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.10.0
+ARG KYVERNO_CLI_VERSION=1.10.1
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $KYVERNO_CLI_URL | tar xz

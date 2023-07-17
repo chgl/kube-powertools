@@ -38,7 +38,7 @@ EOF
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.12.1
+ARG HELM_VERSION=3.12.2
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_URL | tar xz
@@ -97,7 +97,7 @@ EOF
 
 # Kubeconform
 # renovate: datasource=github-releases depName=yannh/kubeconform
-ARG KUBECONFORM_VERSION=0.6.2
+ARG KUBECONFORM_VERSION=0.6.3
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBECONFORM_URL | tar xz
@@ -119,7 +119,7 @@ EOF
 
 # Chart Testing
 # renovate: datasource=github-releases depName=helm/chart-testing
-ARG CT_VERSION=3.8.0
+ARG CT_VERSION=3.9.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $CT_URL | tar xz
@@ -130,7 +130,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=8.3.0
+ARG POLARIS_VERSION=8.4.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $POLARIS_URL | tar xz
@@ -141,7 +141,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.17.0
+ARG PLUTO_VERSION=5.18.1
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $PLUTO_URL | tar xz
@@ -228,7 +228,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.34.1
+ARG YQ_VERSION=4.34.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL
@@ -285,7 +285,7 @@ EOF
 
 # kubepug
 # renovate: datasource=github-releases depName=rikatz/kubepug
-ARG KUBEPUG_VERSION=1.5.0
+ARG KUBEPUG_VERSION=1.5.1
 ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $KUBEPUG_URL | tar xz

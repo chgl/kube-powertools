@@ -19,8 +19,8 @@ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.1.25
 
 The container image is pushed to these two registries:
 
-- `docker.io/chgl/kube-powertools:v2.1.25
-- `ghcr.io/chgl/kube-powertools:v2.1.25
+- docker.io/chgl/kube-powertools:v2.1.25
+- ghcr.io/chgl/kube-powertools:v2.1.25
 
 ## Helm Chart Repositories
 

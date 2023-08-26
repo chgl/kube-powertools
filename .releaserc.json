@@ -38,6 +38,41 @@
         }
       }
     ],
-    "@semantic-release/github"
+    "@semantic-release/github",
+    [
+      "semantic-release-replace-plugin",
+      {
+        "replacements": [
+          {
+            "files": ["README.md"],
+            "from": "ghcr.io/chgl/kube-powertools:v.*",
+            "to": "ghcr.io/chgl/kube-powertools:v${nextRelease.version}",
+            "results": [
+              {
+                "file": "README.md",
+                "hasChanged": true
+              }
+            ]
+          },
+          {
+            "files": ["README.md"],
+            "from": "docker.io/chgl/kube-powertools:v.*",
+            "to": "docker.io/chgl/kube-powertools:v${nextRelease.version}",
+            "results": [
+              {
+                "file": "README.md",
+                "hasChanged": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["README.md"]
+      }
+    ]
   ]
 }

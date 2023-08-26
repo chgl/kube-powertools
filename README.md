@@ -14,16 +14,13 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 Mount a folder containing your Helm or raw Kubernetes manifests:
 
 ```sh
-docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:latest
+docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.1.24
 ```
 
-The container image is pushed to three registries:
+The container image is pushed to these two registries:
 
-- `docker.io/chgl/kube-powertools:latest`
-- `ghcr.io/chgl/kube-powertools:latest`
-
-You can use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases)
-instead of using `latest`.
+- `docker.io/chgl/kube-powertools:v2.1.24`
+- `ghcr.io/chgl/kube-powertools:v2.1.24`
 
 ## Helm Chart Repositories
 
@@ -37,7 +34,7 @@ For example, you can mount this repository into the `kube-powertools` container 
 in the `/samples/charts` dir:
 
 ```sh
-$ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:latest
+$ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.1.24
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 
@@ -104,12 +101,8 @@ Prerequisites:
 First, determine the digest of the container image to verify. This digest is also visible on
 the packages page on GitHub: <https://github.com/chgl/kube-powertools/pkgs/container/kube-powertools>.
 
-> **Warning**
-> Please don't use the `latest` tag in any production environment.
-> Instead use the `vX.Y.Z` image tags corresponding to the [releases](https://github.com/chgl/kube-powertools/releases).
-
 ```sh
-IMAGE_DIGEST=$(crane digest ghcr.io/chgl/kube-powertools:latest)
+IMAGE_DIGEST=$(crane digest ghcr.io/chgl/kube-powertools:v2.1.24)
 ```
 
 Verify the container signature:

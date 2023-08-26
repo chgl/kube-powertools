@@ -102,19 +102,28 @@ First, determine the digest of the container image to verify. This digest is als
 the packages page on GitHub: <https://github.com/chgl/kube-powertools/pkgs/container/kube-powertools>.
 
 ```sh
-IMAGE_DIGEST=$(crane digest ghcr.io/chgl/kube-powertools:v2.1.25
+IMAGE=ghcr.io/chgl/kube-powertools:v2.1.25
+IMAGE_DIGEST=$(crane digest $IMAGE)
+IMAGE_TAG="${IMAGE#*:}"
 ```
 
 Verify the container signature:
 
 ```sh
-COSIGN_EXPERIMENTAL=1 cosign verify "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}"
+cosign verify \
+   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
+   --certificate-identity="https://github.com/chgl/kube-powertools/.github/workflows/ci.yaml@refs/tags/${IMAGE_TAG}" \
+   "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}"
 ```
 
 Verify the container SLSA level 3 provenance attestation:
 
 ```sh
-slsa-verifier verify-image "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}" --source-uri github.com/chgl/kube-powertools
+slsa-verifier verify-image \
+    --source-uri github.com/chgl/kube-powertools \
+    --source-tag ${IMAGE_TAG} \
+    --source-branch master \
+    "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}"
 ```
 
 See also <https://github.com/slsa-framework/slsa-github-generator/tree/main/internal/builders/container#verification> for details on verifying the image integrity using automated policy controllers.

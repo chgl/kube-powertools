@@ -23,27 +23,27 @@ jobs:
     steps:
       - name: Docker meta
         id: container_meta
-        uses: docker/metadata-action@c4ee3adeed93b1fa6a762f209fb01608c1a22f1e # v4
+        uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5
         with:
           images: |
             ghcr.io/${{ github.repository }}
             docker.io/${{ github.repository }}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@e81a89b1732b9c48d79cd809d8d81d79c4647a18 # v2
+        uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3 # v3
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@4b4e9c3e2d4531116a6f8ba8e71fc6e2cb6e6c8c # v2
+        uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3
 
       - name: Login to DockerHub
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3
         if: github.event_name != 'pull_request'
         with:
           username: chgl
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3
         if: github.event_name != 'pull_request'
         with:
           registry: ghcr.io
@@ -52,7 +52,7 @@ jobs:
 
       - name: Build and push
         id: build
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671 # v4
+        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5
         with:
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -70,7 +70,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
         with:
           # via <https://stackoverflow.com/questions/74744498/github-pushing-to-protected-branches-with-fine-grained-token/76550826#76550826>
           persist-credentials: false
@@ -81,7 +81,7 @@ jobs:
           node-version: 14
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@8e58d20d0f6c8773181f43eb74d6a05e3099571d # v3.4.2
+        uses: cycjimmy/semantic-release-action@61680d0e9b02ff86f5648ade99e01be17f0260a4 # v4.0.0
         with:
           extra_plugins: |
             conventional-changelog-conventionalcommits@5.0.0
@@ -101,14 +101,14 @@ jobs:
       packages: write
     steps:
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Login to DockerHub
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3
         if: github.event_name != 'pull_request'
         with:
           registry: docker.io

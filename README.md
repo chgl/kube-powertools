@@ -43,6 +43,10 @@ bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 You can auto-generate and format Markdown docs from the chart's values.yaml using [generate-docs.sh](scripts/generate-docs.sh).
 This scripts uses either `chart-doc-gen` if the chart dir contains a `doc.yaml`, or `helm-docs` if it doesn't.
 
+### Generating Chart Schemas
+
+You can auto-generate the Helm schema from the chart's values.yaml using [generate-schemas.sh](scripts/generate-schemas.sh).
+
 ### Generating CHANGELOG files
 
 Finally, there's [generate-chart-changelog.sh](scripts/generate-chart-changelog.sh), which can be used to generate a CHANGELOG.md file from
@@ -55,6 +59,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [helm](https://github.com/helm/helm)
 - [helm push plugin](https://github.com/chartmuseum/helm-push.git)
+- [helm schema-gen plugin](https://github.com/knechtionscoding/helm-schema-gen.git)
 - [helm-local-chart-version](https://github.com/mbenabda/helm-local-chart-version)
 - [chart-doc-gen](https://github.com/kubepack/chart-doc-gen)
 - [kubeval](https://github.com/instrumenta/kubeval)

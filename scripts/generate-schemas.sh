@@ -12,7 +12,7 @@ for chart in "${CHARTS_DIR}"/*; do
     echo "No 'Chart.yaml' found in directory ${chart}. Skipping."
     continue
   fi
-  
-  helm schema-gen ${chart}/values.yaml > ${chart}/values.schema.json
+
+  helm schema-gen ${chart}/values.yaml >${chart}/values.schema.json
 
 done

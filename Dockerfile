@@ -84,7 +84,7 @@ EOF
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
 ARG HELM_DOCS_VERSION=1.11.2
-ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
+ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_DOCS_URL | tar xz
 mv ./helm-docs /usr/local/bin/helm-docs

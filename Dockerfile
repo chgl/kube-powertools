@@ -83,8 +83,8 @@ EOF
 
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
-ARG HELM_DOCS_VERSION=1.11.0
-ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
+ARG HELM_DOCS_VERSION=1.11.2
+ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_DOCS_URL | tar xz
 mv ./helm-docs /usr/local/bin/helm-docs
@@ -236,7 +236,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.35.1
+ARG YQ_VERSION=4.35.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO $YQ_URL

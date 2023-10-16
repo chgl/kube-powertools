@@ -73,7 +73,7 @@ EOF
 
 # Chart Doc Gen
 # renovate: datasource=github-releases depName=kubepack/chart-doc-gen
-ARG CHART_DOC_GEN_VERSION=0.4.7
+ARG CHART_DOC_GEN_VERSION=0.5.0
 ENV CHART_DOC_GEN_URL=https://github.com/kubepack/chart-doc-gen/releases/download/v"${CHART_DOC_GEN_VERSION}"/chart-doc-gen-linux-amd64
 RUN <<EOF
 curl -LSsO $CHART_DOC_GEN_URL
@@ -83,8 +83,8 @@ EOF
 
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
-ARG HELM_DOCS_VERSION=1.11.2
-ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_Linux_x86_64.tar.gz
+ARG HELM_DOCS_VERSION=1.11.3
+ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs $HELM_DOCS_URL | tar xz
 mv ./helm-docs /usr/local/bin/helm-docs
@@ -149,7 +149,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.18.4
+ARG PLUTO_VERSION=5.18.5
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs $PLUTO_URL | tar xz
@@ -225,7 +225,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.45.1
+ARG TRIVY_VERSION=0.46.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs $TRIVY_URL | tar xz

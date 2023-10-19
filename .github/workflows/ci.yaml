@@ -12,13 +12,14 @@ permissions: read-all
 
 jobs:
   build:
-    uses: chgl/.github/.github/workflows/standard-build.yaml@9ecb33b4f2ee22ac69359a9d3df94ab02164e216 # v1.3.0
+    uses: chgl/.github/.github/workflows/standard-build.yaml@2314fddaf71e51b250ebf145d8e359c43e328533 # v1.3.2
     permissions:
       contents: read
       id-token: write
       packages: write
       pull-requests: write
       actions: read
+      security-events: write
     with:
       enable-build-test-layer: false
       enable-upload-test-image: false
@@ -26,7 +27,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
-    uses: chgl/.github/.github/workflows/standard-lint.yaml@9ecb33b4f2ee22ac69359a9d3df94ab02164e216 # v1.3.0
+    uses: chgl/.github/.github/workflows/standard-lint.yaml@2314fddaf71e51b250ebf145d8e359c43e328533 # v1.3.2
     permissions:
       contents: read
       pull-requests: write
@@ -34,12 +35,12 @@ jobs:
       security-events: write
       actions: read
     with:
-      enable-codeql: true
+      enable-codeql: false
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   release:
-    uses: chgl/.github/.github/workflows/standard-release.yaml@9ecb33b4f2ee22ac69359a9d3df94ab02164e216 # v1.3.0
+    uses: chgl/.github/.github/workflows/standard-release.yaml@2314fddaf71e51b250ebf145d8e359c43e328533 # v1.3.2
     needs:
       - build
     permissions:
@@ -48,3 +49,23 @@ jobs:
       issues: write
     secrets:
       semantic-release-token: ${{ secrets.CI_SEMANTIC_RELEASE_TOKEN }}
+
+  copy-image-to-dockerhub:
+    name: copy ghcr.io image to DockerHub
+    if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-22.04
+    needs:
+      - build
+    steps:
+      - uses: imjasonh/setup-crane@00c9e93efa4e1138c9a7a5c594acd6c75a2fbf0c # v0.3
+      - name: Login to DockerHub
+        env:
+          DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"
+        run: |
+          echo "${DOCKERHUB_TOKEN}" | crane auth login docker.io --username chgl --password-stdin
+      - name: Copy all tags
+        env:
+          TAGS: ${{ needs.build.outputs.image-tags }}
+        run: |
+          # shellcheck disable=SC2016
+          echo "${TAGS}" | xargs -I {} sh -c 'crane copy "$1" "${1/ghcr.io/docker.io}"' -- {}

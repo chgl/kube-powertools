@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
-FROM docker.io/library/ubuntu:22.10@sha256:e322f4808315c387868a9135beeb11435b5b83130a8599fd7d0014452c34f489
+FROM docker.io/library/ubuntu:22.04@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 ENV NO_UPDATE_NOTIFIER=true \
     NODE_ENV=production \
@@ -27,21 +27,17 @@ npm clean-install
 EOF
 
 # kubectl
-ARG KUBECTL_VERSION=1.27.1
+ARG KUBECTL_VERSION=1.28.3
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
-RUN <<EOF
-curl -LSsO $KUBECTL_URL
-mv ./kubectl /usr/local/bin/kubectl
-chmod +x /usr/local/bin/kubectl
-kubectl version --client
-EOF
+COPY --from=docker.io/bitnami/kubectl:1.28.3@sha256:1364cda0798b2c44f327265397fbd34a32e66d80328d6e50a2d10377d7e2ff6d /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
 ARG HELM_VERSION=3.13.1
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
-curl -LSs $HELM_URL | tar xz
+curl -LSs "$HELM_URL" | tar xz
 mv linux-amd64/helm /usr/local/bin/helm
 chmod +x /usr/local/bin/helm
 helm version
@@ -76,7 +72,7 @@ EOF
 ARG CHART_DOC_GEN_VERSION=0.5.0
 ENV CHART_DOC_GEN_URL=https://github.com/kubepack/chart-doc-gen/releases/download/v"${CHART_DOC_GEN_VERSION}"/chart-doc-gen-linux-amd64
 RUN <<EOF
-curl -LSsO $CHART_DOC_GEN_URL
+curl -LSsO "$CHART_DOC_GEN_URL"
 mv chart-doc-gen-linux-amd64 /usr/local/bin/chart-doc-gen
 chmod +x /usr/local/bin/chart-doc-gen
 EOF
@@ -86,7 +82,7 @@ EOF
 ARG HELM_DOCS_VERSION=1.11.3
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
-curl -LSs $HELM_DOCS_URL | tar xz
+curl -LSs "$HELM_DOCS_URL" | tar xz
 mv ./helm-docs /usr/local/bin/helm-docs
 chmod +x /usr/local/bin/helm-docs
 helm-docs --version
@@ -97,7 +93,7 @@ EOF
 ARG KUBEVAL_VERSION=v0.16.1
 ENV KUBEVAL_URL=https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUBEVAL_URL | tar xz
+curl -LSs "$KUBEVAL_URL" | tar xz
 mv ./kubeval /usr/local/bin/kubeval
 chmod +x /usr/local/bin/kubeval
 kubeval --version
@@ -108,7 +104,7 @@ EOF
 ARG KUBECONFORM_VERSION=0.6.3
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUBECONFORM_URL | tar xz
+curl -LSs "$KUBECONFORM_URL"| tar xz
 mv ./kubeconform /usr/local/bin/kubeconform
 chmod +x /usr/local/bin/kubeconform
 kubeconform -h
@@ -119,7 +115,7 @@ EOF
 ARG KUBE_SCORE_VERSION=1.17.0
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN <<EOF
-curl -LSs $KUBE_SCORE_URL -o kube-score
+curl -LSs "$KUBE_SCORE_URL" -o kube-score
 mv kube-score /usr/local/bin/kube-score
 chmod +x /usr/local/bin/kube-score
 kube-score version
@@ -130,7 +126,7 @@ EOF
 ARG CT_VERSION=3.9.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $CT_URL | tar xz
+curl -LSs "$CT_URL" | tar xz
 mv ./ct  /usr/local/bin/ct
 chmod +x /usr/local/bin/ct
 ct version
@@ -141,7 +137,7 @@ EOF
 ARG POLARIS_VERSION=8.5.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $POLARIS_URL | tar xz
+curl -LSs "$POLARIS_URL" | tar xz
 mv ./polaris  /usr/local/bin/polaris
 chmod +x /usr/local/bin/polaris
 polaris version
@@ -152,7 +148,7 @@ EOF
 ARG PLUTO_VERSION=5.18.5
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $PLUTO_URL | tar xz
+curl -LSs "$PLUTO_URL" | tar xz
 mv ./pluto /usr/local/bin/pluto
 chmod +x /usr/local/bin/pluto
 pluto version
@@ -163,7 +159,7 @@ EOF
 ARG KUBE_LINTER_VERSION=v0.6.4
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
-curl -LSs $KUBE_LINTER_URL | tar xz
+curl -LSs "$KUBE_LINTER_URL" | tar xz
 mv ./kube-linter /usr/local/bin/kube-linter
 chmod +x /usr/local/bin/kube-linter
 kube-linter version
@@ -174,7 +170,7 @@ EOF
 ARG CONFTEST_VERSION=0.46.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
-curl -LSs $CONFTEST_URL | tar xz
+curl -LSs "$CONFTEST_URL" | tar xz
 mv ./conftest /usr/local/bin/conftest
 chmod +x /usr/local/bin/conftest
 conftest --version
@@ -185,7 +181,7 @@ EOF
 ARG KUSTOMIZE_VERSION=5.1.1
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUSTOMIZE_URL | tar xz
+curl -LSs "$KUSTOMIZE_URL" | tar xz
 mv ./kustomize /usr/local/bin/kustomize
 chmod +x /usr/local/bin/kustomize
 kustomize version
@@ -196,7 +192,7 @@ EOF
 ARG NOVA_VERSION=3.7.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $NOVA_URL | tar xz
+curl -LSs "$NOVA_URL" | tar xz
 mv ./nova /usr/local/bin/nova
 chmod +x /usr/local/bin/nova
 nova version
@@ -207,7 +203,7 @@ EOF
 ARG KUBESEC_VERSION=2.13.0
 ENV KUBESEC_URL=https://github.com/controlplaneio/kubesec/releases/download/v${KUBESEC_VERSION}/kubesec_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUBESEC_URL | tar xz
+curl -LSs "$KUBESEC_URL" | tar xz
 mv ./kubesec /usr/local/bin/kubesec
 chmod +x /usr/local/bin/kubesec
 kubesec version
@@ -218,7 +214,7 @@ EOF
 ARG KUBENT_VERSION=0.7.0
 ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUBENT_URL | tar xz
+curl -LSs "$KUBENT_URL" | tar xz
 mv ./kubent /usr/local/bin/kubent
 chmod +x /usr/local/bin/kubent
 EOF
@@ -228,7 +224,7 @@ EOF
 ARG TRIVY_VERSION=0.46.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
-curl -LSs $TRIVY_URL | tar xz
+curl -LSs "$TRIVY_URL" | tar xz
 mv ./trivy /usr/local/bin/trivy
 chmod +x /usr/local/bin/trivy
 trivy --version
@@ -239,7 +235,7 @@ EOF
 ARG YQ_VERSION=4.35.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
-curl -LSsO $YQ_URL
+curl -LSsO "$YQ_URL"
 mv ./yq_linux_amd64 /usr/local/bin/yq
 chmod +x /usr/local/bin/yq
 yq --version
@@ -250,7 +246,7 @@ EOF
 ARG KUBESCAPE_VERSION=2.9.1
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
-curl -LSsO $KUBESCAPE_URL
+curl -LSsO "$KUBESCAPE_URL"
 mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape
 chmod +x /usr/local/bin/kubescape
 kubescape version
@@ -263,7 +259,7 @@ EOF
 ARG GOMPLATE_VERSION=3.11.5
 ENV GOMPLATE_URL=https://github.com/hairyhenderson/gomplate/releases/download/v${GOMPLATE_VERSION}/gomplate_linux-amd64
 RUN <<EOF
-curl -LSsO $GOMPLATE_URL
+curl -LSsO "$GOMPLATE_URL"
 mv ./gomplate_linux-amd64 /usr/local/bin/gomplate
 chmod +x /usr/local/bin/gomplate
 gomplate --version
@@ -274,7 +270,7 @@ EOF
 ARG COSIGN_VERSION=2.2.0
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
-curl -LSsO $COSIGN_URL
+curl -LSsO "$COSIGN_URL"
 mv ./cosign-linux-amd64 /usr/local/bin/cosign
 chmod +x /usr/local/bin/cosign
 cosign version
@@ -285,7 +281,7 @@ EOF
 ARG CRANE_VERSION=0.16.1
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN <<EOF
-curl -LSs $CRANE_URL | tar xz
+curl -LSs "$CRANE_URL" | tar xz
 mv ./crane /usr/local/bin/crane
 chmod +x /usr/local/bin/crane
 crane version
@@ -296,7 +292,7 @@ EOF
 ARG KUBEPUG_VERSION=1.6.1
 ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $KUBEPUG_URL | tar xz
+curl -LSs "$KUBEPUG_URL" | tar xz
 mv ./kubepug /usr/local/bin/kubepug
 chmod +x /usr/local/bin/kubepug
 kubepug version
@@ -307,7 +303,7 @@ EOF
 ARG CONTAINER_STRUCTURE_TEST_VERSION=1.16.0
 ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
-curl -LSsO $CONTAINER_STRUCTURE_TEST_URL
+curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"
 mv container-structure-test-linux-amd64 container-structure-test
 mv container-structure-test /usr/local/bin/
 chmod +x /usr/local/bin/container-structure-test
@@ -319,7 +315,7 @@ EOF
 ARG AH_CLI_VERSION=1.16.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
-curl -LSs $AH_CLI_URL | tar xz
+curl -LSs "$AH_CLI_URL" | tar xz
 mv ./ah /usr/local/bin/ah
 chmod +x /usr/local/bin/ah
 ah version
@@ -330,7 +326,7 @@ EOF
 ARG KYVERNO_CLI_VERSION=1.10.3
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
-curl -LSs $KYVERNO_CLI_URL | tar xz
+curl -LSs "$KYVERNO_CLI_URL" | tar xz
 mv ./kyverno /usr/local/bin/kyverno
 chmod +x /usr/local/bin/kyverno
 kyverno version

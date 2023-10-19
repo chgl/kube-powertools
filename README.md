@@ -2,7 +2,6 @@
 
 ![Last Version](https://img.shields.io/github/v/release/chgl/kube-powertools)
 ![License](https://img.shields.io/github/license/chgl/kube-powertools)
-![Docker Pull](https://img.shields.io/docker/pulls/chgl/kube-powertools)
 [![CI](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml/badge.svg)](https://github.com/chgl/kube-powertools/actions/workflows/ci.yaml)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools/badge)](https://api.securityscorecards.dev/projects/github.com/chgl/kube-powertools)
 [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://slsa.dev)

@@ -67,5 +67,4 @@ jobs:
         env:
           TAGS: ${{ needs.build.outputs.image-tags }}
         run: |
-          # shellcheck disable=SC2016
-          echo "${TAGS}" | xargs -I {} sh -c 'crane copy "$1" "${1/ghcr.io/docker.io}"' -- {}
+          echo "${TAGS}" | while read tag; do crane copy "$tag" "${tag/ghcr.io/docker.io}"; done

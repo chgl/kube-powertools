@@ -178,7 +178,7 @@ EOF
 
 # Kustomize
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION=5.1.1
+ARG KUSTOMIZE_VERSION=5.2.1
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUSTOMIZE_URL" | tar xz
@@ -243,7 +243,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=2.9.1
+ARG KUBESCAPE_VERSION=2.9.2
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -289,7 +289,7 @@ EOF
 
 # kubepug
 # renovate: datasource=github-releases depName=rikatz/kubepug
-ARG KUBEPUG_VERSION=1.6.1
+ARG KUBEPUG_VERSION=1.7.1
 ENV KUBEPUG_URL=https://github.com/rikatz/kubepug/releases/download/v${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUBEPUG_URL" | tar xz

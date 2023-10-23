@@ -67,4 +67,4 @@ jobs:
         env:
           TAGS: ${{ needs.build.outputs.image-tags }}
         run: |
-          echo "${TAGS}" | while read tag; do crane copy "$tag" "${tag/ghcr.io/docker.io}"; done
+          echo "${TAGS}" | while read -r tag; do crane copy "$tag" "${tag/ghcr.io/docker.io}"; done

@@ -9,6 +9,7 @@
     "helpers:pinGitHubActionDigests",
     "docker:pinDigests"
   ],
+  "ignoreDeps": ["docker.io/library/ubuntu"],
   "regexManagers": [
     {
       "fileMatch": ["^Dockerfile$"],

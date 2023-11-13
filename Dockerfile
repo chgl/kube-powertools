@@ -29,7 +29,7 @@ EOF
 # kubectl
 ARG KUBECTL_VERSION=1.28.3
 ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
-COPY --from=docker.io/bitnami/kubectl:1.28.3@sha256:1364cda0798b2c44f327265397fbd34a32e66d80328d6e50a2d10377d7e2ff6d /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.28.3@sha256:0defec793112fa610a850a991ed4ad849c853c54fb2136b95bcdf41ff6f96c38 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm

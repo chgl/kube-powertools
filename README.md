@@ -116,7 +116,11 @@ Verify the container signature:
 ```sh
 cosign verify \
    --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-   --certificate-identity="https://github.com/chgl/kube-powertools/.github/workflows/ci.yaml@refs/tags/${IMAGE_TAG}" \
+   --certificate-identity-regexp="https://github.com/chgl/.github/.github/workflows/standard-build.yaml@.*" \
+   --certificate-github-workflow-name="ci" \
+   --certificate-github-workflow-repository="chgl/kube-powertools" \
+   --certificate-github-workflow-trigger="release" \
+   --certificate-github-workflow-ref="refs/tags/${IMAGE_TAG}" \
    "ghcr.io/chgl/kube-powertools@${IMAGE_DIGEST}"
 ```
 

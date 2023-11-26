@@ -1,10 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", "group:allNonMajor", "schedule:weekly"],
-  "ignoreDeps": ["docker.io/library/ubuntu"],
-  "regexManagers": [
+  "extends": [
+    "config:best-practices",
+    "group:allNonMajor",
+    "schedule:weekly"
+  ],
+  "ignoreDeps": [
+    "docker.io/library/ubuntu"
+  ],
+  "customManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( extractVersion=(?<extractVersion>.*?))?( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
       ],
@@ -14,7 +23,9 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["kubernetes-sigs/kustomize"],
+      "matchPackageNames": [
+        "kubernetes-sigs/kustomize"
+      ],
       "extractVersion": "^kustomize/v(?<version>.*)$"
     },
     {
@@ -27,17 +38,30 @@
       "extractVersion": "^(?<version>.*)$"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     },
     {
-      "matchManagers": ["github-actions"],
-      "extends": ["schedule:monthly"],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "extends": [
+        "schedule:monthly"
+      ],
       "groupName": "github-actions"
     },
     {
-      "matchManagers": ["github-actions"],
-      "matchPackageNames": ["slsa-framework/slsa-github-generator"],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "slsa-framework/slsa-github-generator"
+      ],
       "pinDigests": false
     }
   ]

@@ -10,7 +10,7 @@
   "author": "github.com/chgl",
   "license": "Apache-2.0",
   "dependencies": {
-    "markdownlint-cli": "0.38.0",
-    "prettier": "3.1.1"
+    "markdownlint-cli": "0.39.0",
+    "prettier": "3.2.5"
   }
 }

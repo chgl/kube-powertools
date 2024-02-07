@@ -27,8 +27,6 @@ npm clean-install
 EOF
 
 # kubectl
-ARG KUBECTL_VERSION=1.28.3
-ENV KUBECTL_URL=https://storage.googleapis.com/kubernetes-release/release/v"${KUBECTL_VERSION}"/bin/linux/amd64/kubectl
 COPY --from=docker.io/bitnami/kubectl:1.29.1@sha256:364490ffaddb75f69a49a868a7242b7c88c0a60d59050547a9df7b6f03a0eaee /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
@@ -300,7 +298,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.16.1
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.16.0
 ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"

@@ -27,12 +27,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.29.1@sha256:0ecbdadcc38ea0e0568bfa4994618aceafbe43e214e0b972bde0369078790916 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.29.2@sha256:fed3fcb0bf89b6c10c273c3f97e0f7e72287890e3ee02d14f66b0b42c0e03ebb /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.14.0
+ARG HELM_VERSION=3.14.2
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -77,7 +77,7 @@ EOF
 
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
-ARG HELM_DOCS_VERSION=1.12.0
+ARG HELM_DOCS_VERSION=1.13.0
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_DOCS_URL" | tar xz
@@ -132,7 +132,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=8.5.4
+ARG POLARIS_VERSION=8.5.5
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -154,7 +154,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=v0.6.7
+ARG KUBE_LINTER_VERSION=v0.6.8
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs "$KUBE_LINTER_URL" | tar xz
@@ -165,7 +165,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.49.0
+ARG CONFTEST_VERSION=0.49.1
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -230,7 +230,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.40.5
+ARG YQ_VERSION=4.42.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"

@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.6@sha256:ac85f380a63b13dfcefa89046420e1781752bab202122f8f50032edf31be0021
+# syntax=docker/dockerfile:1.7@sha256:dbbd5e059e8a07ff7ea6233b213b36aa516b4c53c645f1817a4dd18b83cbea56
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
 FROM docker.io/library/ubuntu:22.04@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
@@ -27,12 +27,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.29.2@sha256:c74b703deed247e544a3feca13be7ecb0b091e4d2c3b825c870164bfa4d534ac /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.29.3@sha256:e15084c9093e4c840ebb6e91a23cfbeeaac6a6450ce15ee92d7ee322d9b4f7af /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.14.2
+ARG HELM_VERSION=3.14.3
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -77,7 +77,7 @@ EOF
 
 # Helm Docs
 # renovate: datasource=github-releases depName=norwoodj/helm-docs
-ARG HELM_DOCS_VERSION=1.13.0
+ARG HELM_DOCS_VERSION=1.13.1
 ENV HELM_DOCS_URL=https://github.com/norwoodj/helm-docs/releases/download/v${HELM_DOCS_VERSION}/helm-docs_${HELM_DOCS_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_DOCS_URL" | tar xz
@@ -132,7 +132,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=8.5.5
+ARG POLARIS_VERSION=8.5.6
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -165,7 +165,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.49.1
+ARG CONFTEST_VERSION=0.50.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -209,7 +209,7 @@ EOF
 
 # Kube No Trouble
 # renovate: datasource=github-releases depName=doitintl/kube-no-trouble
-ARG KUBENT_VERSION=0.7.1
+ARG KUBENT_VERSION=0.7.2
 ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUBENT_URL" | tar xz
@@ -241,7 +241,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=3.0.3
+ARG KUBESCAPE_VERSION=3.0.6
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -276,7 +276,7 @@ EOF
 
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
-ARG CRANE_VERSION=0.19.0
+ARG CRANE_VERSION=0.19.1
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CRANE_URL" | tar xz
@@ -298,7 +298,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.16.0
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.17.0
 ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"

@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1.7@sha256:dbbd5e059e8a07ff7ea6233b213b36aa516b4c53c645f1817a4dd18b83cbea56
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
 FROM docker.io/library/ubuntu:22.04@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
@@ -299,7 +298,7 @@ EOF
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
 ARG CONTAINER_STRUCTURE_TEST_VERSION=1.17.0
-ENV CONTAINER_STRUCTURE_TEST_URL=https://storage.googleapis.com/container-structure-test/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
+ENV CONTAINER_STRUCTURE_TEST_URL=https://github.com/GoogleContainerTools/container-structure-test/releases/download/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"
 mv container-structure-test-linux-amd64 container-structure-test

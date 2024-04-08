@@ -13,13 +13,13 @@ An always up to date collection of useful tools for your Kubernetes linting and 
 Mount a folder containing your Helm or raw Kubernetes manifests:
 
 ```sh
-docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.2.54
+docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.2.55
 ```
 
 The container image is pushed to these two registries:
 
-- docker.io/chgl/kube-powertools:v2.2.54
-- ghcr.io/chgl/kube-powertools:v2.2.54
+- docker.io/chgl/kube-powertools:v2.2.55
+- ghcr.io/chgl/kube-powertools:v2.2.55
 
 ## Helm Chart Repositories
 
@@ -33,7 +33,7 @@ For example, you can mount this repository into the `kube-powertools` container 
 in the `/samples/charts` dir:
 
 ```sh
-$ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.2.54
+$ docker run --rm -it -v $PWD:/root/workspace ghcr.io/chgl/kube-powertools:v2.2.55
 bash-5.1# CHARTS_DIR=samples/charts chart-powerlint.sh
 ```
 
@@ -106,7 +106,7 @@ First, determine the digest of the container image to verify. This digest is als
 the packages page on GitHub: <https://github.com/chgl/kube-powertools/pkgs/container/kube-powertools>.
 
 ```sh
-IMAGE=ghcr.io/chgl/kube-powertools:v2.2.54
+IMAGE=ghcr.io/chgl/kube-powertools:v2.2.55
 IMAGE_DIGEST=$(crane digest $IMAGE)
 IMAGE_TAG="${IMAGE#*:}"
 ```

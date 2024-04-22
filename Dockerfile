@@ -26,12 +26,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.29.3@sha256:f5fc0d561d9ef931f9ecb2e8b65d93eb92767c57f64897c56a100bfe28102c74 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.29.4@sha256:decffac45904acbf7de30b16f31be76c1cfd9319ecd85a296bb0521d983d7fcb /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.14.3
+ARG HELM_VERSION=3.14.4
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -264,7 +264,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=2.2.3
+ARG COSIGN_VERSION=2.2.4
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"
@@ -309,7 +309,7 @@ EOF
 
 # ah cli
 # renovate: datasource=github-releases depName=artifacthub/hub
-ARG AH_CLI_VERSION=1.17.0
+ARG AH_CLI_VERSION=1.18.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$AH_CLI_URL" | tar xz

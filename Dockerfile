@@ -26,7 +26,7 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.29.4@sha256:b9e1f89166fdc1f717ba1a82b6666bc66619ac9bb8a9ccb96e86a85fc031f32f /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.30.0@sha256:b909f3a93813f25192bcb57f5c1e482d53ba01413db69c8143fca882e6e930e5 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
@@ -120,7 +120,7 @@ EOF
 
 # Chart Testing
 # renovate: datasource=github-releases depName=helm/chart-testing
-ARG CT_VERSION=3.10.1
+ARG CT_VERSION=3.11.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$CT_URL" | tar xz
@@ -218,7 +218,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.50.1
+ARG TRIVY_VERSION=0.50.4
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -320,7 +320,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.11.4
+ARG KYVERNO_CLI_VERSION=1.12.0
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$KYVERNO_CLI_URL" | tar xz

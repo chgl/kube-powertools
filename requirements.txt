@@ -1,4 +1,4 @@
-yamale==5.2.0
+yamale==5.2.1
 yamllint==1.35.1
 pre-commit==3.7.0
-checkov==3.2.74
+checkov==3.2.79

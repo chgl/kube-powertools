@@ -26,7 +26,7 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.30.0@sha256:b909f3a93813f25192bcb57f5c1e482d53ba01413db69c8143fca882e6e930e5 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.30.0@sha256:b3304501336a48b5f845d0897d6c5252c7b2e4f98a9a6fe1a94a96f92a3a2dc9 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm

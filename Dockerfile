@@ -9,7 +9,7 @@ WORKDIR /root
 # hadolint ignore=DL3008
 RUN <<EOF
 apt-get update
-apt-get install -y --no-install-recommends python3-pip git curl jq
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends python3-pip git curl jq s3cmd
 
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 apt-get install -y --no-install-recommends nodejs
@@ -327,6 +327,17 @@ curl -LSs "$KYVERNO_CLI_URL" | tar xz
 mv ./kyverno /usr/local/bin/kyverno
 chmod +x /usr/local/bin/kyverno
 kyverno version
+EOF
+
+# s5cmd
+# renovate: datasource=github-releases depName=peak/s5cmd
+ARG S5CMD_VERSION=2.2.2
+ENV S5CMD_CLI_URL=https://github.com/peak/s5cmd/releases/download/v${S5CMD_VERSION}/s5cmd_${S5CMD_VERSION}_Linux-64bit.tar.gz
+RUN <<EOF
+curl -LSs "$S5CMD_CLI_URL" | tar xz
+mv ./s5cmd /usr/local/bin/s5cmd
+chmod +x /usr/local/bin/s5cmd
+s5cmd version
 EOF
 
 COPY scripts/ /usr/local/bin

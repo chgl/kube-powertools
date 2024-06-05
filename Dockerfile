@@ -9,7 +9,7 @@ WORKDIR /root
 # hadolint ignore=DL3008
 RUN <<EOF
 apt-get update
-apt-get install -y --no-install-recommends python3-pip git curl jq s3cmd
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends python3-pip git curl jq s3cmd
 
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 apt-get install -y --no-install-recommends nodejs

@@ -131,7 +131,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=9.0.1
+ARG POLARIS_VERSION=9.1.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -218,7 +218,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.52.2
+ARG TRIVY_VERSION=0.53.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -309,7 +309,7 @@ EOF
 
 # ah cli
 # renovate: datasource=github-releases depName=artifacthub/hub
-ARG AH_CLI_VERSION=1.18.0
+ARG AH_CLI_VERSION=1.19.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$AH_CLI_URL" | tar xz

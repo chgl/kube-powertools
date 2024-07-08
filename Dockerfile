@@ -164,7 +164,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.53.0
+ARG CONFTEST_VERSION=0.54.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -240,7 +240,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=3.0.11
+ARG KUBESCAPE_VERSION=3.0.13
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"

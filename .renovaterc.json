@@ -1,6 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", "group:allNonMajor", "schedule:weekly"],
+  "extends": [
+    "config:best-practices",
+    "group:allNonMajor",
+    "schedule:weekly",
+    ":automergeMinor"
+  ],
   "ignoreDeps": ["docker.io/library/ubuntu"],
   "customManagers": [
     {
@@ -26,10 +31,6 @@
         "bridgecrewio/checkov"
       ],
       "extractVersion": "^(?<version>.*)$"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
     },
     {
       "matchManagers": ["github-actions"],

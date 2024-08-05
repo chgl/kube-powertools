@@ -98,7 +98,7 @@ EOF
 
 # Kubeconform
 # renovate: datasource=github-releases depName=yannh/kubeconform
-ARG KUBECONFORM_VERSION=0.6.6
+ARG KUBECONFORM_VERSION=0.6.7
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUBECONFORM_URL"| tar xz
@@ -186,7 +186,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.9.0
+ARG NOVA_VERSION=3.10.0
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$NOVA_URL" | tar xz
@@ -218,7 +218,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.53.0
+ARG TRIVY_VERSION=0.54.1
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -229,7 +229,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.44.2
+ARG YQ_VERSION=4.44.3
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"

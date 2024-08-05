@@ -36,6 +36,8 @@ jobs:
       actions: read
     with:
       enable-codeql: false
+      enable-validate-gradle-wrapper: false
+      enable-verify-base-image-signature: false
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 

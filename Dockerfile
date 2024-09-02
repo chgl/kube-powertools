@@ -208,7 +208,7 @@ EOF
 
 # Kube No Trouble
 # renovate: datasource=github-releases depName=doitintl/kube-no-trouble
-ARG KUBENT_VERSION=0.7.2
+ARG KUBENT_VERSION=0.7.3
 ENV KUBENT_URL=https://github.com/doitintl/kube-no-trouble/releases/download/${KUBENT_VERSION}/kubent-${KUBENT_VERSION}-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUBENT_URL" | tar xz

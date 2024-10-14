@@ -31,7 +31,7 @@ RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.16.1
+ARG HELM_VERSION=3.16.2
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -109,7 +109,7 @@ EOF
 
 # Kube Score
 # renovate: datasource=github-releases depName=zegl/kube-score
-ARG KUBE_SCORE_VERSION=1.18.0
+ARG KUBE_SCORE_VERSION=1.19.0
 ENV KUBE_SCORE_URL=https://github.com/zegl/kube-score/releases/download/v${KUBE_SCORE_VERSION}/kube-score_${KUBE_SCORE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSs "$KUBE_SCORE_URL" -o kube-score
@@ -175,7 +175,7 @@ EOF
 
 # Kustomize
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION=5.4.3
+ARG KUSTOMIZE_VERSION=5.5.0
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUSTOMIZE_URL" | tar xz
@@ -218,7 +218,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.55.2
+ARG TRIVY_VERSION=0.56.2
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -240,7 +240,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=3.0.17
+ARG KUBESCAPE_VERSION=3.0.18
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -264,7 +264,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=2.4.0
+ARG COSIGN_VERSION=2.4.1
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"
@@ -309,7 +309,7 @@ EOF
 
 # ah cli
 # renovate: datasource=github-releases depName=artifacthub/hub
-ARG AH_CLI_VERSION=1.19.0
+ARG AH_CLI_VERSION=1.20.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$AH_CLI_URL" | tar xz

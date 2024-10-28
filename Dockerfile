@@ -26,7 +26,7 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.31.1@sha256:b509ab6000477ebe788df3509a8c4177e91238ee3003f33edea0931be3794340 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.31.2@sha256:45e7c7a9d120f93e9b66b689c63896ff87bb5b4d73b1203a0636d09e1219c879 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
@@ -131,7 +131,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=9.4.1
+ARG POLARIS_VERSION=9.5.0
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -297,7 +297,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.19.1
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.19.3
 ENV CONTAINER_STRUCTURE_TEST_URL=https://github.com/GoogleContainerTools/container-structure-test/releases/download/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"

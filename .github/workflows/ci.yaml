@@ -41,16 +41,32 @@ jobs:
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
+  create-release-token:
+    runs-on: ubuntu-24-04
+    if: ${{ github.event_name != 'pull_request' }}
+    outputs:
+      token: ${{ steps.app-token.outputs.token }}
+    steps:
+      - uses: actions/create-github-app-token@5d869da34e18e7287c1daad50e0b8ea0f506ce69 # v1.11.0
+        id: app-token
+        with:
+          app-id: ${{ secrets.RELEASER_APP_ID }}
+          private-key: ${{ secrets.RELEASER_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: |
+            kube-powertools
+
   release:
     uses: chgl/.github/.github/workflows/standard-release.yaml@bc38fcaae865b5c200914fdf58239ba902a13842 # v1.8.5
     needs:
       - build
+      - create-release-token
     permissions:
       contents: write
       pull-requests: write
       issues: write
     secrets:
-      semantic-release-token: ${{ secrets.CI_SEMANTIC_RELEASE_TOKEN }}
+      semantic-release-token: ${{ needs.create-release-token.outputs.token }}
 
   copy-image-to-dockerhub:
     name: copy ghcr.io image to DockerHub

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euox pipefail
 
-echo "Running schema-gen..."
+echo "Running helm-schema..."
 
 CHARTS_DIR=${CHARTS_DIR:-"charts"}
 
@@ -13,6 +13,6 @@ for chart in "${CHARTS_DIR}"/*; do
     continue
   fi
 
-  helm schema-gen ${chart}/values.yaml >${chart}/values.schema.json
+  helm schema
 
 done

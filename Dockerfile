@@ -56,12 +56,12 @@ helm plugin install --version=v${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https:
 helm local-chart-version version
 EOF
 
-# Helm schema-gen plugin
-# renovate: datasource=github-releases depName=knechtionscoding/helm-schema-gen
-ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.0.10
+# Helm schema plugin
+# renovate: datasource=github-releases depName=dadav/helm-schema
+ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.16.1
 RUN <<EOF
-helm plugin install --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/knechtionscoding/helm-schema-gen
-helm schema-gen --help
+helm plugin install --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
+helm schema --help
 EOF
 
 # Chart Doc Gen

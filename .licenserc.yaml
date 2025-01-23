@@ -6,7 +6,12 @@ header:
   paths-ignore:
     - "**/*.md"
     - "LICENSE"
-    - "**/.*"
+    - ".gitattributes"
+    - ".shellcheckrc"
+    - ".editorconfig"
+    - ".gitignore"
+    - ".trivyignore"
+    - ".yamllint"
     - "**/*.json"
     - "**/*.gotmpl"
     - "**/*.txt"

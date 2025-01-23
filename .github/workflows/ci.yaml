@@ -42,6 +42,26 @@ jobs:
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
+  license-check:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Check Dependencies' License
+        uses: apache/skywalking-eyes/dependency@cd7b195c51fd3d6ad52afceb760719ddc6b3ee91 # v0.6.0
+
+      - name: Fix License Header
+        uses: apache/skywalking-eyes/header@cd7b195c51fd3d6ad52afceb760719ddc6b3ee91 # v0.6.0
+        with:
+          mode: fix
+
+      - name: Apply Changes
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: 'chore: fix license headers'
+
   release:
     uses: chgl/.github/.github/workflows/standard-release.yaml@a70808072e4df6003d21ea0255938271aa6b535d # v1.10.5
     needs:

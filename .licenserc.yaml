@@ -4,8 +4,12 @@ header:
     copyright-owner: github.com/chgl
 
   paths-ignore:
-    - '**/*.md'
-    - 'LICENSE'
+    - "**/*.md"
+    - "LICENSE"
+    - "**/.*"
+    - "**/*.json"
+    - "**/*.gotmpl"
+    - "**/*.txt"
 
   comment: on-failure
 

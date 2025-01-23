@@ -10,6 +10,7 @@ header:
     - "**/*.json"
     - "**/*.gotmpl"
     - "**/*.txt"
+    - ".github/workflows/"
 
   comment: on-failure
 

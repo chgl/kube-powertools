@@ -10,17 +10,16 @@ WORKDIR /root
 RUN <<EOF
 apt-get update
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
-    python3-pip python3-venv git curl jq s3cmd nodejs npm
+    python3-pip git curl jq s3cmd nodejs npm
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 EOF
 
 COPY requirements.txt package*.json ./
 
+# break-system-packages should be fine in a container environment
 RUN <<EOF
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --no-cache-dir --require-hashes -r requirements.txt
+pip install --no-cache-dir --require-hashes --break-system-packages -r requirements.txt
 npm clean-install
 EOF
 

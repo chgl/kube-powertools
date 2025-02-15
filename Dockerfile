@@ -1,5 +1,5 @@
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
-FROM docker.io/library/ubuntu:22.04@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
+FROM docker.io/library/ubuntu:24.04@sha256:72297848456d5d37d1262630108ab308d3e9ec7ed1c3286a32fe09856619a782
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 ENV NO_UPDATE_NOTIFIER=true \
     NODE_ENV=production \
@@ -9,19 +9,17 @@ WORKDIR /root
 # hadolint ignore=DL3008
 RUN <<EOF
 apt-get update
-DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends python3-pip git curl jq s3cmd
-
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y --no-install-recommends nodejs
-
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
+    python3-pip git curl jq s3cmd nodejs npm
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 EOF
 
 COPY requirements.txt package*.json ./
 
+# break-system-packages should be fine in a container environment
 RUN <<EOF
-pip install --no-cache-dir -r requirements.txt
+pip install --no-cache-dir --require-hashes --break-system-packages -r requirements.txt
 npm clean-install
 EOF
 

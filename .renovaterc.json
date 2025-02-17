@@ -6,7 +6,6 @@
     "schedule:weekly",
     ":automergeMinor"
   ],
-  "ignoreDeps": ["docker.io/library/ubuntu"],
   "customManagers": [
     {
       "customType": "regex",
@@ -18,6 +17,9 @@
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v(?<version>.*)${{/if}}"
     }
   ],
+  "pip-compile": {
+    "fileMatch": ["(^|/)requirements\\.txt$"]
+  },
   "packageRules": [
     {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],

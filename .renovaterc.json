@@ -20,6 +20,18 @@
   "pip-compile": {
     "fileMatch": ["(^|/)requirements\\.txt$"]
   },
+  "pip_requirements": {
+    "enabled": false
+  },
+  "pip_setup": {
+    "enabled": false
+  },
+  "setup-cfg": {
+    "enabled": false
+  },
+  "pep621": {
+    "enabled": false
+  },
   "packageRules": [
     {
       "matchPackageNames": ["kubernetes-sigs/kustomize"],

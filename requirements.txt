@@ -120,9 +120,9 @@ attrs==25.1.0 \
     #   aiohttp
     #   jsonschema
     #   referencing
-bc-detect-secrets==1.5.35 \
-    --hash=sha256:54c9e014234e6049ce649c91284a6e809614a4875cf3ae5a9e2915ca5c836e3d \
-    --hash=sha256:f9f7b42889c974b6549a26e174a69c8a20976d0b4a46ff612dd9f96e2ec98eb6
+bc-detect-secrets==1.5.40 \
+    --hash=sha256:05cf26afcddf6296e09b16f498475b4adc026696bfe2ce50a1a916f88d14aca3 \
+    --hash=sha256:5982369c359ef58379a8234168a3820d9273cdc0776dcc0efe6904c2a37c51d8
     # via checkov
 bc-jsonpath-ng==1.6.1 \
     --hash=sha256:2c85bb1d194376808fe1fc49558dd484e39024b15c719995e22de811e6ba4dc8 \
@@ -338,9 +338,9 @@ charset-normalizer==3.4.1 \
     # via
     #   checkov
     #   requests
-checkov==3.2.368 \
-    --hash=sha256:152c4fae75ed720bb157e77ae754743bc6d433dfdd4b35f6f56cc81c06a5936d \
-    --hash=sha256:5e42d445ee628f5a356fdcbfa81cf168d08a5fca93eea3148ef5cd82622a0d8c
+checkov==3.2.403 \
+    --hash=sha256:54fc255d83ae9e0762f451ee9cf120962f660690cd0483dad3c9a0c8eeabbc59 \
+    --hash=sha256:90affe90e8cce2ad11fbd10e76ba1b7ff58659cd3d89b67782878b0c32ad463e
     # via -r requirements.in
 click==8.1.8 \
     --hash=sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2 \
@@ -898,9 +898,9 @@ policy-sentry==0.13.2 \
     --hash=sha256:db2b39f92989077f83fc4dd1d064e3ff20b69cfed82168ebdc060e7dce292e77 \
     --hash=sha256:e82c3bc1783606449399c4221f67d05f6b08d8a184ba2fee87d04541d7282b86
     # via cloudsplaining
-pre-commit==4.1.0 \
-    --hash=sha256:ae3f018575a588e30dfddfab9a05448bfbd6b73d78709617b5a2b853549716d4 \
-    --hash=sha256:d29e7cb346295bcc1cc75fc3e92e343495e3ea0196c9ec6ba53f49f10ab6ae7b
+pre-commit==4.2.0 \
+    --hash=sha256:601283b9757afd87d40c4c4a9b2b5de9637a8ea02eaff7adc2d0fb4e04841146 \
+    --hash=sha256:a009ca7205f1eb497d10b845e52c838a98b6cdd2102a6c8e4540e94ee75c58bd
     # via -r requirements.in
 prettytable==3.14.0 \
     --hash=sha256:61d5c68f04a94acc73c7aac64f0f380f5bed4d2959d59edc6e4cbb7a0e7b55c4 \
@@ -1632,9 +1632,9 @@ yamale==6.0.0 \
     --hash=sha256:60be681f35e4939320b89de0d6f187ee0e5479ae7f7286b7f17f0859ddee4a66 \
     --hash=sha256:828c6cf2023101ec97d2759dfdc507e04ecfc0c6d39d500c00c37ec895ada53b
     # via -r requirements.in
-yamllint==1.35.1 \
-    --hash=sha256:2e16e504bb129ff515b37823b472750b36b6de07963bd74b307341ef5ad8bdc3 \
-    --hash=sha256:7a003809f88324fd2c877734f2d575ee7881dd9043360657cc8049c809eba6cd
+yamllint==1.37.0 \
+    --hash=sha256:c03ab4e79ab4af964c8eb16ac9746880fc76a3bb0ffb14925b9a55220ae7dda0 \
+    --hash=sha256:ead81921d4d87216b2528b7a055664708f9fb8267beb0c427cb706ac6ab93580
     # via -r requirements.in
 yarl==1.18.3 \
     --hash=sha256:00e5a1fea0fd4f5bfa7440a47eff01d9822a65b4488f7cff83155a0f31a2ecba \

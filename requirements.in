@@ -1,4 +1,4 @@
 yamale==6.0.0
 yamllint==1.37.0
 pre-commit==4.2.0
-checkov==3.2.395
+checkov==3.2.408

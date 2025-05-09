@@ -9,7 +9,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "managerFilePatterns": ["/^Dockerfile$/"],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( extractVersion=(?<extractVersion>.*?))?( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
       ],
@@ -18,7 +18,7 @@
     }
   ],
   "pip-compile": {
-    "fileMatch": ["(^|/)requirements\\.txt$"]
+    "managerFilePatterns": ["/(^|/)requirements\\.txt$/"]
   },
   "pip_requirements": {
     "enabled": false

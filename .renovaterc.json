@@ -9,9 +9,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^Dockerfile$/"
-      ],
+      "managerFilePatterns": ["/^Dockerfile$/"],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( extractVersion=(?<extractVersion>.*?))?( versioning=(?<versioning>.*?))?\\sARG .*?_VERSION=(?<currentValue>.*)\\s"
       ],
@@ -20,9 +18,7 @@
     }
   ],
   "pip-compile": {
-    "managerFilePatterns": [
-      "/(^|/)requirements\\.txt$/"
-    ]
+    "managerFilePatterns": ["/(^|/)requirements\\.txt$/"]
   },
   "pip_requirements": {
     "enabled": false
@@ -38,9 +34,7 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": [
-        "kubernetes-sigs/kustomize"
-      ],
+      "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize/v(?<version>.*)$"
     },
     {
@@ -53,21 +47,13 @@
       "extractVersion": "^(?<version>.*)$"
     },
     {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "extends": [
-        "schedule:monthly"
-      ],
+      "matchManagers": ["github-actions"],
+      "extends": ["schedule:monthly"],
       "groupName": "github-actions"
     },
     {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchPackageNames": [
-        "slsa-framework/slsa-github-generator"
-      ],
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["slsa-framework/slsa-github-generator"],
       "pinDigests": false
     }
   ]

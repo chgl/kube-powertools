@@ -94,9 +94,7 @@ aiohttp==3.11.18 \
     --hash=sha256:f9e6710ebebfce2ba21cee6d91e7452d1125100f41b906fb5af3da8c78b764c1 \
     --hash=sha256:fdb239f47328581e2ec7744ab5911f97afb10752332a6dd3d98e14e429e1a9e7 \
     --hash=sha256:fe7cdd3f7d1df43200e1c80f1aed86bb36033bf65e3c7cf46a2b97a253ef8798
-    # via
-    #   checkov
-    #   openai
+    # via checkov
 aiomultiprocess==0.9.1 \
     --hash=sha256:3a7b3bb3c38dbfb4d9d1194ece5934b6d32cf0280e8edbe64a7d215bba1322c6 \
     --hash=sha256:f0231dbe0291e15325d7896ebeae0002d95a4f2675426ca05eb35f24c60e495b
@@ -112,6 +110,10 @@ annotated-types==0.7.0 \
 argcomplete==3.6.2 \
     --hash=sha256:65b3133a29ad53fb42c48cf5114752c7ab66c1c38544fdf6460f450c09b42591 \
     --hash=sha256:d0519b1bc867f5f4f4713c41ad0aba73a4a5f007449716b16f385f2166dc6adf
+    # via checkov
+asteval==1.0.5 \
+    --hash=sha256:082b95312578affc8a6d982f7d92b7ac5de05634985c87e7eedd3188d31149fa \
+    --hash=sha256:bac3c8dd6d2b789e959cfec9bb296fb8338eec066feae618c462132701fbc665
     # via checkov
 attrs==25.3.0 \
     --hash=sha256:427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3 \
@@ -338,9 +340,9 @@ charset-normalizer==3.4.2 \
     # via
     #   checkov
     #   requests
-checkov==3.2.414 \
-    --hash=sha256:e70cc3fccfad99125c96045250b6f35a839c08104a55498a427b4e8891c29962 \
-    --hash=sha256:f7b1bd8533c4c17db2471baed9e3ce97cc22a248ababd7516ea3e907123976ad
+checkov==3.2.432 \
+    --hash=sha256:84a1175a7564ff150f9c36c3c8849a557ac8168495efddb2d339f27fedf90012 \
+    --hash=sha256:e05d8fe1a359ec2d470a35b9653f72a99f6c18aac0496db4393eada87b2e2867
     # via -r requirements.in
 click==8.1.8 \
     --hash=sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2 \
@@ -809,10 +811,6 @@ numpy==2.2.5 \
     --hash=sha256:ee461a4eaab4f165b68780a6a1af95fb23a29932be7569b9fab666c407969051 \
     --hash=sha256:f5045039100ed58fa817a6227a356240ea1b9a1bc141018864c306c1a16d4175
     # via rustworkx
-openai==0.28.1 \
-    --hash=sha256:4be1dad329a65b4ce1a660fe6d5431b438f429b5855c883435f0f7fcb6d2dcc8 \
-    --hash=sha256:d18690f9e3d31eedb66b57b88c2165d760b24ea0a01f150dd3f068155088ce68
-    # via checkov
 orjson==3.10.18 \
     --hash=sha256:0315317601149c244cb3ecef246ef5861a64824ccbcb8018d32c66a60a84ffbc \
     --hash=sha256:187aefa562300a9d382b4b4eb9694806e5848b0cedf52037bb5c228c61bb66d4 \
@@ -1399,7 +1397,6 @@ requests==2.32.3 \
     #   bc-detect-secrets
     #   checkov
     #   docker
-    #   openai
     #   policy-sentry
 rpds-py==0.24.0 \
     --hash=sha256:0047638c3aa0dbcd0ab99ed1e549bbf0e142c9ecc173b6492868432d8989a046 \
@@ -1580,9 +1577,7 @@ termcolor==2.3.0 \
 tqdm==4.67.1 \
     --hash=sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2 \
     --hash=sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2
-    # via
-    #   checkov
-    #   openai
+    # via checkov
 typing-extensions==4.13.2 \
     --hash=sha256:a439e7c04b49fec3e5d3e2beaa21755cadbbdc391694e28ccdd36ca4a1408f8c \
     --hash=sha256:e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef
@@ -1606,9 +1601,9 @@ uritools==5.0.0 \
     --hash=sha256:68180cad154062bd5b5d9ffcdd464f8de6934414b25462ae807b00b8df9345de \
     --hash=sha256:cead3a49ba8fbca3f91857343849d506d8639718f4a2e51b62e87393b493bd6f
     # via spdx-tools
-urllib3==2.4.0 \
-    --hash=sha256:414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466 \
-    --hash=sha256:4e16665048960a0900c702d4a66415956a584919c03361cac9f1df5c5dd7e813
+urllib3==2.5.0 \
+    --hash=sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760 \
+    --hash=sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc
     # via
     #   botocore
     #   docker

@@ -1,5 +1,5 @@
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
-FROM docker.io/library/ubuntu:24.04@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f
+FROM docker.io/library/ubuntu:24.04@sha256:440dcf6a5640b2ae5c77724e68787a906afb8ddee98bf86db94eea8528c2c076
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 ENV NO_UPDATE_NOTIFIER=true \
     NODE_ENV=production \

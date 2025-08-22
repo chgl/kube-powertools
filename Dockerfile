@@ -24,12 +24,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/bitnami/kubectl:1.33.3@sha256:09e4cf3140642768ddbb65414a5c2da0019118d9a7c557540d6c63d7f67d7e67 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
+COPY --from=docker.io/bitnami/kubectl:1.33.4@sha256:ed0b31a0508da84ee655c5c6e01bd3897fc56ad6cf69debb27fa1893a06d2246 /opt/bitnami/kubectl/bin/kubectl /usr/local/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=3.18.4
+ARG HELM_VERSION=3.18.6
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -129,7 +129,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=10.0.0
+ARG POLARIS_VERSION=10.1.1
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -140,7 +140,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.22.1
+ARG PLUTO_VERSION=5.22.5
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$PLUTO_URL" | tar xz
@@ -151,7 +151,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=v0.7.4
+ARG KUBE_LINTER_VERSION=v0.7.5
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs "$KUBE_LINTER_URL" | tar xz
@@ -184,7 +184,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.11.6
+ARG NOVA_VERSION=3.11.8
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$NOVA_URL" | tar xz
@@ -216,7 +216,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.64.1
+ARG TRIVY_VERSION=0.65.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -238,7 +238,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=3.0.37
+ARG KUBESCAPE_VERSION=3.0.38
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -318,7 +318,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.14.4
+ARG KYVERNO_CLI_VERSION=1.15.1
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$KYVERNO_CLI_URL" | tar xz

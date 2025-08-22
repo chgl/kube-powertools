@@ -345,9 +345,9 @@ charset-normalizer==3.4.2 \
     # via
     #   checkov
     #   requests
-checkov==3.2.457 \
-    --hash=sha256:4135c3275a8a2cf29088f9dea76f7a512eb82ea8b727afd3d3941632eb650c86 \
-    --hash=sha256:ab5f20e3c4464d6e89e7f42f3821897fe440d620601042763d92d095ec4fe2cb
+checkov==3.2.464 \
+    --hash=sha256:223d2247ccd518bb904619ba9cabb15412be3aafccf55324bc34ba5f804563ba \
+    --hash=sha256:c79274971dd403fd6870714d48f055ffd66f8ed2af66b9214d4eb396e4a64fc9
     # via -r requirements.in
 click==8.2.1 \
     --hash=sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202 \
@@ -920,9 +920,9 @@ policy-sentry==0.13.2 \
     --hash=sha256:db2b39f92989077f83fc4dd1d064e3ff20b69cfed82168ebdc060e7dce292e77 \
     --hash=sha256:e82c3bc1783606449399c4221f67d05f6b08d8a184ba2fee87d04541d7282b86
     # via cloudsplaining
-pre-commit==4.2.0 \
-    --hash=sha256:601283b9757afd87d40c4c4a9b2b5de9637a8ea02eaff7adc2d0fb4e04841146 \
-    --hash=sha256:a009ca7205f1eb497d10b845e52c838a98b6cdd2102a6c8e4540e94ee75c58bd
+pre-commit==4.3.0 \
+    --hash=sha256:2b0747ad7e6e967169136edffee14c16e148a778a54e4f967921aa1ebf2308d8 \
+    --hash=sha256:499fe450cc9d42e9d58e606262795ecb64dd05438943c62b66f6a8673da30b16
     # via -r requirements.in
 prettytable==3.16.0 \
     --hash=sha256:3c64b31719d961bf69c9a7e03d0c1e477320906a98da63952bc6698d6164ff57 \

@@ -72,6 +72,14 @@ helm plugin install --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.
 helm schema --help
 EOF
 
+# Helm unittest plugin
+# renovate: datasource=github-releases depName=helm-unittest/helm-unittest
+ARG HELM_UNITTEST_PLUGIN_VERSION=1.0.0
+RUN <<EOF
+helm plugin install --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
+helm unittest --help
+EOF
+
 # Chart Doc Gen
 # renovate: datasource=github-releases depName=kubepack/chart-doc-gen
 ARG CHART_DOC_GEN_VERSION=0.5.0

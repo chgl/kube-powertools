@@ -59,7 +59,8 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [helm](https://github.com/helm/helm)
 - [helm push plugin](https://github.com/chartmuseum/helm-push.git)
-- [helm schema-gen plugin](https://github.com/knechtionscoding/helm-schema-gen.git)
+- [helm schema-gen plugin](https://github.com/knechtionscoding/helm-schema-gen)
+- [helm unittest plugin](https://github.com/helm-unittest/helm-unittest)
 - [helm-local-chart-version](https://github.com/mbenabda/helm-local-chart-version)
 - [chart-doc-gen](https://github.com/kubepack/chart-doc-gen)
 - [kubeval](https://github.com/instrumenta/kubeval)
@@ -86,6 +87,7 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [container-structure-test](https://github.com/GoogleContainerTools/container-structure-test)
 - [Artifact Hub CLI](https://github.com/artifacthub/hub)
 - [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
+- [Docker CE CLI](https://docs.docker.com/engine/install/ubuntu/)
 
 ## Testing locally
 

@@ -6,11 +6,21 @@ ENV NO_UPDATE_NOTIFIER=true \
     PATH="$PATH:/root/node_modules/.bin"
 WORKDIR /root
 
-# hadolint ignore=DL3008
+# hadolint ignore=DL3008,SC1091
 RUN <<EOF
 apt-get update
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
-    python3-pip git curl jq s3cmd nodejs npm
+    python3-pip git curl jq s3cmd nodejs npm ca-certificates
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
+    docker-ce-cli
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 EOF
@@ -60,6 +70,14 @@ ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.16.1
 RUN <<EOF
 helm plugin install --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
 helm schema --help
+EOF
+
+# Helm unittest plugin
+# renovate: datasource=github-releases depName=helm-unittest/helm-unittest
+ARG HELM_UNITTEST_PLUGIN_VERSION=1.0.0
+RUN <<EOF
+helm plugin install --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
+helm unittest --help
 EOF
 
 # Chart Doc Gen

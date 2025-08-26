@@ -6,7 +6,7 @@ ENV NO_UPDATE_NOTIFIER=true \
     PATH="$PATH:/root/node_modules/.bin"
 WORKDIR /root
 
-# hadolint ignore=DL3008
+# hadolint ignore=DL3008,SC1091
 RUN <<EOF
 apt-get update
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \

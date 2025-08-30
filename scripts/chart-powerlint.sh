@@ -4,7 +4,7 @@ set -euox pipefail
 CHARTS_DIR=${CHARTS_DIR:-"charts"}
 SHOULD_UPDATE_DEPENDENCIES=${SHOULD_UPDATE_DEPENDENCIES:-""}
 
-KUBERNETES_VERSIONS=${KUBERNETES_VERSIONS:-"1.28.0 1.29.0 1.30.0"}
+KUBERNETES_VERSIONS=${KUBERNETES_VERSIONS:-"1.32.0 1.33.0 1.34.0"}
 
 POLARIS_SCORE_THRESHOLD=${POLARIS_SCORE_THRESHOLD:-90}
 SKIP_KUBE_SCORE=${SKIP_KUBE_SCORE:-"1"}
@@ -16,6 +16,11 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
 
   if test ! -f "${CHART_PATH}/Chart.yaml"; then
     echo "Skipping over ${CHART_PATH}"
+    continue
+  fi
+
+  if [ "$(yq e '.type' "${CHART_PATH}/Chart.yaml")" = "library" ]; then
+    echo "Skipping library chart ${CHART_PATH}"
     continue
   fi
 

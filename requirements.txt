@@ -127,9 +127,9 @@ attrs==25.3.0 \
     #   aiohttp
     #   jsonschema
     #   referencing
-bc-detect-secrets==1.5.44 \
-    --hash=sha256:0ab63d6c4f6680ec2dbe42cc3c63480568c55dbb6254afcc5bb6d4375a4e1d27 \
-    --hash=sha256:bebd82c56055c600335f85db95f7ca3b434087f16292a0396a60705de1b94183
+bc-detect-secrets==1.5.45 \
+    --hash=sha256:33119be81d2eca91ccf2eabc496737dcb079c581aa4646a0475f5e0619e382d5 \
+    --hash=sha256:f05cc539d1865d6f8d65cbd51968e85ec570ee1375447a5a29a5623ca8ea9f2b
     # via checkov
 bc-jsonpath-ng==1.6.1 \
     --hash=sha256:2c85bb1d194376808fe1fc49558dd484e39024b15c719995e22de811e6ba4dc8 \
@@ -345,9 +345,9 @@ charset-normalizer==3.4.2 \
     # via
     #   checkov
     #   requests
-checkov==3.2.464 \
-    --hash=sha256:223d2247ccd518bb904619ba9cabb15412be3aafccf55324bc34ba5f804563ba \
-    --hash=sha256:c79274971dd403fd6870714d48f055ffd66f8ed2af66b9214d4eb396e4a64fc9
+checkov==3.2.471 \
+    --hash=sha256:2d0309315679eeaae41d18df969af37e4edf2e14eea00743b12fb0e18852a869 \
+    --hash=sha256:e188df0374e894977627f7bb89d53c59a0db303d5b1ede969af8580b8a4e5ed3
     # via -r requirements.in
 click==8.2.1 \
     --hash=sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202 \

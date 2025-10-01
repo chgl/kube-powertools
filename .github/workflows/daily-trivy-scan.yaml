@@ -14,7 +14,7 @@ jobs:
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@dc5a429b52fcf669ce959baa2c2dd26090d2a6c4 # 0.32.0
+        uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8 # 0.33.1
         with:
           image-ref: "ghcr.io/chgl/kube-powertools:latest"
           format: "template"
@@ -23,6 +23,6 @@ jobs:
           severity: "CRITICAL,HIGH"
 
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498 # v3.29.11
+        uses: github/codeql-action/upload-sarif@3599b3baa15b485a2e49ef411a7a4bb2452e7f93 # v3.30.5
         with:
           sarif_file: "trivy-results.sarif"

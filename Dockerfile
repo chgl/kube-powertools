@@ -74,7 +74,7 @@ EOF
 
 # Helm unittest plugin
 # renovate: datasource=github-releases depName=helm-unittest/helm-unittest
-ARG HELM_UNITTEST_PLUGIN_VERSION=1.0.1
+ARG HELM_UNITTEST_PLUGIN_VERSION=1.0.3
 RUN <<EOF
 helm plugin install --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
 helm unittest --help
@@ -136,7 +136,7 @@ EOF
 
 # Chart Testing
 # renovate: datasource=github-releases depName=helm/chart-testing
-ARG CT_VERSION=3.13.0
+ARG CT_VERSION=3.14.0
 ENV CT_URL=https://github.com/helm/chart-testing/releases/download/v"${CT_VERSION}"/chart-testing_"${CT_VERSION}"_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$CT_URL" | tar xz
@@ -180,7 +180,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.62.0
+ARG CONFTEST_VERSION=0.63.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -234,7 +234,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.66.0
+ARG TRIVY_VERSION=0.67.2
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -245,7 +245,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.47.2
+ARG YQ_VERSION=4.48.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"
@@ -256,7 +256,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=armosec/kubescape
-ARG KUBESCAPE_VERSION=3.0.41
+ARG KUBESCAPE_VERSION=3.0.42
 ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -280,7 +280,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=2.6.0
+ARG COSIGN_VERSION=2.6.1
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"
@@ -313,7 +313,7 @@ EOF
 
 # container-structure-test
 # renovate: datasource=github-releases depName=GoogleContainerTools/container-structure-test
-ARG CONTAINER_STRUCTURE_TEST_VERSION=1.20.0
+ARG CONTAINER_STRUCTURE_TEST_VERSION=1.21.1
 ENV CONTAINER_STRUCTURE_TEST_URL=https://github.com/GoogleContainerTools/container-structure-test/releases/download/v${CONTAINER_STRUCTURE_TEST_VERSION}/container-structure-test-linux-amd64
 RUN <<EOF
 curl -LSsO "$CONTAINER_STRUCTURE_TEST_URL"

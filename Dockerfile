@@ -325,7 +325,7 @@ EOF
 
 # ah cli
 # renovate: datasource=github-releases depName=artifacthub/hub
-ARG AH_CLI_VERSION=1.21.0
+ARG AH_CLI_VERSION=1.22.0
 ENV AH_CLI_URL=https://github.com/artifacthub/hub/releases/download/v${AH_CLI_VERSION}/ah_${AH_CLI_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$AH_CLI_URL" | tar xz

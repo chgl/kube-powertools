@@ -58,7 +58,6 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 
 - [kubectl](https://github.com/kubernetes/kubectl)
 - [helm](https://github.com/helm/helm)
-- [helm push plugin](https://github.com/chartmuseum/helm-push.git)
 - [helm schema-gen plugin](https://github.com/knechtionscoding/helm-schema-gen)
 - [helm unittest plugin](https://github.com/helm-unittest/helm-unittest)
 - [helm-local-chart-version](https://github.com/mbenabda/helm-local-chart-version)

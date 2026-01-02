@@ -52,7 +52,7 @@ EOF
 # renovate: datasource=github-releases depName=chartmuseum/helm-push
 ARG HELM_PUSH_PLUGIN_VERSION=0.10.4
 RUN <<EOF
-helm plugin install --version=v${HELM_PUSH_PLUGIN_VERSION} https://github.com/chartmuseum/helm-push
+helm plugin install --verify=false --version=v${HELM_PUSH_PLUGIN_VERSION} https://github.com/chartmuseum/helm-push
 helm cm-push --help
 EOF
 
@@ -60,7 +60,7 @@ EOF
 # renovate: datasource=github-releases depName=mbenabda/helm-local-chart-version
 ARG HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION=0.1.0
 RUN <<EOF
-helm plugin install --version=v${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https://github.com/mbenabda/helm-local-chart-version
+helm plugin install --verify=false --version=v${HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION} https://github.com/mbenabda/helm-local-chart-version
 helm local-chart-version version
 EOF
 
@@ -68,7 +68,7 @@ EOF
 # renovate: datasource=github-releases depName=dadav/helm-schema
 ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.16.1
 RUN <<EOF
-helm plugin install --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
+helm plugin install --verify=false --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
 helm schema --help
 EOF
 
@@ -76,7 +76,7 @@ EOF
 # renovate: datasource=github-releases depName=helm-unittest/helm-unittest
 ARG HELM_UNITTEST_PLUGIN_VERSION=1.0.3
 RUN <<EOF
-helm plugin install --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
+helm plugin install --verify=false --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
 helm unittest --help
 EOF
 

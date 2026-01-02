@@ -48,14 +48,6 @@ chmod +x /usr/local/bin/helm
 helm version
 EOF
 
-# Helm push plugin
-# renovate: datasource=github-releases depName=chartmuseum/helm-push
-ARG HELM_PUSH_PLUGIN_VERSION=0.10.4
-RUN <<EOF
-helm plugin install --verify=false --version=v${HELM_PUSH_PLUGIN_VERSION} https://github.com/chartmuseum/helm-push
-helm cm-push --help
-EOF
-
 # Helm Local Chart Version Plugin
 # renovate: datasource=github-releases depName=mbenabda/helm-local-chart-version
 ARG HELM_LOCAL_CHART_VERSION_PLUGIN_VERSION=0.1.0

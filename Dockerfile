@@ -10,7 +10,12 @@ WORKDIR /root
 RUN <<EOF
 apt-get update
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
-    python3-pip git curl jq s3cmd nodejs npm ca-certificates
+    python3-pip git curl jq s3cmd npm ca-certificates
+
+# nodejs (we need a version later than the one packaged with Ubuntu 24)
+curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+
+# docker cli
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 chmod a+r /etc/apt/keyrings/docker.asc
@@ -20,7 +25,7 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y --no-install-recommends \
-    docker-ce-cli
+    docker-ce-cli nodejs
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 EOF

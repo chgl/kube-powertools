@@ -252,12 +252,12 @@ yq --version
 EOF
 
 # kubescape
-# renovate: datasource=github-releases depName=armosec/kubescape
+# renovate: datasource=github-releases depName=kubescape/kubescape
 ARG KUBESCAPE_VERSION=3.0.47
-ENV KUBESCAPE_URL=https://github.com/armosec/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
+ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
-mv ./kubescape-ubuntu-latest /usr/local/bin/kubescape
+mv ./kubescape_${KUBESCAPE_VERSION}_linux_amd64 /usr/local/bin/kubescape
 chmod +x /usr/local/bin/kubescape
 kubescape version
 kubescape download framework nsa

@@ -266,7 +266,7 @@ EOF
 
 # gomplate
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
-ARG GOMPLATE_VERSION=4.3.3
+ARG GOMPLATE_VERSION=5.0.0
 ENV GOMPLATE_URL=https://github.com/hairyhenderson/gomplate/releases/download/v${GOMPLATE_VERSION}/gomplate_linux-amd64
 RUN <<EOF
 curl -LSsO "$GOMPLATE_URL"

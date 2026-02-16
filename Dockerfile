@@ -39,12 +39,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/rancher/kubectl:v1.35.0@sha256:63a9f14d017459f47d23cb266b2857e82ffe6602d8955eef00ce111b2d8a61cf /bin/kubectl /usr/bin/kubectl
+COPY --from=docker.io/rancher/kubectl:v1.35.1@sha256:9e365be67e373fa097a429b6e8590caf7ddc17fb34bbea0837360619e2552916 /bin/kubectl /usr/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=4.1.0
+ARG HELM_VERSION=4.1.1
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -188,7 +188,7 @@ EOF
 
 # Kustomize
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION=5.8.0
+ARG KUSTOMIZE_VERSION=5.8.1
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUSTOMIZE_URL" | tar xz
@@ -242,7 +242,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.52.2
+ARG YQ_VERSION=4.52.4
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"

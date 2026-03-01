@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    uses: chgl/.github/.github/workflows/standard-build.yaml@79a957ccd50ab009b8ea19694c1a4e4aedba473c # v1.11.13
+    uses: chgl/.github/.github/workflows/standard-build.yaml@cd54c6c14c5e8ef51ce9b393b755e5a1630d3382 # v1.11.14
     permissions:
       contents: write
       id-token: write
@@ -28,7 +28,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
-    uses: chgl/.github/.github/workflows/standard-lint.yaml@79a957ccd50ab009b8ea19694c1a4e4aedba473c # v1.11.13
+    uses: chgl/.github/.github/workflows/standard-lint.yaml@cd54c6c14c5e8ef51ce9b393b755e5a1630d3382 # v1.11.14
     permissions:
       contents: read
       pull-requests: write
@@ -43,7 +43,7 @@ jobs:
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   release:
-    uses: chgl/.github/.github/workflows/standard-release.yaml@79a957ccd50ab009b8ea19694c1a4e4aedba473c # v1.11.13
+    uses: chgl/.github/.github/workflows/standard-release.yaml@cd54c6c14c5e8ef51ce9b393b755e5a1630d3382 # v1.11.14
     needs:
       - build
     permissions:
@@ -63,7 +63,7 @@ jobs:
     needs:
       - build
     steps:
-      - uses: imjasonh/setup-crane@31b88efe9de28ae0ffa220711af4b60be9435f6e # v0.4
+      - uses: imjasonh/setup-crane@6da1ae018866400525525ce74ff892880c099987 # v0.5
       - name: Login to DockerHub
         env:
           DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_TOKEN }}"

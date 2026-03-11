@@ -39,7 +39,7 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/rancher/kubectl:v1.35.1@sha256:9e365be67e373fa097a429b6e8590caf7ddc17fb34bbea0837360619e2552916 /bin/kubectl /usr/bin/kubectl
+COPY --from=docker.io/rancher/kubectl:v1.35.2@sha256:25cae09dd56c549742c0ac0458f17553a724f261f4e8a119b56d93d7eeeeb638 /bin/kubectl /usr/bin/kubectl
 RUN kubectl version --client
 
 # Helm
@@ -144,7 +144,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=10.1.4
+ARG POLARIS_VERSION=10.1.6
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -155,7 +155,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.22.7
+ARG PLUTO_VERSION=5.23.5
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$PLUTO_URL" | tar xz
@@ -166,7 +166,7 @@ EOF
 
 # Stackrox Kube Linter
 # renovate: datasource=github-releases depName=stackrox/kube-linter
-ARG KUBE_LINTER_VERSION=v0.8.1
+ARG KUBE_LINTER_VERSION=v0.8.3
 ENV KUBE_LINTER_URL=https://github.com/stackrox/kube-linter/releases/download/${KUBE_LINTER_VERSION}/kube-linter-linux.tar.gz
 RUN <<EOF
 curl -LSs "$KUBE_LINTER_URL" | tar xz
@@ -199,7 +199,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.11.10
+ARG NOVA_VERSION=3.11.13
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$NOVA_URL" | tar xz
@@ -277,7 +277,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=3.0.4
+ARG COSIGN_VERSION=3.0.5
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"
@@ -288,7 +288,7 @@ EOF
 
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
-ARG CRANE_VERSION=0.20.7
+ARG CRANE_VERSION=0.21.2
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CRANE_URL" | tar xz
@@ -333,7 +333,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.17.0
+ARG KYVERNO_CLI_VERSION=1.17.1
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$KYVERNO_CLI_URL" | tar xz

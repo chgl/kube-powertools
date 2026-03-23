@@ -253,7 +253,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
-ARG KUBESCAPE_VERSION=4.0.2
+ARG KUBESCAPE_VERSION=4.0.3
 ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -288,7 +288,7 @@ EOF
 
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
-ARG CRANE_VERSION=0.21.2
+ARG CRANE_VERSION=0.21.3
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CRANE_URL" | tar xz

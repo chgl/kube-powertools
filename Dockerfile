@@ -1,5 +1,5 @@
 # kics-scan disable=b03a748a-542d-44f4-bb86-9199ab4fd2d5
-FROM docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+FROM docker.io/library/ubuntu:24.04@sha256:c4a8d5503dfb2a3eb8ab5f807da5bc69a85730fb49b5cfca2330194ebcc41c7b
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 ENV NO_UPDATE_NOTIFIER=true \
     NODE_ENV=production \
@@ -39,12 +39,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/rancher/kubectl:v1.35.2@sha256:25cae09dd56c549742c0ac0458f17553a724f261f4e8a119b56d93d7eeeeb638 /bin/kubectl /usr/bin/kubectl
+COPY --from=docker.io/rancher/kubectl:v1.36.0@sha256:05d2b313e2f397e0ade252136aed47abd72d56ead11d1b027ac70f66362c8495 /bin/kubectl /usr/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=4.1.3
+ARG HELM_VERSION=4.1.4
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -144,7 +144,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=10.1.6
+ARG POLARIS_VERSION=10.1.8
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -177,7 +177,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.67.1
+ARG CONFTEST_VERSION=0.68.2
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -199,7 +199,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.11.13
+ARG NOVA_VERSION=3.11.15
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$NOVA_URL" | tar xz
@@ -231,7 +231,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.69.3
+ARG TRIVY_VERSION=0.70.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -242,7 +242,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.52.5
+ARG YQ_VERSION=4.53.2
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"
@@ -253,7 +253,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
-ARG KUBESCAPE_VERSION=4.0.3
+ARG KUBESCAPE_VERSION=4.0.5
 ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -277,7 +277,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=3.0.5
+ARG COSIGN_VERSION=3.0.6
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"
@@ -288,7 +288,7 @@ EOF
 
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
-ARG CRANE_VERSION=0.21.3
+ARG CRANE_VERSION=0.21.5
 ENV CRANE_URL=https://github.com/google/go-containerregistry/releases/download/v${CRANE_VERSION}/go-containerregistry_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CRANE_URL" | tar xz
@@ -333,7 +333,7 @@ EOF
 
 # kyverno cli
 # renovate: datasource=github-releases depName=kyverno/kyverno
-ARG KYVERNO_CLI_VERSION=1.17.1
+ARG KYVERNO_CLI_VERSION=1.17.2
 ENV KYVERNO_CLI_URL=https://github.com/kyverno/kyverno/releases/download/v${KYVERNO_CLI_VERSION}/kyverno-cli_v${KYVERNO_CLI_VERSION}_linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$KYVERNO_CLI_URL" | tar xz

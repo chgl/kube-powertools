@@ -145,7 +145,7 @@ EOF
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
 ARG POLARIS_VERSION=v10.2.0
-ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_linux_amd64.tar.gz
+ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_${POLARIS_VERSION#v}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
 mv ./polaris  /usr/local/bin/polaris

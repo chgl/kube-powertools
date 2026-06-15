@@ -39,12 +39,12 @@ npm clean-install
 EOF
 
 # kubectl
-COPY --from=docker.io/rancher/kubectl:v1.36.0@sha256:05d2b313e2f397e0ade252136aed47abd72d56ead11d1b027ac70f66362c8495 /bin/kubectl /usr/bin/kubectl
+COPY --from=docker.io/rancher/kubectl:v1.36.1@sha256:e430739d5eaef82b73e738ffa57019c8206c92b65ab3a18df766a1732b17c7f5 /bin/kubectl /usr/bin/kubectl
 RUN kubectl version --client
 
 # Helm
 # renovate: datasource=github-releases depName=helm/helm
-ARG HELM_VERSION=4.2.0
+ARG HELM_VERSION=4.2.1
 ENV HELM_URL=https://get.helm.sh/helm-v"${HELM_VERSION}"-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$HELM_URL" | tar xz
@@ -71,7 +71,7 @@ EOF
 
 # Helm unittest plugin
 # renovate: datasource=github-releases depName=helm-unittest/helm-unittest
-ARG HELM_UNITTEST_PLUGIN_VERSION=1.1.0
+ARG HELM_UNITTEST_PLUGIN_VERSION=1.1.1
 RUN <<EOF
 helm plugin install --verify=false --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
 helm unittest --help
@@ -111,7 +111,7 @@ EOF
 
 # Kubeconform
 # renovate: datasource=github-releases depName=yannh/kubeconform
-ARG KUBECONFORM_VERSION=0.7.0
+ARG KUBECONFORM_VERSION=0.8.0
 ENV KUBECONFORM_URL=https://github.com/yannh/kubeconform/releases/download/v${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUBECONFORM_URL"| tar xz
@@ -231,7 +231,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.70.0
+ARG TRIVY_VERSION=0.71.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -242,7 +242,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.53.2
+ARG YQ_VERSION=4.53.3
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"
@@ -253,7 +253,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
-ARG KUBESCAPE_VERSION=4.0.8
+ARG KUBESCAPE_VERSION=4.0.9
 ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
@@ -277,7 +277,7 @@ EOF
 
 # cosign
 # renovate: datasource=github-releases depName=sigstore/cosign
-ARG COSIGN_VERSION=3.0.6
+ARG COSIGN_VERSION=3.1.1
 ENV COSIGN_URL=https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-amd64
 RUN <<EOF
 curl -LSsO "$COSIGN_URL"

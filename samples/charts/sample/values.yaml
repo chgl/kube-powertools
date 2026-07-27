@@ -8,7 +8,7 @@ image:
   repository: docker.io/nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.31.2@sha256:0a7658b1a51df663ad17cfe82ab6edd7f56f82cfe7b49f282f83a30617f3f404"
+  tag: "1.31.2@sha256:3d9ecaa236fb9f37bff27260147e6e6e0126bca35dc4a77b58955b2cecd7cc11"
 
 imagePullSecrets: []
 nameOverride: ""

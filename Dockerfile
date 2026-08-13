@@ -251,6 +251,17 @@ chmod +x /usr/local/bin/yq
 yq --version
 EOF
 
+# yamlfmt
+# renovate: datasource=github-releases depName=google/yamlfmt
+ARG YAMLFMT_VERSION=0.21.0
+ENV YAMLFMT_URL=https://github.com/google/yamlfmt/releases/download/v${YAMLFMT_VERSION}/yamlfmt_${YAMLFMT_VERSION}_Linux_x86_64.tar.gz
+RUN <<EOF
+curl -LSs "$YAMLFMT_URL" | tar xz
+mv ./yamlfmt /usr/local/bin/yamlfmt
+chmod +x /usr/local/bin/yamlfmt
+yamlfmt --version
+EOF
+
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
 ARG KUBESCAPE_VERSION=4.0.11
@@ -318,6 +329,17 @@ mv container-structure-test-linux-amd64 container-structure-test
 mv container-structure-test /usr/local/bin/
 chmod +x /usr/local/bin/container-structure-test
 container-structure-test version
+EOF
+
+# Skaffold
+# renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
+ARG SKAFFOLD_VERSION=2.24.0
+ENV SKAFFOLD_URL=https://github.com/GoogleContainerTools/skaffold/releases/download/v${SKAFFOLD_VERSION}/skaffold-linux-amd64
+RUN <<EOF
+curl -LSsO "$SKAFFOLD_URL"
+mv skaffold-linux-amd64 /usr/local/bin/skaffold
+chmod +x /usr/local/bin/skaffold
+skaffold version
 EOF
 
 # ah cli

@@ -91,6 +91,15 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [Docker CE CLI](https://docs.docker.com/engine/install/ubuntu/)
 - [rumdl](https://github.com/rvben/rumdl)
 
+### Offline Kubescape scans
+
+All Kubescape artifacts (frameworks, exceptions, controls-inputs, and attack-tracks) are downloaded to `$KS_CACHE_DIR` (`/opt/kubescape`)
+when the image is built. To scan without network access, and without picking up controls newer than the ones bundled with the image, use:
+
+```sh
+kubescape scan framework AllControls --use-artifacts-from "$KS_CACHE_DIR" charts/
+```
+
 ## Testing locally
 
 ```sh

@@ -265,14 +265,16 @@ EOF
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
 ARG KUBESCAPE_VERSION=4.0.14
-ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64
+ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64 \
+    KS_CACHE_DIR=/opt/kubescape
+# download all frameworks, exceptions, controls-inputs and attack-tracks to $KS_CACHE_DIR
+# so scans work without network access (use `--use-artifacts-from "$KS_CACHE_DIR"`)
 RUN <<EOF
 curl -LSsO "$KUBESCAPE_URL"
 mv ./kubescape_${KUBESCAPE_VERSION}_linux_amd64 /usr/local/bin/kubescape
 chmod +x /usr/local/bin/kubescape
 kubescape version
-kubescape download framework nsa
-kubescape download framework mitre
+kubescape download artifacts
 EOF
 
 # gomplate

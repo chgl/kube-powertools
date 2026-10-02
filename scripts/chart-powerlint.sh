@@ -11,6 +11,7 @@ SKIP_KUBE_SCORE=${SKIP_KUBE_SCORE:-"1"}
 KUBE_SCORE_ARGS=${KUBE_SCORE_ARGS:-""}
 SKIP_KUBE_LINTER=${SKIP_KUBE_LINTER:-"1"}
 SKIP_KUBE_SCAPE=${SKIP_KUBE_SCAPE:-"1"}
+KS_CACHE_DIR=${KS_CACHE_DIR:-"${HOME}/.kubescape"}
 
 for CHART_PATH in "${CHARTS_DIR}"/*; do
 
@@ -111,14 +112,14 @@ for CHART_PATH in "${CHARTS_DIR}"/*; do
 
   if [ "$SKIP_KUBE_SCAPE" -ne "1" ]; then
     echo "kubescape nsa check..."
-    if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework nsa --use-from=/root/.kubescape/nsa.json -; then
+    if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework nsa --use-from="${KS_CACHE_DIR}/nsa.json" -; then
       echo "kubescape for NSA framework failed"
       exit 1
     fi
 
     echo "kubescape mitre check..."
-    if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework mitre --use-from=/root/.kubescape/mitre.json -; then
-      echo "kubescape for NSA framework failed"
+    if ! helm template ${HELM_TEMPLATE_ARGS} ${CHART_PATH} | kubescape scan framework mitre --use-from="${KS_CACHE_DIR}/mitre.json" -; then
+      echo "kubescape for MITRE framework failed"
       exit 1
     fi
   fi

@@ -71,7 +71,7 @@ EOF
 
 # Helm unittest plugin
 # renovate: datasource=github-releases depName=helm-unittest/helm-unittest
-ARG HELM_UNITTEST_PLUGIN_VERSION=1.1.2
+ARG HELM_UNITTEST_PLUGIN_VERSION=1.2.1
 RUN <<EOF
 helm plugin install --verify=false --version=v${HELM_UNITTEST_PLUGIN_VERSION} https://github.com/helm-unittest/helm-unittest
 helm unittest --help
@@ -144,7 +144,7 @@ EOF
 
 # Fairwinds Polaris
 # renovate: datasource=github-releases depName=FairwindsOps/polaris
-ARG POLARIS_VERSION=v10.2.2
+ARG POLARIS_VERSION=v10.2.5
 ENV POLARIS_URL=https://github.com/FairwindsOps/polaris/releases/download/${POLARIS_VERSION}/polaris_${POLARIS_VERSION#v}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$POLARIS_URL" | tar xz
@@ -155,7 +155,7 @@ EOF
 
 # Fairwinds Pluto
 # renovate: datasource=github-releases depName=FairwindsOps/pluto
-ARG PLUTO_VERSION=5.24.3
+ARG PLUTO_VERSION=5.24.4
 ENV PLUTO_URL=https://github.com/FairwindsOps/pluto/releases/download/v${PLUTO_VERSION}/pluto_${PLUTO_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$PLUTO_URL" | tar xz
@@ -177,7 +177,7 @@ EOF
 
 # Conftest
 # renovate: datasource=github-releases depName=open-policy-agent/conftest
-ARG CONFTEST_VERSION=0.70.0
+ARG CONFTEST_VERSION=0.71.0
 ENV CONFTEST_URL=https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz
 RUN <<EOF
 curl -LSs "$CONFTEST_URL" | tar xz
@@ -188,7 +188,7 @@ EOF
 
 # Kustomize
 # renovate: datasource=github-releases depName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION=5.8.1
+ARG KUSTOMIZE_VERSION=5.8.2
 ENV KUSTOMIZE_URL=https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$KUSTOMIZE_URL" | tar xz
@@ -199,7 +199,7 @@ EOF
 
 # Nova
 # renovate: datasource=github-releases depName=FairwindsOps/nova
-ARG NOVA_VERSION=3.12.0
+ARG NOVA_VERSION=3.12.1
 ENV NOVA_URL=https://github.com/FairwindsOps/nova/releases/download/v${NOVA_VERSION}/nova_${NOVA_VERSION}_linux_amd64.tar.gz
 RUN <<EOF
 curl -LSs "$NOVA_URL" | tar xz
@@ -231,7 +231,7 @@ EOF
 
 # Trivy
 # renovate: datasource=github-releases depName=aquasecurity/trivy
-ARG TRIVY_VERSION=0.74.0
+ARG TRIVY_VERSION=0.75.0
 ENV TRIVY_URL=https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
 RUN <<EOF
 curl -LSs "$TRIVY_URL" | tar xz
@@ -242,7 +242,7 @@ EOF
 
 # yq
 # renovate: datasource=github-releases depName=mikefarah/yq
-ARG YQ_VERSION=4.53.6
+ARG YQ_VERSION=4.54.1
 ENV YQ_URL=https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64
 RUN <<EOF
 curl -LSsO "$YQ_URL"
@@ -264,7 +264,7 @@ EOF
 
 # kubescape
 # renovate: datasource=github-releases depName=kubescape/kubescape
-ARG KUBESCAPE_VERSION=4.0.14
+ARG KUBESCAPE_VERSION=4.0.15
 ENV KUBESCAPE_URL=https://github.com/kubescape/kubescape/releases/download/v${KUBESCAPE_VERSION}/kubescape_${KUBESCAPE_VERSION}_linux_amd64 \
     KS_CACHE_DIR=/opt/kubescape
 # download all frameworks, exceptions, controls-inputs and attack-tracks to $KS_CACHE_DIR
@@ -335,7 +335,7 @@ EOF
 
 # Skaffold
 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
-ARG SKAFFOLD_VERSION=2.24.0
+ARG SKAFFOLD_VERSION=2.25.0
 ENV SKAFFOLD_URL=https://github.com/GoogleContainerTools/skaffold/releases/download/v${SKAFFOLD_VERSION}/skaffold-linux-amd64
 RUN <<EOF
 curl -LSsO "$SKAFFOLD_URL"

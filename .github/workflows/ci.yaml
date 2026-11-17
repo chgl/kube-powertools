@@ -13,19 +13,17 @@ permissions:
 
 jobs:
   build:
-    uses: chgl/.github/.github/workflows/standard-build.yaml@ca36f6175581163226372d0385e265fba31c7dbe # v1.11.58
+    uses: miracum/.github/.github/workflows/standard-build.yaml@b1cdbae2ba7b6c3603b4f4f700a31053a84fb058 # v1.33.0
     permissions:
       contents: write
       id-token: write
       packages: write
       pull-requests: write
-      actions: read
-      security-events: write
+      attestations: write
+      artifact-metadata: write
     with:
       enable-build-test-layer: false
       enable-upload-test-image: false
-    secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
 
   lint:
     uses: chgl/.github/.github/workflows/standard-lint.yaml@ca36f6175581163226372d0385e265fba31c7dbe # v1.11.58

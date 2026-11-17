@@ -63,9 +63,9 @@ EOF
 
 # Helm schema plugin
 # renovate: datasource=github-releases depName=dadav/helm-schema
-ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.16.1
+ARG HELM_SCHEMA_GEN_PLUGIN_VERSION=0.24.0
 RUN <<EOF
-helm plugin install --verify=false --version=v${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
+helm plugin install --verify=false --version=${HELM_SCHEMA_GEN_PLUGIN_VERSION} https://github.com/dadav/helm-schema
 helm schema --help
 EOF
 

@@ -43,7 +43,8 @@
         "stackrox/kube-linter",
         "FairwindsOps/polaris",
         "doitintl/kube-no-trouble",
-        "bridgecrewio/checkov"
+        "bridgecrewio/checkov",
+        "dadav/helm-schema"
       ],
       "extractVersion": "^(?<version>.*)$"
     },

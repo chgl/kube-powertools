@@ -299,6 +299,28 @@ chmod +x /usr/local/bin/cosign
 cosign version
 EOF
 
+# opa
+# renovate: datasource=github-releases depName=open-policy-agent/opa
+ARG OPA_VERSION=1.22.4
+ENV OPA_URL=https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64
+RUN <<EOF
+curl -LSsO "$OPA_URL"
+mv ./opa_linux_amd64 /usr/local/bin/opa
+chmod +x /usr/local/bin/opa
+opa version
+EOF
+
+# oras
+# renovate: datasource=github-releases depName=oras-project/oras
+ARG ORAS_VERSION=1.4.0
+ENV ORAS_URL=https://github.com/oras-project/oras/releases/download/v${ORAS_VERSION}/oras_${ORAS_VERSION}_linux_amd64.tar.gz
+RUN <<EOF
+curl -LSs "$ORAS_URL" | tar xz oras
+mv ./oras /usr/local/bin/oras
+chmod +x /usr/local/bin/oras
+oras version
+EOF
+
 # crane
 # renovate: datasource=github-releases depName=google/go-containerregistry
 ARG CRANE_VERSION=0.22.1

@@ -88,6 +88,8 @@ You can use this file in conjunction with the [chart-releaser](https://github.co
 - [skaffold](https://github.com/GoogleContainerTools/skaffold)
 - [Artifact Hub CLI](https://github.com/artifacthub/hub)
 - [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
+- [Open Policy Agent (opa)](https://github.com/open-policy-agent/opa)
+- [ORAS CLI](https://github.com/oras-project/oras)
 - [Docker CE CLI](https://docs.docker.com/engine/install/ubuntu/)
 - [rumdl](https://github.com/rvben/rumdl)
 
